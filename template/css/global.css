@@ -1,0 +1,34 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #DDD;
+	font-family: Arial;
+	font-size: 15px;
+}
+#central{
+	background: #fff;
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+	top: 50px;
+}
+input[type=text], select{
+	width: 200px;
+	height: 30px;
+	font-size: 17px;
+}
+input[type=button], input[type=reset]{
+	width: 200px;
+	height: 30px;
+	font-size: 15px;
+}
+#retorno, #retornoErro{
+	display: none;
+}
+#retornoErro{
+	color: #8A1F11;
+	background: #FBE3E4;
+	border: 1px solid #FBC2C4;
+}
