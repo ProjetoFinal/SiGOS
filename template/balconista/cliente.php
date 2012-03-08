@@ -408,7 +408,7 @@ $l = $sql->resultado();
 	    $("#remover").click(function(){
 	    	var idcliente = $("#form2 #idcliente").val();
 	    	var nome = $("#form2 #nome").val();
-	    	if( confirm('Deseja remover o Cliente '+nome+' da base de dados?') ){
+	    	if( confirm('Deseja remover o Cliente '+nome+'?') ){
 					$.ajax({
 						type: "GET",
 						url: "ajax/removerCliente.php",

@@ -43,7 +43,7 @@ class Cliente{
 
 	static function consultaKey( $key ){
 		$query = "select * from cliente
-					where nome like '%$key%' or cpf like '%$key%' or telefone like '%$key%' or celular like '%$key%' or email like '%$key%'
+					where nome like '%$key%' or cpf like '%$key%' or telefone like '%$key%' or celular like '%$key%'
 						order by nome asc";
 		return $query;
 	}

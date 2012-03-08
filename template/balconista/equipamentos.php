@@ -244,7 +244,7 @@ if( $editar == ""){
 				var idcliente = $("#editEquip #idcliente").val();
 				var idequipamento = $("#editEquip #idequipamento").val();
 		    	
-		    	if( confirm('Deseja remover o Equipamento da base de dados?') ){
+		    	if( confirm('Deseja remover o Equipamento?') ){
 					$.ajax({
 						type: "GET",
 						url: "ajax/removerEquipamento.php",
@@ -265,6 +265,7 @@ if( $editar == ""){
 
 	function verEquip( id ){
 	    	$("#busca").fadeOut(200);
+	    	$("#addEquip").fadeOut(200);
 			$("#editEquip").fadeIn(200);
 	    	$("#editEquip").load('ajax/mostrarEquip.php?id='+id);
 	    }

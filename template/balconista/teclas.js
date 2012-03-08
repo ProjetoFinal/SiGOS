@@ -137,7 +137,7 @@ $(document).keyup( function(e){
 	if ( e.which == 118 && pressedCtrl == true ){
 		var idcliente = $("#form2 #idcliente").val();
     	var nome = $("#form2 #nome").val();
-    	if( confirm('Deseja remover o Cliente '+nome+' da base de dados?') ){
+    	if( confirm('Deseja remover o Cliente '+nome+'?') ){
 				$.ajax({
 					type: "GET",
 					url: "ajax/removerCliente.php",
