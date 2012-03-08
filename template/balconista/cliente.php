@@ -138,7 +138,7 @@ if( $editar == "" ){
 <div id="lineButton">
 	<input type="button" id="cadastrar" value="Cadastrar (F9)" />
 	<input type="button" id="consultar" value="Consultar (F10)" />
-	<input type="button" value="Cancelar (F5)" />
+	<input type="button" id="cancelar" value="Cancelar (F5)" />
 </div>
 </form>
 <?php }else{

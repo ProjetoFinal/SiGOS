@@ -104,3 +104,43 @@ input#key{
 #dadosEquip table td a{
 	color: blue;
 }
+
+/* Página os.php */
+#listaOS{
+	border: 0px solid red;
+	width: 999px;
+	height: 500px;
+	margin-top: 10px;
+	float: left;
+	overflow-y: scroll;
+}
+#listaOS table{
+	width: 980px;
+	height: auto;
+	margin: 0 auto;
+}
+#listaOS table td.um{
+	width: 100px;
+}
+#listaOS table td.dois{
+	width: 200px;
+}
+#listaOS table td.tres{
+	width: 200px;
+}
+#listaOS table td.quatro{
+	width: 200px;
+}
+#listaOS table td a{
+	color: blue;
+}
+.novaOS{
+	border: 1px solid red;
+	width: 999px;
+	height: 500px;
+	margin-top: 10px;
+	float: left;
+}
+.novaOS table.nova{
+	width: auto;
+}

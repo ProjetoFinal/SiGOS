@@ -89,6 +89,11 @@ echo '
 			});
 		}
     });
+
+    $("#editEquip #cancelar").click( function(){
+    		var idcliente = $("#editEquip #idcliente").val();
+			$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente='+idcliente);
+	});
 </script>
 
 <?php sleep(1); ?>

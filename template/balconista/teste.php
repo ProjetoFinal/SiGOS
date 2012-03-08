@@ -1,0 +1,1 @@
+<input type="checkbox" style="width:100px;height:100px" />

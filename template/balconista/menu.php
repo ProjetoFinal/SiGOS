@@ -6,6 +6,8 @@
 		<li> | </li>
 		<li><a href="equipamentos.php">Equipamentos</a></li>
 		<li> | </li>
+		<li><a href="os.php">Ordens de Serviço</a></li>
+		<li> | </li>
 		<!--
 		<?php for($i=1; $i <= 5; $i++){ ?>
 			<li class="menu1"><a href="#">Cadastro <?=$i?></a></li>
