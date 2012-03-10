@@ -34,9 +34,9 @@ $testar = new Conexao();
 ( $testar->conecta() ) ? $msg = "conectado" : $msg = "não conectado";
 echo $msg,"<br />";
 
-$busca = "select * from dados_empresa";
+$busca = "select * from cliente";
 $testar->consulta($busca);
 
 while( $dados = $testar->resultado() )
-	echo $dados['razaosocial'];
+echo $dados['nome'];
 */
