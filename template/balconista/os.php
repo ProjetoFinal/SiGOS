@@ -12,6 +12,7 @@ $editar = "";
 if($_GET){
 	$editar = $_GET['editar'];
 	$idos = $_GET['id'];
+	$idOS = $_GET['idos'];
 }
 
 if( $editar == "" ){ ?>
@@ -72,6 +73,11 @@ if( $editar == "" ){ ?>
 <script>
 	$(document).ready( function(){
 		//$("#listaOS").load('ajax/listarOS.php?key=0');
+		<?php
+			if( empty($editar) && !empty($idOS) ){
+		?>
+		window.open('impOS.php?idos=<?=$idOS?>','Janela','width=400,height=400');			
+		<?php }	?>
 
 		$("#novaOS").click( function(){
 			$(window.document.location).attr('href','os.php?editar=nova');

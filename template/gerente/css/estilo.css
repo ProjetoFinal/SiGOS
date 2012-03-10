@@ -109,12 +109,19 @@ input#key{
 #listaOS{
 	border: 0px solid red;
 	width: 999px;
+<<<<<<< HEAD
 	height: 470px;
 	margin-top: 10px;
 	float: left;
 	overflow-y: scroll;
 	position: absolute;
 	top: 108px;
+=======
+	height: 500px;
+	margin-top: 10px;
+	float: left;
+	overflow-y: scroll;
+>>>>>>> d8edeb5a729f331f8dc4e4a7f6a544272d6ee2ff
 }
 #listaOS table{
 	width: 980px;
@@ -137,7 +144,11 @@ input#key{
 	color: blue;
 }
 .novaOS{
+<<<<<<< HEAD
 	border: 0px solid red;
+=======
+	border: 1px solid red;
+>>>>>>> d8edeb5a729f331f8dc4e4a7f6a544272d6ee2ff
 	width: 999px;
 	height: 500px;
 	margin-top: 10px;
@@ -145,5 +156,8 @@ input#key{
 }
 .novaOS table.nova{
 	width: auto;
+<<<<<<< HEAD
 	margin: 0 auto;
+=======
+>>>>>>> d8edeb5a729f331f8dc4e4a7f6a544272d6ee2ff
 }

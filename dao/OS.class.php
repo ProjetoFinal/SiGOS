@@ -18,17 +18,17 @@ class OS{
 		$this->solucao = $p['solucao'];
 	}
 
-	static function listarOS( $key ){
+	static function listarOS( $string ){
 		$queryA = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus ";
-		$queryB = "order by os.entrada desc, s.status asc";
+		$queryB = "order by  os.idstatus desc, os.entrada desc";
 		if( $key == '0'){
 			$query = $queryA.$queryB;
 		}
 		if( $key != '0'){
-			$query = $queryA." where c.nome like '%$key%' or idordemdeservico like '%$key%' ".$queryB;
+			$query = $queryA." where c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%' ".$queryB;
 		}
 		return $query;
 	}
@@ -43,4 +43,23 @@ class OS{
 		return $query;
 	}
 
+	static function attCaminhoImp( $id, $arquivo ){
+		$query = "update ordemdeservico set caminhoimpressao='$arquivo' where idordemdeservico=$id";
+		return $query;
+	}
+
+	static function impOS( $id ){
+		$queryA = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+						inner join equipamento e on e.idequipamento = os.idequipamento 
+							inner join cliente c on c.idcliente = e.idcliente 
+								inner join statusos s on s.idstatus = os.idstatus ";
+		$queryB = "order by os.entrada desc, s.status asc";
+		$query = $queryA." where idordemdeservico=$id ".$queryB;
+		return $query;
+	}
+
+	static function arquivoImp( $id ){
+		$query = "select * from ordemdeservico where idordemdeservico=$id";
+		return $query;
+	}
 }

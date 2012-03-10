@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mar 10, 2012 as 01:59 PM
+-- Tempo de Geração: Mar 10, 2012 as 07:16 PM
 -- Versão do Servidor: 5.1.41
 -- Versão do PHP: 5.3.2-1ubuntu4.14
 
@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `ordemdeservico` (
   `fimmanut` date DEFAULT NULL,
   `entrega` date DEFAULT NULL,
   `garantiadeservico` smallint(1) DEFAULT NULL,
+  `caminhoimpressao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idordemdeservico`),
   KEY `idEquipamento` (`idequipamento`),
   KEY `idFuncionario` (`idfuncionario`)
@@ -48,5 +49,5 @@ CREATE TABLE IF NOT EXISTS `ordemdeservico` (
 -- Extraindo dados da tabela `ordemdeservico`
 --
 
-INSERT INTO `ordemdeservico` (`idordemdeservico`, `idequipamento`, `idfuncionario`, `idstatus`, `defeito`, `acompanhamento`, `acessorios`, `solucao`, `entrada`, `iniciomanut`, `fimmanut`, `entrega`, `garantiadeservico`) VALUES
-(1, 6, NULL, 1, 'Teste Defeito', NULL, NULL, '', '2012-03-10', NULL, NULL, NULL, NULL);
+INSERT INTO `ordemdeservico` (`idordemdeservico`, `idequipamento`, `idfuncionario`, `idstatus`, `defeito`, `acompanhamento`, `acessorios`, `solucao`, `entrada`, `iniciomanut`, `fimmanut`, `entrega`, `garantiadeservico`, `caminhoimpressao`) VALUES
+(1, 6, NULL, 1, 'Tv não liga', NULL, 'Controle', NULL, '2012-03-10', NULL, NULL, NULL, NULL, 'impressao/os1331417715.txt');

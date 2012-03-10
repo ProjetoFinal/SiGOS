@@ -19,7 +19,11 @@ extract( $_GET );
 			<table>
 				<tbody>
 				<tr>
-					<td class='um'>".$l['idordemdeservico']."</td>
+					<td class='um'>
+						<a href='' onclick='verOS(".$l['idordemdeservico'].")'>
+							".$l['idordemdeservico']."
+						</a>
+					</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
 					<td class='tres'>".$l['nome']." - ".$l['telefone']."</td>
@@ -38,4 +42,7 @@ extract( $_GET );
 <script>
 	$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
 	$('#listaOS table tbody tr:even').css('background','#EBF3EB');
+	function verOS( id ){
+		window.open('verOS.php?idos='+id,'Janela','width=400,height=400');
+	}
 </script>
