@@ -20,12 +20,11 @@ if( $editar == "" ){ ?>
 	<input type="button" id="novaOS" value="Nova OS (Insert)" />
 </div>
 <div id="busca">
-	<input type="checkbox" class="qualquer" value="A" />A
-	<input type="checkbox" class="qualquer" value="A" />B
-	<input type="checkbox" class="qualquer" value="A" />C
-	<input type="checkbox" class="qualquer" value="A" />D
-	<input type="checkbox" class="qualquer" value="A" />E
+	<input type="text" id="key" />
+	<input type="button" id="buscar" value="Buscar" />
 </div>
+
+<div id='retornoErro'></div>
 <div id="listaOS">
 	<script>
 		$("#listaOS").load('ajax/listarOS.php?key=0');
@@ -34,6 +33,7 @@ if( $editar == "" ){ ?>
 
 <?php }elseif( $editar == "nova"){ ?>
 
+<div id='retornoErro'></div>
 <div class="novaOS">
 	<form name="formNovaOS">
 	<table class="nova">
@@ -54,7 +54,7 @@ if( $editar == "" ){ ?>
 		</tr>
 		<tr>
 			<td>Acessórios</td>
-			<td><textarea id="acessorios" style="width: 200px;height:"></textarea></td>
+			<td><textarea id="acessorios" style="width: 200px;height:100px"></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -83,6 +83,45 @@ if( $editar == "" ){ ?>
 		$("#cancelar").click( function(){
 			$(window.document.location).attr('href','os.php');
 		});
+
+		$("#cadastrar").click( function(){
+			var idequipamento = $("#idequipamento").val();
+			var defeito = $("#defeito").val();
+			var acessorios = $("#acessorios").val();
+
+			$.ajax({
+				type: "GET",
+				url: "ajax/novaOS.php",
+				data: "idequipamento="+idequipamento+
+					  "&defeito="+defeito+
+					  "&acessorios="+acessorios,
+				beforeSend: function(){
+					$("#retornoErro").fadeIn(200);
+					$("#retornoErro").text("Carregando...");
+				},
+				success: function(html){
+					$("#retornoErro").html(html);
+				}
+			});
+		});
+
+		$("#buscar").click( function(){
+			var key = $('#key').val();
+
+			$("#retornoErro").fadeIn(200);
+			$("#retornoErro").text("Carregando...");
+			$('#listaOS').load('ajax/listarOS.php?key='+key);
+			$("#retornoErro").fadeOut(3000);
+		});
+
+		$("#cliente").click(function(){
+	        $('#cliente').css('background','#fff');
+	        $('#cliente').css('border','');
+	    });
+	    $("#defeito").click(function(){
+	        $('#defeito').css('background','#fff');
+	        $('#defeito').css('border','');
+	    });
 	});
 </script>
 <?php

@@ -109,10 +109,12 @@ input#key{
 #listaOS{
 	border: 0px solid red;
 	width: 999px;
-	height: 500px;
+	height: 470px;
 	margin-top: 10px;
 	float: left;
 	overflow-y: scroll;
+	position: absolute;
+	top: 108px;
 }
 #listaOS table{
 	width: 980px;
@@ -135,7 +137,7 @@ input#key{
 	color: blue;
 }
 .novaOS{
-	border: 1px solid red;
+	border: 0px solid red;
 	width: 999px;
 	height: 500px;
 	margin-top: 10px;
@@ -143,4 +145,5 @@ input#key{
 }
 .novaOS table.nova{
 	width: auto;
+	margin: 0 auto;
 }
