@@ -13,13 +13,6 @@ $sql->conecta();
 
 $ok = $sql->consulta ( Equipamento::removerId( $idequipamento ) );
 
-/*
-echo "<pre>";
-var_dump( $_GET );
-echo "</pre>";
-*/
-
-// Criar rotina para verificar se o cliente tem equipamentos ou OSs antes de deletar
 
 if($ok){
 	echo "*Removido com sucesso

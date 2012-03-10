@@ -44,11 +44,13 @@ ERRO;
 		echo "Esse Equipamento já está associado à uma Ordem de Serviço";
 	}else{
 		$ok = $sql->consulta( $os->nova() );
+		$ultimoId = mysql_insert_id();
 
 		if( $ok ){
+
 			echo "Cadastrado com Sucesso
 				  <script>
-				  $(window.document.location).attr('href','os.php');
+				  $(window.document.location).attr('href','os.php?idos=".$ultimoId."');
 				  </script>";
 		}else{
 			echo "Erro ao Cadastrar OS";
