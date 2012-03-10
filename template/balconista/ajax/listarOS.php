@@ -19,6 +19,7 @@ extract( $_GET );
 			<table>
 				<tbody>
 				<tr>
+					<td class='um'>".$l['idordemdeservico']."</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
 					<td class='tres'>".$l['nome']." - ".$l['telefone']."</td>
