@@ -1,4 +1,8 @@
-/* Página cliente.php */
+﻿/* Página cliente.php */
+#corpoForm table{
+	margin:0 auto;
+	border:0px solid red;
+}
 #column1{ margin-left: 20px;}
 #column1, #column2, #column3{
 	float: left;
