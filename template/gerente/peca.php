@@ -23,25 +23,25 @@ if( $editar == "" ){
         <tr>
             <td>Código da Peça</td>
             <td>
-                <input type="text" name="codigoPeca" id="codigoPeca" />
+                <input type="text" name="codigopeca" id="codigopeca" />
             </td>
         </tr>
         <tr>
             <td>Descrição</td>
             <td>
-                <input type="text" name="nomePeca" id="nomePeca" />
+                <input type="text" name="nomepeca" id="nomepeca" />
             </td>
         </tr>
         <tr>
             <td>Marca</td>
                 <td>
-                    <input type="text" name="marcaPeca" id="marcaPeca" />
+                    <input type="text" name="marcapeca" id="marcapeca" />
                 </td>
         </tr>    
         <tr>    
             <td>Modelo</td>
             <td>
-                <input type="text" name="modeloPeca" id="modeloPeca" />
+                <input type="text" name="modeloeca" id="modelopeca" />
              </td>    
         </tr>
 </div>
@@ -57,13 +57,13 @@ if( $editar == "" ){
         <tr>
             <td>Preco Unitátio</td>
             <td>
-                <input type="text" name="precoUnidade" id="precoUnidade" />
+                <input type="text" name="precounidade" id="precounidade" />
             </td>
         </tr>
         <tr>    
             <td>Data Entrada</td>
             <td>
-                <input type="text" name="dataEntrada" id="dataEntrada"
+                <input type="text" name="dataentrada" id="dataentrada"
                     style="width:150px !important;
                             margin-right: 5px!important" readonly />
             </td>    
@@ -74,6 +74,7 @@ if( $editar == "" ){
 
         <div id="lineButton">
             <input type="button" id="cadastrar" value="Cadastrar (F9)" />
+            <input type="button" id="editar" value="Editar ctrl+f11" />
             <input type="button" id="cancelar" value="Cancelar (F5)" />
         </div>        
        
@@ -102,24 +103,24 @@ if( $editar == "" ){
         $("#marcaPeca").focus();
         
         $("#cadastrar").click( function(){
-            var codigoPeca = $("#form1 #codigoPeca").val(); 
-            var nomePeca = $("#form1 #nomePeca").val();
-            var marcaPeca = $("#form1 #marcaPeca").val();
-            var modeloPeca = $("#form1 #modeloPeca").val();
+            var codigopeca = $("#form1 #codigopeca").val(); 
+            var nomepeca = $("#form1 #nomepeca").val();
+            var marcapeca = $("#form1 #marcapeca").val();
+            var modelopeca = $("#form1 #modelopeca").val();
             var quantidade = $("#form1 #quantidade").val();
-            var precoUnidade = $("#form1 #precoUnidade").val();
-            var dataEntrada = $("#form1 #dataEntrada").val();
+            var precounidade = $("#form1 #precounidade").val();
+            var dataentrada = $("#form1 #dataentrada").val();
 
             $.ajax({
                 type: "GET",
                 url: "ajax/novaPeca.php",
-                data: "codigoPeca="+codigoPeca+
-                      "&nomePeca="+nomePeca+
-                      "&marcaPeca="+marcaPeca+
-                      "&modeloPeca="+modeloPeca+
+                data: "codigopeca="+codigopeca+
+                      "&nomepeca="+nomepeca+
+                      "&marcapeca="+marcapeca+
+                      "&modelopeca="+modelopeca+
                       "&quantidade="+quantidade+
-                      "&precoUnidade="+precoUnidade+
-                      "&dataEntrada="+dataEntrada,
+                      "&precounidade="+precounidade+
+                      "&dataentrada="+dataentrada,
                 beforeSend: function(){
                     $('#retornoErro').fadeIn(200);
                     $("#retornoErro").text('Carregando...');
@@ -129,7 +130,7 @@ if( $editar == "" ){
                 }
             }); 
         }); 
-        $("#dataEntrada").datepicker({
+        $("#dataentrada").datepicker({
                 showOn: "button",
                 buttonImage: "../img/b_calendar.png",
                 buttonImageOnly: true

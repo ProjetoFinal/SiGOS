@@ -4,7 +4,7 @@ class Conexao{
 	
 	var $host 		= "localhost";
 	var $usuario 	= "root";
-	var $senha 		= "root";
+	var $senha 		= "123";
 	var $banco 		= "sigos";
 
 	var $conexao    = null;

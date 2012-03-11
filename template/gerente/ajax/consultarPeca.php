@@ -7,13 +7,13 @@ function __autoload( $classes ) {
 
 extract( $_GET );
 
-if(! !empty( $codigoPeca ) ) $key = $codigoPeca;
-elseif( !empty( $nomePeca ) ) $key = $nomePeca ;
-elseif( !empty( $marcaPeca ) ) $key = $marcaPeca ;
-elseif( !empty( $modeloPeca ) ) $key = $modeloPeca ;
+if(! !empty( $codigopeca ) ) $key = $codigopeca;
+elseif( !empty( $nomepeca ) ) $key = $nomepeca ;
+elseif( !empty( $marcapeca ) ) $key = $marcapeca ;
+elseif( !empty( $modelopeca ) ) $key = $modelopeca ;
 elseif( !empty( $quantidade ) ) $key = $quantidade ;
-elseif( !empty( $precoUnidade ) ) $key = $precoUnidade ;
-elseif( !empty( $dataEntrada ) ) $key = $dataEntrada ;
+elseif( !empty( $precounidade ) ) $key = $precounidade ;
+elseif( !empty( $dataentrada ) ) $key = $dataentrada ;
 
 $sql = new Conexao();
 $sql->conecta();
@@ -44,8 +44,8 @@ if($ok){
 		<tbody>
 			<tr>
 				<td class="um"<a href="#" onclick="editar(<?=$l['idpeca']?>"><?=$l['nomePeca']?></a></td>
-				<td class="dois"><?=$l['marcaPeca']?></td>
-				<td class="tres"><?=$l['modeloPeca']?></td>
+				<td class="dois"><?=$l['marcapeca']?></td>
+				<td class="tres"><?=$l['modelopeca']?></td>
 				<td class="quatro"><?=$l['quantidade']?></td>
 			</tr>
 		</tbody>

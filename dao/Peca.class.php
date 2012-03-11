@@ -2,32 +2,38 @@
 
 class Peca{
 
-	var $codigoPeca;
-	var $nomePeca;
-	var $marcaPeca;
-	var $modeloPeca;
+	var $codigopeca;
+	var $nomepeca;
+	var $marcapeca;
+	var $modelopeca;
 	var $quantidade;
-	var $precoUnidade;
-	var $dataEntrada;
+	var $precounidade;
+	var $dataentrada;
 
 	function __construct( $p ){
-		$this->codigoPeca = $p['codigoPeca'];
-		$this->nomePeca = $p['nomePeca'];
-		$this->marcaPeca = $p['marcaPeca'];
-		$this->modeloPeca = $p['modeloPeca'];
+		$this->codigopeca = $p['codigopeca'];
+		$this->nomepeca = $p['nomepeca'];
+		$this->marcapeca = $p['marcapeca'];
+		$this->modelopeca = $p['modelopeca'];
 		$this->quantidade = $p['quantidade'];
-		$this->precoUnidade = $p['precoUnidade'];
-		$this->dataEntrada = $p['dataEntrada'];
+		$this->precounidade = $p['precounidade'];
+		$this->dataentrada = $p['dataentrada'];
 
 	}
 
 	function consultaCodigo(){
-		$query = "select * from peca where codigoPeca='$codigoPeca'";
+		$query = "select codigopeca from peca where codigopeca=$codigopeca";
 	}
 
 	function novaPeca(){
-		$query = "insert into peca values (null, '$this->codigoPeca', '$this->nomePeca', '$this->marcaPeca', '$this->modeloPeca', '$this->quantidade', '$this->precoUnidade','$this->dataEntrada')";
-		echo "$query";
+		$query = "insert into peca values (null, 
+										  '$this->codigopeca',
+										  '$this->nomepeca',
+										  '$this->marcapeca',
+										  '$this->modelopeca',
+										  '$this->quantidade',
+										  '$this->precounidade',
+										   now())";
 		return $query;
 	}
 

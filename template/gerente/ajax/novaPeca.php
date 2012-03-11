@@ -12,7 +12,7 @@ extract( $_GET );
 
 $count = 0;
 
-if( empty( $codigoPeca ) ){
+if( empty( $codigopeca ) ){
 	$msgCodigoPeca = "*Preencha com o código da Peça<br />
 					<script>
 						$('#codigoPeca').css('background','#FBE3E4');
@@ -20,7 +20,7 @@ if( empty( $codigoPeca ) ){
 					</script>";
 	$count++;
 }
-if( empty( $nomePeca ) ){
+if( empty( $nomepeca ) ){
 	$msgNomePeca = "*Preencha com o nome da Peça<br />
 					<script>
 						$('#nomePeca').css('background','#FBE3E4');
@@ -28,7 +28,7 @@ if( empty( $nomePeca ) ){
 					</script>";
 	$count++;
 }
-if( empty( $marcaPeca ) ){
+if( empty( $marcapeca ) ){
 	$msgMarcaPeca = "*Preencha com a marca da Peça<br />
 						<script>
 							$('#marcaPeca').css('background','#FBE3E4');
@@ -36,7 +36,7 @@ if( empty( $marcaPeca ) ){
 						</script>";
 	$count++;
 }
-if( empty( $modeloPeca ) ){
+if( empty( $modelopeca ) ){
 	$msgModeloPeca = "*Preencha com a modelo da Peça<br />
 						<script>
 							$('#modeloPeca').css('background','#FBE3E4');
@@ -52,7 +52,7 @@ if( empty( $quantidade ) ){
 						</script>";
 	$count++;
 }
-if( empty( $precoUnidade ) ){
+if( empty( $precounidade ) ){
 	$msgPrecoUnidade = "*Preencha com o preço unitário<br />
 						<script>
 							$('#precoUnidade').css('background','#FBE3E4');
@@ -60,7 +60,7 @@ if( empty( $precoUnidade ) ){
 						</script>";
 	$count++;
 }
-if( empty( $dataEntrada ) ){
+if( empty( $dataentrada ) ){
 	$msgDataEntrada = "*Preencha com a data de saída da nota<br />
 						<script>
 							$('#dataEntrada').css('background','#FBE3E4');
@@ -93,10 +93,10 @@ $peca = new Peca( $_GET );
 
 	if( $cont >= 1 ){
 		echo "Peça já cadastrada!
-				<script>$('retornoErro').fadeOut(5000);</script>";
-	} else { 
+				<script>$('#retornoErro').fadeOut(15000);</script>";
+	} else { */
 		$ok = $sql->consulta ( $peca->novaPeca() );
-
+		//echo $peca->novaPeca();
 		if($ok){
 			echo "Cadastrado com sucesso
 						<script>
