@@ -19,7 +19,7 @@ input[type=text], select{
 	height: 30px;
 	font-size: 17px;
 }
-input[type=button], input[type=reset]{
+input[type=button], input[type=reset], input[type=password]{
 	width: 200px;
 	height: 30px;
 	font-size: 15px;
