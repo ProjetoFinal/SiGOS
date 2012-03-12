@@ -28,7 +28,10 @@ if( $editar == "" ){ ?>
 <div id='retornoErro'></div>
 <div id="listaOS">
 	<script>
-		$("#listaOS").load('ajax/listarOS.php?key=0');
+		$("#retornoErro").fadeIn(200);
+			$("#retornoErro").text("Carregando...");
+			$('#listaOS').load('ajax/listarOS.php');
+			$("#retornoErro").fadeOut(3000);
 	</script>
 </div>
 

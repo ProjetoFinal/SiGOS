@@ -46,3 +46,5 @@ extract( $_GET );
 		window.open('verOS.php?idos='+id,'Janela','width=400,height=400');
 	}
 </script>
+
+<?php sleep(1); ?>
