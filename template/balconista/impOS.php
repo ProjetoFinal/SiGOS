@@ -11,40 +11,54 @@ $l = $sql->resultado();
 
 extract( $l );
 
-$txt .= "---------------------------------------------\n";
-$txt .= "---------------------------------------------\n";
-$txt .= "  Eletronica Lider de Padre Miguel Ltda. ME\n";
-$txt .= "Fone: 0xx21 XXXX-XXXX - Fax: 0xx21 XXXX-XXXX\n";
-$txt .= "CNPJ: 00.000.000/0000-00\n";
-$txt .= "---------------------------------------------\n";
-$txt .= "---------------------------------------------\n";
-$txt .= "Ordem de Servico Nr. $idordemdeservico\n";
-$txt .= " \n";
-$txt .= "Emissao: ".data_dmy($entrada)."\n";
-$txt .= "Orc:   - Atend: $idfuncionario - Tipo: Balcao\n";
-$txt .= "-----------------Cliente---------------------\n";
-$txt .= "Cliente: $nome\n";
-$txt .= "CPF: $cpf\n";
-$txt .= "Fone: $telefone\n";
-$txt .= "-----------------Equipamento-----------------\n";
-$txt .= "Equip: $tipoequip - $marcaequip - $modeloequip\n";
-$txt .= "Garantia: Nao\n";
-$txt .= "-----------------Defeito---------------------\n";
-$txt .= "$defeito\n";
-$txt .= " \n";
-$txt .= "---------------------------------------------\n";
+$txt = "------------------------------------------------";
+$txt .= "\n------------------------------------------------";
+$txt .= "\n   Eletronica Lider de Padre Miguel Ltda. ME";
+$txt .= "\nFone: 0xx21 XXXX-XXXX - Fax: 0xx21 XXXX-XXXX";
+$txt .= "\nCNPJ: 32.212.177/0001-48";
+$txt .= "\n------------------------------------------------";
+$txt .= "\n------------------------------------------------";
+$txt .= "\nOrdem de Servico Nr. $idordemdeservico";
+$txt .= "\n ";
+$txt .= "\nEmissao: ".data_dmy($entrada)."";
+$txt .= "\nOrc:   - Atend: $idfuncionario - Tipo: Balcao";
+$txt .= "\n--------------------Cliente---------------------";
+$txt .= "\nCliente: $nome";
+$txt .= "\nCPF: $cpf";
+$txt .= "\nFone: $telefone";
+$txt .= "\n------------------Equipamento-------------------";
+$txt .= "\nEquip: $tipoequip - $marcaequip - $modeloequip";
+if( $garantiadeservico == '' or $garantiadeservico == 0){
+	$txt .= "\nGarantia de Servico: Nao";
+}else{
+	$txt .= "\nGarantia de Servico: Sim";
+}
+$txt .= "\n---------------------Defeito--------------------";
+$txt .= "\n$defeito";
 $txt .= "\n";
-$txt .= "Assinatura:\n";
-$txt .= " \n";
-$txt .= " \n";
-$txt .= "---------------------------------------------\n";
-$txt .= "Mercadorias nao retiradas no prazo de 90 dias\n";
-$txt .= "   da data de entrega, serao vendidas para\n";
-$txt .= "   ressarcimento das despesas com concerto\n";
-$txt .= "       TRAZER DOCUMENTO DE IDENTIDADE\n";
-$txt .= "---------------------------------------------\n";
-
-//echo $txt;
+$txt .= "\n------------------------------------------------";
+$txt .= "\n";
+$txt .= "\nAssinatura:";
+$txt .= "\n";
+$txt .= "\n------------------------------------------------";
+$txt .= "\n Mercadorias nao retiradas no prazo de 90 dias";
+$txt .= "\n    da data de entrega, serao vendidas para";
+$txt .= "\n    ressarcimento das despesas com concerto";
+$txt .= "\n        TRAZER DOCUMENTO DE IDENTIDADE";
+$txt .= "\n------------------------------------------------";
+// espaco apos impressao
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
+$txt .= "\n";
 
 $arquivo = "impressao/os".time().".txt";
 $fopen = fopen( $arquivo , "a" );
@@ -53,6 +67,8 @@ fclose( $fopen );
 
 $attCaminho = $sql->consulta( OS::attCaminhoImp( $idordemdeservico, $arquivo ) );
 
+//exec("copy " . $arquivo . " com3:");
+
 $fopen2 = fopen($arquivo, "r");
 
 while (!feof ($fopen2)) {
@@ -60,4 +76,3 @@ while (!feof ($fopen2)) {
   echo $linha."<br>";
 }
 fclose ($fopen2);
-
