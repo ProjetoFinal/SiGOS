@@ -18,18 +18,13 @@ class OS{
 		$this->solucao = $p['solucao'];
 	}
 
-	static function listarOS( $string ){
-		$queryA = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+	static function listarOS( $key ){
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
-								inner join statusos s on s.idstatus = os.idstatus ";
-		$queryB = "order by  os.idstatus desc, os.entrada desc";
-		if( $key == '0'){
-			$query = $queryA.$queryB;
-		}
-		if( $key != '0'){
-			$query = $queryA." where c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%' ".$queryB;
-		}
+								inner join statusos s on s.idstatus = os.idstatus 
+									where c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%' 
+										order by  os.idstatus desc, os.entrada desc";
 		return $query;
 	}
 
