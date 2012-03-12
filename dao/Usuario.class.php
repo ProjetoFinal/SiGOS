@@ -11,15 +11,13 @@ class Usuario{
 	function __construct( $p ){
 		$this->nome = $p['nome'];
 		$this->login = $p['login'];
-		$this->senha = $p['senha'];
+		$this->senha = sha1("51g05".$p['senha']."51g05");
 		$this->nivel = $p['nivel'];
 		$this->status = $p['status'];
 	}
 
 	function novoUsuario(){		
-		$senhaSistema = "51g05";
-		$senhaCriptografada = sha1($senhaSistema.$this->senha.$senhaSistema);
-		$query = "insert into usuario values (null,'$this->nome','$this->login','$senhaCriptografada','$this->nivel','$this->status')";
+		$query = "insert into usuario values (null,'$this->nome','$this->login','$this->senha','$this->nivel','$this->status')";
 		return $query;
 	}
 
@@ -72,15 +70,15 @@ class Usuario{
 
 	static function resetarSenhaUsuario( $idUsuario ){
 		$senhaPadrao = "PP@ssword12";
-		$query = "update usuario set senha='$senhaPadrao' where idUsuario = '$idUsuario'";
+		$senhaSistema = "51g05";
+		$senhaCriptografada = sha1($senhaSistema.$senhaPadrao.$senhaSistema);
+		$query = "update usuario set senha='$senhaCriptografada' where idUsuario = '$idUsuario'";
 
 		return $query;
 	}
 
 	function validarUsuario(){
-		$senhaSistema = "51g05";
-		$senhaCriptografada = sha1($senhaSistema.$this->senha.$senhaSistema);
-		$query = "select * from usuario where login='$this->login' AND senha='$senhaCriptografada'";
+		$query = "select * from usuario where login='$this->login' AND senha='$this->senha'";
 
 		return $query;
 	}
