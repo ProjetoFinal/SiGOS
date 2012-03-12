@@ -39,7 +39,7 @@ if( $editar == "" ){
 		<td>Nível</td>
 		<td>
 			<select name="nivel" id="nivel">
-				<option value="">--</option>
+				<option value="">-- Nivel</option>
 				<option value="balconista">Balconista</option>
 				<option value="estoquista">Estoquista</option>
 				<option value="gerente">Gerente</option>
@@ -50,7 +50,7 @@ if( $editar == "" ){
 		<td>Status</td>
 		<td>
 			<select name="status" id="status">
-				<option value="">--</option>
+				<option value="">-- Status</option>
 				<option value="ativo">Ativo</option>
 				<option value="inativo">Inativo</option>
 			</select>
@@ -137,7 +137,7 @@ $l = $sql->resultado();
 		<td>Status</td>
 		<td>
 			<select name="status" id="status">
-				<option value=""><?=ucfirst($l['statusUsuario'])?></option>
+				<option value="<?=ucfirst($l['statusUsuario'])?>"><?=ucfirst($l['statusUsuario'])?></option>
 				<option value="">------------------</option>
 				<?php if ( $l['statusUsuario'] == "inativo" ){ ?>
 					<option value="ativo">Ativo</option>
@@ -153,7 +153,7 @@ $l = $sql->resultado();
 	<input type="button" id="editar" value="Editar (Ctrl + F11)" />
 	<input type="button" id="cancelar" value="Cancelar (F8)" />
 	<input type="button" id="remover" value="Remover (Ctrl + F7)" />
-	<input type="button" id="resetSenha" value="Resetar Senha (Ctrl + R)" />
+	<input type="button" id="resetarSenha" value="Resetar Senha (Ctrl + R)" />
 </div>
 </form>
 </div>
@@ -232,6 +232,7 @@ $l = $sql->resultado();
 			var idUsuario = $("#form2 #idUsuario").val();
 			var nome = $("#form2 #nome").val();
 			var login = $("#form2 #login").val();
+			var senha = $("#form2 #senha").val();
 			var nivel = $("#form2 #nivel").val();
 			var status = $("#form2 #status").val();
 
@@ -241,17 +242,60 @@ $l = $sql->resultado();
 				data: "idUsuario="+idUsuario+
 					  "&nome="+nome+
 					  "&login="+login+
+					  "&senha="+senha+
 					  "&nivel="+nivel+
 					  "&status="+status,
 				beforeSend: function(){
 					$('#retornoErro').fadeIn(200);
 					$('#retornoErro').text('Editando...');
 				},
-				success: function(html){
-					$('#retornoErro').fadeOut(3000);
-	                $('#retorno').html(html);
-				}
+				success: function(html){ 
+	                    $('#retornoErro').html(html);
+	            }
 			});
+		});
+
+		//Remover Usuários
+		$("#remover").click( function(){
+			var idUsuario = $("#form2 #idUsuario").val();
+			var nome = $("#form2 #nome").val();	
+
+			if( confirm('Deseja realmente remover o usuário '+nome+'?') ){
+				$.ajax({
+					type: "GET",
+					url: "ajax/removerUsuario.php",
+					data: "idUsuario="+idUsuario,
+					beforeSend: function(){
+				        $('#retornoErro').fadeIn(200);
+				        $("#retornoErro").text('Removendo...');
+				    },
+			        success: function(html){ 
+			            $('#retornoErro').html(html);
+			        }
+				});
+			}
+
+		});
+
+		$("#resetarSenha").click( function(){
+			var idUsuario = $("#form2 #idUsuario").val();
+			var nome = $("#form2 #nome").val();
+			var senha = $("#form2 #senha").val();
+			
+			if( confirm('Deseja realmente resetar a senha do usuário '+nome+'?') ){
+				$.ajax({
+					type: "GET",
+					url: "ajax/resetarSenha.php",
+					data: "idUsuario="+idUsuario,
+					beforeSend: function(){
+						$('#retornoErro').fadeIn(200);
+				        $("#retornoErro").text('Removendo...');
+					},
+					success: function(html){
+						$('#retornoErro').html(html);
+					}
+				});
+			}			
 		});
 
 		$("#cancelar").click( function(){

@@ -50,11 +50,38 @@ class Usuario{
 
 	function editarUsuario( $idUsuario ){
 		$query = "update usuario set
-					nome = '$this->nome',
-					login = '$this->login',
-					nivel = '$this->nivel',
-					statusUsuario = '$this->status'
-						where idUsuario = '$this->idUsuario'";
+					nome='$this->nome',
+					login='$this->login',
+					nivel='$this->nivel',
+					statusUsuario='$this->status'
+						where idUsuario='$idUsuario'";
+		return $query;
+	}
+
+	static function verificaUsuarioEmOs( $idUsuario ){
+		$query = "select * from ordemdeservico where idUsuario = '$idUsuario'";
+
+		return $query;
+	}
+
+	static function removerUsuario( $idUsuario ){
+		$query = "delete from usuario where idUsuario = '$idUsuario'";
+
+		return $query;
+	}
+
+	static function resetarSenhaUsuario( $idUsuario ){
+		$senhaPadrao = "PP@ssword12";
+		$query = "update usuario set senha='$senhaPadrao' where idUsuario = '$idUsuario'";
+
+		return $query;
+	}
+
+	function validarUsuario(){
+		$senhaSistema = "51g05";
+		$senhaCriptografada = sha1($senhaSistema.$this->senha.$senhaSistema);
+		$query = "select * from usuario where login='$this->login' AND senha='$senhaCriptografada'";
+
 		return $query;
 	}
 

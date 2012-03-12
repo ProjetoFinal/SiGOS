@@ -64,7 +64,7 @@ $ok = $sql->consulta ( $usuario->editarUsuario( $idUsuario ) );
 				
 			echo "Editado com sucesso
 						<script>
-							$('#retornoErro').fadeOut(5000);
+							$('#retornoErro').fadeOut(10000);
 							$('input[type=text]').val('');
 							$('input[type=password]').val('');
 							$('select').val('');
@@ -72,8 +72,8 @@ $ok = $sql->consulta ( $usuario->editarUsuario( $idUsuario ) );
 						</script>";
 
 			}else{
-				echo "Erro ao editar Usuario
-						<script>$('#retornoErro').fadeOut(5000);</script>";
+				echo "<script>$('#retornoErro').text('Erro ao editar Usuario');</script>";
 			}
+}
 
 sleep(1);
