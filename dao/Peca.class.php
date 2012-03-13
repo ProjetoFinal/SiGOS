@@ -1,5 +1,6 @@
 <?php
 
+
 class Peca{
 
 	var $codigopeca;
@@ -33,12 +34,20 @@ class Peca{
 										  '$this->modelopeca',
 										  '$this->quantidade',
 										  '$this->precounidade',
-										   now())";
+										  '$this->dataentrada')";
 		return $query;
 	}
 
 
 }
 
+$testar = new Peca();
+( $peca->novaPeca(1,'abc','tese','qwer',10,10,'15/02/2012') ) ? $msg = "conectado" : $msg = "não conectado";
+echo $msg,"<br />";
+/*
+$busca = "select * from cliente";
+$testar->consulta($busca);
 
+while( $dados = $testar->resultado() )
+echo $dados['nome']; */
 ?>
