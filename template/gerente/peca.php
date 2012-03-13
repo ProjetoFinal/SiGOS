@@ -68,7 +68,7 @@ if( $editar == ""){
 		  <td>
 			  <input type="text" name="dataentrada" id="dataentrada"
 					  style="width:150px !important;
-						  margin-right: 5px!important" writable />
+						  margin-right: 5px!important" readonly />
 		  </td>
 	    </tr>
 	</table>
@@ -104,9 +104,8 @@ if( $editar == ""){
 <div id="retornoErro"></div>
 <div id="retorno"></div>
 
-<script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
-<script type="text/javascript" src="teclas.js"></script>
- <script>
+<script type="text/javascript" src="/SiGOS/template/js/jquery.maskMoney.js"></script>
+<script>
     $(document).ready( function(){
     	
 
@@ -123,27 +122,37 @@ if( $editar == ""){
 			var dataentrada = $("#form1 #dataentrada").val();
 	
   		  
-		$.ajax({
-	            type: "GET",
-	            url: "ajax/novaPeca.php",
-	            data: "codigopeca="+codigopeca+
-	                  "&nomepeca="+nomepeca+
-	                  "&marcapeca="+marcapeca+
-	                  "&modelopeca="+modelopeca+
-	                  "&quantidade="+quantidade+
-					  "&precounidade="+precounidade+
-					  "&dataentrada="+dataentrada,
-	            beforeSend: function(){
-	                $('#retornoErro').fadeIn(200);
-	                $("#retornoErro").text('Cadastrando...');
-	            },
-	            success: function(html){ 
-	                    $('#retornoErro').html(html);
-	            }
-	        });
-		});	
-  
-	  });// Fim do script Cadastrar Nova peça
+			$.ajax({
+		            type: "GET",
+		            url: "ajax/novaPeca.php",
+		            data: "codigopeca="+codigopeca+
+		                  "&nomepeca="+nomepeca+
+		                  "&marcapeca="+marcapeca+
+		                  "&modelopeca="+modelopeca+
+		                  "&quantidade="+quantidade+
+						  "&precounidade="+precounidade+
+						  "&dataentrada="+dataentrada,
+		            beforeSend: function(){
+		                $('#retornoErro').fadeIn(200);
+		                $("#retornoErro").text('Cadastrando...');
+		            },
+		            success: function(html){ 
+		                    $('#retornoErro').html(html);
+		            }
+		    });
+		});// Fim do script Cadastrar Nova peça
+		
+		// Função para exibir calendário
+		$("#dataentrada").datepicker({
+	            showOn: "button",
+	            buttonImage: "../img/b_calendar.png",
+	            buttonImageOnly: true
+	    });
+
+	    //Função para exibir máscara Monetária
+	    $('#precounidade').maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
+			  
+	});
 </script>
 
 

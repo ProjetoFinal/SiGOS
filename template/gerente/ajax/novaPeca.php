@@ -94,7 +94,7 @@ $peca = new Peca( $_GET );
 	if( $cont >= 1 ){
 		echo "Peça já cadastrada!
 				<script>$('#retornoErro').fadeOut(15000);</script>";
-	} else { */
+	} else { // tinha um */ aqui q vc provavelmente esqueceu de tirar!
 		$ok = $sql->consulta ( $peca->novaPeca() );
 		//echo $peca->novaPeca();
 		if($ok){

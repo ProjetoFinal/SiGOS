@@ -1,6 +1,5 @@
 <?php
 
-
 class Peca{
 
 	var $codigopeca;
@@ -18,12 +17,20 @@ class Peca{
 		$this->modelopeca = $p['modelopeca'];
 		$this->quantidade = $p['quantidade'];
 		$this->precounidade = $p['precounidade'];
-		$this->dataentrada = $p['dataentrada'];
+		$this->dataentrada = data_ymd($p['dataentrada']);
 
 	}
+	/*Função Original CARLOS
+		function consultaCodigo(){
+			$query = "select codigopeca from peca where codigopeca=$codigopeca";
+		}
+		Erros: Sua comparação estava codigopeca=$codigopeca faltando o this codigopeca=$this->codigopeca
+			   Estava faltando o return $query;
 
+	*/
 	function consultaCodigo(){
-		$query = "select codigopeca from peca where codigopeca=$codigopeca";
+		$query = "select codigopeca from peca where codigopeca=$this->codigopeca";
+		return $query;
 	}
 
 	function novaPeca(){
@@ -41,10 +48,13 @@ class Peca{
 
 }
 
+/*
+Essa parte aqui estava descomentada!!!!!
+
 $testar = new Peca();
 ( $peca->novaPeca(1,'abc','tese','qwer',10,10,'15/02/2012') ) ? $msg = "conectado" : $msg = "não conectado";
 echo $msg,"<br />";
-/*
+
 $busca = "select * from cliente";
 $testar->consulta($busca);
 
