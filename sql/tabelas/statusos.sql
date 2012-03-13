@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.2deb1ubuntu1
+-- version 3.3.7deb5build0.10.10.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mar 10, 2012 as 02:00 PM
--- Versão do Servidor: 5.1.41
--- Versão do PHP: 5.3.2-1ubuntu4.14
+-- Tempo de Geração: Mar 13, 2012 as 04:14 PM
+-- Versão do Servidor: 5.1.49
+-- Versão do PHP: 5.3.3-1ubuntu9.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `statusos` (
   `idStatus` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(100) NOT NULL,
   PRIMARY KEY (`idStatus`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=11 ;
 
 --
 -- Extraindo dados da tabela `statusos`
@@ -44,4 +44,5 @@ INSERT INTO `statusos` (`idStatus`, `status`) VALUES
 (6, 'Em Manutenção'),
 (7, 'Aguardando Peça(s)'),
 (8, 'Pronto para Entrega'),
-(9, 'Finalizada');
+(9, 'Reaberta'),
+(10, 'Finalizada');

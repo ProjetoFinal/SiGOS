@@ -15,14 +15,19 @@ extract( $_GET );
 
 	if( $cont >=1 ){
 		while( $l = $sql->resultado() ){
+			if( $l['idstatus'] <= 7 or $l['idstatus'] == 9 or $l['idstatus'] == 10 && $l['idstatus'] != 3 )
+				$link = "<a href='os.php?acao=ver&idos=".$l['idordemdeservico']."'>".$l['idordemdeservico']."</a>";
+			if( $l['idstatus'] == 3 )
+				$link = "<a href='b'>".$l['idordemdeservico']."</a>";	
+			if( $l['idstatus'] == 8 )
+				$link = "<a href='c'>".$l['idordemdeservico']."</a>";
+				
 		echo "
 			<table>
 				<tbody>
 				<tr>
 					<td class='um'>
-						<a href='' onclick='verOS(".$l['idordemdeservico'].")'>
-							".$l['idordemdeservico']."
-						</a>
+						".$link."
 					</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
@@ -31,7 +36,6 @@ extract( $_GET );
 				</tr>
 				</tbody>
 			</table>";
-			
 		}
 
 	}else{

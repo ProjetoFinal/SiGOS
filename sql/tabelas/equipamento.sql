@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.2deb1ubuntu1
+-- version 3.3.7deb5build0.10.10.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mar 10, 2012 as 01:16 PM
--- Versão do Servidor: 5.1.41
--- Versão do PHP: 5.3.2-1ubuntu4.14
+-- Tempo de Geração: Mar 13, 2012 as 04:13 PM
+-- Versão do Servidor: 5.1.49
+-- Versão do PHP: 5.3.3-1ubuntu9.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -28,22 +28,24 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `equipamento` (
   `idequipamento` int(11) NOT NULL AUTO_INCREMENT,
   `idcliente` int(11) NOT NULL,
-  `marcaequip` varchar(255) NOT NULL,
-  `modeloequip` varchar(255) NOT NULL,
-  `tipoequip` varchar(255) NOT NULL,
-  `numserie` varchar(255) NOT NULL,
-  PRIMARY KEY (`idequipamento`),
-  KEY `idCliente` (`idcliente`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=7 ;
+  `marcaequip` varchar(200) NOT NULL,
+  `modeloequip` varchar(100) NOT NULL,
+  `tipoequip` varchar(100) NOT NULL,
+  `numserie` varchar(100) NOT NULL,
+  PRIMARY KEY (`idequipamento`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=14 ;
 
 --
 -- Extraindo dados da tabela `equipamento`
 --
 
 INSERT INTO `equipamento` (`idequipamento`, `idcliente`, `marcaequip`, `modeloequip`, `tipoequip`, `numserie`) VALUES
-(1, 1, 'Teste', 'Teste2', 'DVD', 'TESTE12324HS'),
-(2, 1, 'ABC', 'DEF', 'DVD', 'ABC8w98e'),
-(3, 2, 'LG', 'M227WAP', 'DVD', 'LGBR1473XD'),
-(4, 3, 'XBOX', '360', 'DVD', 'XBOXBR12u3yy4'),
-(5, 3, 'Phillips', 'Blue sky', 'DVD', 'ajx241012'),
-(6, 4, 'Sony', 'XT-350', 'TV', '123310834');
+(7, 10, 'POSITIVO', 'MONITOR', 'TV', '00000000'),
+(6, 10, 'SAMSUNG', 'SyncMaster943BWX', 'TV', '0000000000'),
+(5, 10, 'PHILCO', 'ABC4584XS', 'TV', '1235444SX457'),
+(8, 10, 'ASUS', 'dsdasdsa', 'DVD', '2222222222222'),
+(9, 10, 'CCE', 'dsdsds', 'DVD', '0000000000000'),
+(10, 10, 'DELL', 'qqqqqqqq', 'DVD', 'qqqqqqqqqqqqq'),
+(11, 10, 'LG', 'sasasa', 'DVD', 'sssssssssss'),
+(12, 10, 'Apple', 'dddddddd', 'TV', 'dddddddddddd'),
+(13, 10, 'CITIZEN', 'sasasa', 'DVD', 'sasasasa');

@@ -6,7 +6,6 @@ function __autoload( $class ){
 include_once("topo.php");
 include_once("../function/formataData.php");
 
-
 $editar = "";
 
 if($_GET){
