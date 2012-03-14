@@ -11,20 +11,12 @@ if(! !empty( $codigopeca ) ) $key = $codigopeca;
 elseif( !empty( $nomepeca ) ) $key = $nomepeca ;
 elseif( !empty( $marcapeca ) ) $key = $marcapeca ;
 elseif( !empty( $modelopeca ) ) $key = $modelopeca ;
-elseif( !empty( $quantidade ) ) $key = $quantidade ;
-elseif( !empty( $precounidade ) ) $key = $precounidade ;
-elseif( !empty( $dataentrada ) ) $key = $dataentrada ;
+
 
 $sql = new Conexao();
 $sql->conecta();
 
-$okk = $sql->consulta ( Peca::consultaKey( $key ) );
-
-/*
-echo "<pre>";
-var_dump( $_GET );
-echo "</pre>";
-*/
+$ok = $sql->consulta ( Peca::consultaTodasPecas( $key ) ); 
 
 if($ok){
 	$linhas = mysql_num_rows( $ok );
@@ -37,16 +29,22 @@ if($ok){
 		$('table.resultado tbody tr:even').css('background','#EBF3EB');
 		$('table.resultado tbody tr a').css('color','blue');
 		function editar( id ){
-			$(window.document.location).attr('href','peca.php?editar=1&id='+id);
+			$(window.document.location).attr('href','peca.php?editar=1&idpeca='+id);
 		}
 	</script>
 	<table class="resultado">
 		<tbody>
 			<tr>
-				<td class="um"<a href="#" onclick="editar(<?=$l['idpeca']?>"><?=$l['nomePeca']?></a></td>
+				<td class="um"<a href="#" onclick="editar(<?=$l['idpeca']?>"><?=$l['nomepeca']?></a></td>
 				<td class="dois"><?=$l['marcapeca']?></td>
 				<td class="tres"><?=$l['modelopeca']?></td>
 				<td class="quatro"><?=$l['quantidade']?></td>
+				<?php 
+					if( $l['qtd'] != 0 )
+						echo $l['qtd']." Peça(s)";
+					else
+						echo "0 Equipamentos";
+				?>
 			</tr>
 		</tbody>
 	</table>
@@ -54,10 +52,10 @@ if($ok){
 	<?php
 		}
 	}else{
-		echo "Sem registros";
+		echo "<script>$('#retorno').text('Peça não cadastrada');</script>";
 	}
 }else{
-	echo "Erro ao consultar Cliente
+	echo "Erro ao consultar Peca
 			<script>$('#retornoErro').fadeOut(5000);</script>"
 }
 

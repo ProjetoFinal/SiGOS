@@ -6,6 +6,8 @@
 		<li> | </li>
 		<li><a href="usuario.php">Usuários</a></li>
 		<li> | </li>
+		<li><a href="peca.php">Peças</a></li>
+		<li> | </li>
 		<!--
 		<?php for($i=1; $i <= 5; $i++){ ?>
 			<li class="menu1"><a href="#">Cadastro <?=$i?></a></li>

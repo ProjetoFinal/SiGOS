@@ -30,6 +30,7 @@ class Peca{
 	*/
 	function consultaCodigo(){
 		$query = "select codigopeca from peca where codigopeca=$this->codigopeca";
+		
 		return $query;
 	}
 
@@ -42,6 +43,26 @@ class Peca{
 										  '$this->quantidade',
 										  '$this->precounidade',
 										  '$this->dataentrada')";
+		
+		return $query;
+	}
+
+	static function consultaKey( $key ){
+		$query = "select * from peca
+					where nomepeca like '%$key[nomepeca]%'
+						order by nomepeca asc";
+
+		return $query;		
+	}
+
+	static function consultaTodasPecas( $key ){
+		if ( $key != null ) {
+			$query = "select * from peca order by codigopeca asc";
+
+		} else {
+			$query = "select * from peca
+						where nomepeca like '%$key%' 
+							order by nomepeca asc";
 		return $query;
 	}
 

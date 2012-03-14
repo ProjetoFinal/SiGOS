@@ -15,32 +15,32 @@ $count = 0;
 if( empty( $codigopeca ) ){
 	$msgCodigoPeca = "*Preencha com o código da Peça<br />
 					<script>
-						$('#codigoPeca').css('background','#FBE3E4');
-						$('#codigoPeca').css('border','1px solid #FBC2C4');
+						$('#codigopeca').css('background','#FBE3E4');
+						$('#codigopeca').css('border','1px solid #FBC2C4');
 					</script>";
 	$count++;
 }
 if( empty( $nomepeca ) ){
 	$msgNomePeca = "*Preencha com o nome da Peça<br />
 					<script>
-						$('#nomePeca').css('background','#FBE3E4');
-						$('#nomePeca').css('border','1px solid #FBC2C4');
+						$('#nomepeca').css('background','#FBE3E4');
+						$('#nomepeca').css('border','1px solid #FBC2C4');
 					</script>";
 	$count++;
 }
 if( empty( $marcapeca ) ){
 	$msgMarcaPeca = "*Preencha com a marca da Peça<br />
 						<script>
-							$('#marcaPeca').css('background','#FBE3E4');
-							$('#marcaPeca').css('border','1px solid #FBC2C4');
+							$('#marcapeca').css('background','#FBE3E4');
+							$('#marcapeca').css('border','1px solid #FBC2C4');
 						</script>";
 	$count++;
 }
 if( empty( $modelopeca ) ){
 	$msgModeloPeca = "*Preencha com a modelo da Peça<br />
 						<script>
-							$('#modeloPeca').css('background','#FBE3E4');
-							$('#modeloPeca').css('border','1px solid #FBC2C4');
+							$('#modelopeca').css('background','#FBE3E4');
+							$('#modelopeca').css('border','1px solid #FBC2C4');
 						</script>";
 	$count++;
 }
@@ -55,16 +55,16 @@ if( empty( $quantidade ) ){
 if( empty( $precounidade ) ){
 	$msgPrecoUnidade = "*Preencha com o preço unitário<br />
 						<script>
-							$('#precoUnidade').css('background','#FBE3E4');
-							$('#precoUnidade').css('border','1px solid #FBC2C4');
+							$('#precounidade').css('background','#FBE3E4');
+							$('#precounidade').css('border','1px solid #FBC2C4');
 						</script>";
 	$count++;
 }
 if( empty( $dataentrada ) ){
 	$msgDataEntrada = "*Preencha com a data de saída da nota<br />
 						<script>
-							$('#dataEntrada').css('background','#FBE3E4');
-							$('#dataEntrada').css('border','1px solid #FBC2C4');
+							$('#dataentrada').css('background','#FBE3E4');
+							$('#dataentrada').css('border','1px solid #FBC2C4');
 						</script>";
 	$count++;
 }

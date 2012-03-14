@@ -18,8 +18,10 @@ if($_GET){
 if( $editar == ""){
 ?>
 
+
+<!-- Início do formulário de cadastro peças -->
 <div id="corpoForm">
-<form id="form1">				<!-- Início do formulário de cadastro peças -->
+<form id="form1">				
 <div id="column1">
 	<table>
 	    <tr>
@@ -81,25 +83,52 @@ if( $editar == ""){
 	<input type="button" id="cancelar" value="Cancelar (F5)" />
 </div>
 
-</form>				<!-- Fim do formulário de cadastro peças -->
+</form>				
 </div>
+<!-- Fim do formulário de cadastro peças -->
 
 <?php }else{
 
   $sql = new Conexao();
   $ok = $sql->conecta();
-  if ($ok) {
-	  echo "OK";
-  }else{
-	  echo "Erro";
-  }
-   //$sql->consulta( Peca::consultaId( $idpeca ) );
-  //$l = $sql->resultado();
+  $sql->consulta( Peca::consultaId( $idpeca ) );
+  $l = $sql->resultado();
 
 ?>
 
 <?php } ?>
 
+<!-- Início do formulário de consulta-->
+<div id="corpoForm">
+<form id="form2">
+	<input type="hidden" name="idpeca" id="idpeca" value="<?=$l['idpeca']?>" />
+<table>
+	    <tr>
+		  <td>Código da Peça</td>
+		  <td>
+			  <input type="text" name="codigopeca" id="codigopeca" value="<?=$l['codigopeca']?>" />
+		  </td>
+	    </tr>
+	    <tr>
+		  <td>Descrição</td>
+		  <td>
+			  <input type="text" name="nomepeca" id="nomepeca" value="<?=$l['nomepeca']?>" />
+		  </td>
+	    </tr>
+	    <tr>
+		  <td>Marca</td>
+		  <td>
+			  <input type="text" name="marcapeca" id="marcapeca" value="<?=$l['marcapeca']?>" />
+		  </td>
+	    </tr>
+	    <tr>
+		  <td>Modelo</td>
+		  <td>
+			  <input type="text" name="modelopeca" id="modelopeca" value="<?=$l['modelopeca']?>" />
+		  </td>
+	    </tr>
+</table>
+<!-- Início do formulário de consulta-->
 
 <div id="retornoErro"></div>
 <div id="retorno"></div>
@@ -140,7 +169,34 @@ if( $editar == ""){
 		                    $('#retornoErro').html(html);
 		            }
 		    });
-		});// Fim do script Cadastrar Nova peça
+		});
+		// Fim do script Cadastrar Nova peça
+
+		// Início do script Consultar Peça
+		$("#consultar").click( function(){
+	        var codigopeca = $("#codigopeca").val();
+	        var nomepeca = $("#nomepeca").val();
+	        var marcapeca = $("#marcapeca").val();
+	        var modelopeca = $("#modelopeca").val();  
+
+	        $.ajax({
+	            type: "GET",
+	            url: "ajax/consultarPeca.php",
+	            data: "codigopeca="+codigopeca+
+	                  "&nomepeca="+nomepeca+
+	                  "&marcapeca="+marcapeca+
+	                  "&modelopeca="+modelopeca,
+	            beforeSend: function(){
+	                $('#retornoErro').fadeIn(200);
+	                $("#retornoErro").text('Carregando...');
+	            },
+	            success: function(html){ 
+	            		$('#retornoErro').fadeOut(5000);
+	                    $('#retorno').html(html);
+	            }
+	        });
+	    });
+	    // Fim do script Consultar peça
 		
 		// Função para exibir calendário
 		$("#dataentrada").datepicker({
