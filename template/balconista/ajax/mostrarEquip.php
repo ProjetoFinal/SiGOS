@@ -9,24 +9,31 @@ $sql = new Conexao();
 $sql->conecta();
 $sql->consulta( Equipamento::consultaId( $_GET['id'] ) );
 $l = $sql->resultado();
+?>
 
-echo '
-<input type="hidden" id="idequipamento" value="'.$l['idequipamento'].'" />
-<input type="hidden" id="idcliente" value="'.$l['idcliente'].'" />
+<input type="hidden" id="idequipamento" value="<?=$l['idequipamento']?>" />
+<input type="hidden" id="idcliente" value="<?=$l['idcliente']?>" />
 <table>
 	<tr>
-		<td>Marca: <input type="text" name="marca" id="marca" value="'.$l['marcaequip'].'" /></td>
-		<td>Modelo: <input type="text" name="modelo" id="modelo" value="'.$l['modeloequip'].'" /></td>
+		<td>Marca: <input type="text" name="marca" id="marca" value="<?=$l['marcaequip']?>" /></td>
+		<td>Modelo: <input type="text" name="modelo" id="modelo" value="<?=$l['modeloequip']?>" /></td>
 	</tr>
 	<tr>
 		<td>Tipo: <select id="tipo" style="height: 37px">
-						<option value="'.$l['tipoequip'].'" selected>'.$l['tipoequip'].'</option>
+						<option value="<?=$l['idtiposequipamentos']?>" selected><?=$l['tipoequip']?></option>
 						<option value="">-----</option>
-						<option value="DVD">Aparelho de DVD</option>
-						<option value="TV">Televisão</option>
+						<?php
+							$equip = new Conexao();
+							$equip->conecta();
+							$equip->consulta( TipoEquipamento::listar() );
+							while( $te = $equip->resultado() ){
+						?>
+							<option value="<?=$te['idtiposequipamentos']?>"><?=$te['tipo']?></option>
+						<?php } ?>
+					   </select>
 				   </select>
 		</td>		   
-		<td>N. Série: <input type="text" name="serie" id="serie" value="'.$l['numserie'].'" /></td>
+		<td>N. Série: <input type="text" name="serie" id="serie" value="<?=$l['numserie']?>" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -35,9 +42,9 @@ echo '
 			<input type="button" id="cancelar" value="Cancelar (F5)" />
 		</td>
 	</tr>
-</table>';
+</table>
 
-?>
+
 <script>
 	$("#dadosEquip table tbody tr:odd").css("background","#bbd5e2");
 	$("#dadosEquip table tbody tr:even").css("background","#EBF3EB");

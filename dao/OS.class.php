@@ -19,60 +19,66 @@ class OS{
 	}
 
 	static function listarOS( $key ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
+									inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 									where c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%'
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
 
 	static function listarOsId( $key, $idstatus ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idstatus=$idstatus
 										order by os.entrada asc";
 		return $query;
 	}
 
 	static function listarOsAssumidas( $key, $idusuario ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
-								inner join statusos s on s.idstatus = os.idstatus 
+								inner join statusos s on s.idstatus = os.idstatus
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos  
 									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and (os.idstatus=2 or os.idstatus=6)
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
 
 	static function listarOsOrcadas( $key, $idusuario ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and os.idstatus=3
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
 
 	static function listarOsPrioridade( $key, $idusuario ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and os.idstatus=9
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
 
 	static function listarOsAprovadas( $key, $idusuario ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and os.idstatus=4
 										order by os.entrada asc";
 		return $query;
@@ -94,10 +100,11 @@ class OS{
 	}
 
 	static function impOS( $id ){
-		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone from ordemdeservico os 
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 									where idordemdeservico=$id 
 										order by os.entrada desc, s.status asc";
 		return $query;

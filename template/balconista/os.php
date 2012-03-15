@@ -49,6 +49,7 @@ if( $editar == "" ){ ?>
 			<td>
 				<input type="text" name="equipamento" id="equipamento" value="" />
 				<input type="hidden" name="idequipamento" id="idequipamento" value="" />
+				<input type="hidden" name="maodeobra" id="maodeobra" value="" />
 			</td>
 		</tr>
 		<tr>
@@ -96,11 +97,13 @@ if( $editar == "" ){ ?>
 			var idequipamento = $("#idequipamento").val();
 			var defeito = $("#defeito").val();
 			var acessorios = $("#acessorios").val();
+			var maodeobra = $("#maodeobra").val();
 
 			$.ajax({
 				type: "GET",
 				url: "ajax/novaOS.php",
 				data: "idequipamento="+idequipamento+
+					  "&maodeobra="+maodeobra+
 					  "&defeito="+defeito+
 					  "&acessorios="+acessorios,
 				beforeSend: function(){

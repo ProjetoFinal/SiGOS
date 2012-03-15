@@ -57,8 +57,14 @@ if( $editar == ""){
 		<tr>
 			<td>Tipo: <select id="tipo" style="height: 37px">
 							<option value="" selected>--- Tipo</option>
-							<option value="DVD">Aparelho de DVD</option>
-							<option value="TV">Televisão</option>
+							<?php
+							$equip = new Conexao();
+							$equip->conecta();
+							$equip->consulta( TipoEquipamento::listar() );
+							while( $te = $equip->resultado() ){
+						?>
+							<option value="<?=$te['idtiposequipamentos']?>"><?=$te['tipo']?></option>
+						<?php } ?>
 					   </select>
 			</td>		   
 			<td>N. Série: <input type="text" name="serie" id="serie" /></td>
@@ -85,6 +91,7 @@ if( $editar == ""){
 		while( $l = $sql->resultado() ){
 			echo "<input type='hidden' id='equipamento".$l['idequipamento']."' value='".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."' />
 				<input type='hidden' id='idequipamento".$l['idequipamento']."' value='".$l['idequipamento']."' />
+				<input type='hidden' id='maodeobra".$l['idequipamento']."' value='".$l['maodeobra']."' />
 				<table>
 					<tbody>
 						<tr>
@@ -290,10 +297,12 @@ if( $editar == ""){
 		var cliente = $('#cliente').val();
 		var idequipamento = $('#idequipamento'+id).val();
 		var equipamento = $('#equipamento'+id).val();
+		var maodeobra = $('#maodeobra'+id).val();
 
 		window.opener.document.formNovaOS.cliente.value = cliente;
 		window.opener.document.formNovaOS.equipamento.value = equipamento;
 		window.opener.document.formNovaOS.idequipamento.value = idequipamento;
+		window.opener.document.formNovaOS.maodeobra.value = maodeobra;
 		window.close();
 	}
 </script>

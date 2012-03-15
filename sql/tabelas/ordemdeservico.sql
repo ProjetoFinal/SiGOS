@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mar 13, 2012 as 04:13 PM
+-- Tempo de Geração: Mar 15, 2012 as 03:36 PM
 -- Versão do Servidor: 5.1.49
 -- Versão do PHP: 5.3.3-1ubuntu9.6
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `ordemdeservico` (
   PRIMARY KEY (`idordemdeservico`),
   KEY `idEquipamento` (`idequipamento`),
   KEY `idFuncionario` (`idusuario`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=12 ;
 
 --
 -- Extraindo dados da tabela `ordemdeservico`
@@ -58,4 +58,5 @@ INSERT INTO `ordemdeservico` (`idordemdeservico`, `idequipamento`, `idusuario`, 
 (6, 10, 2, 6, 'sasasa', NULL, 'sasasasa', NULL, '2012-03-13', NULL, NULL, NULL, 0, 'impressao/os1331658282.txt'),
 (7, 11, 2, 7, 'dsdsds', NULL, 'dsdsd', NULL, '2012-03-13', NULL, NULL, NULL, 0, 'impressao/os1331658328.txt'),
 (8, 12, 2, 8, 'sdsdsd', NULL, 'dsdsdsds', NULL, '2012-03-13', NULL, NULL, NULL, 0, 'impressao/os1331658338.txt'),
-(9, 13, 2, 9, 'dsdsds', NULL, 'dsdasdsads', NULL, '2012-03-13', NULL, NULL, NULL, 0, 'impressao/os1331664718.txt');
+(9, 13, 2, 9, 'dsdsds', NULL, 'dsdasdsads', NULL, '2012-03-13', NULL, NULL, NULL, 0, 'impressao/os1331664718.txt'),
+(11, 14, NULL, 1, 'Teste para orçamento.', NULL, 'Fonte de Alimentação.', NULL, '2012-03-15', NULL, NULL, NULL, 0, 'impressao/os1331836469.txt');

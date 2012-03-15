@@ -60,20 +60,15 @@ $equip = new Equipamento( $_GET );
 
 	$ok = $sql->consulta ( $equip->novo( $idcliente ) );
 
-		/*
-		echo "<pre>";
-		var_dump( $_GET );
-		echo "</pre>";
-		*/
-
 		if($ok){
-		echo "Cadastrado com sucesso
-					<script>
-						$('#retornoErro').fadeOut(5000);
-						$('input[type=text]').val('');
-						$('select').val('');
-						$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente=".$idcliente."');
-					</script>";
+			
+			echo "Cadastrado com sucesso
+						<script>
+							$('#retornoErro').fadeOut(5000);
+							$('input[type=text]').val('');
+							$('select').val('');
+							$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente=".$idcliente."');
+						</script>";
 		}else{
 			echo "Erro ao cadastrar Novo Equiamento
 					<script>$('#retornoErro').fadeOut(5000);</script>";

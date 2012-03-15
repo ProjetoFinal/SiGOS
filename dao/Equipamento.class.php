@@ -15,8 +15,9 @@ class Equipamento{
 	}
 	
 	static function exibirEquipamentos( $key ){
-		$query = "select e.*, c.*, count(e.idcliente) as qtd from equipamento e
+		$query = "select e.*, c.*, te.tipo as tipoequip,count(e.idcliente) as qtd from equipamento e
 					right join cliente c on c.idcliente = e.idcliente
+					inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 						where c.nome like '%$key%' or c.cpf like '%$key%' or c.telefone like '%$key%' or e.marcaequip like '%$key%' or e.modeloequip like '%$key%' or numserie like '%$key%'
 							group by e.idcliente
 								order by c.nome asc";
@@ -24,17 +25,21 @@ class Equipamento{
 	}
 
 	static function consultaCliente( $id ){
-		$query = "select * from equipamento where idcliente=$id";
+		$query = "select e.*, te.tipo as tipoequip, te.maodeobra from equipamento e
+					inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos
+						 where e.idcliente=$id";
 		return $query;
 	}
 
 	static function consultaId( $id ){
-		$query = "select * from equipamento where idequipamento=$id";
+		$query = "select e.*, te.tipo as tipoequip from equipamento e
+					inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+						where e.idequipamento=$id";
 		return $query;
 	}
 
 	function novo( $idcliente ){
-		$query = "insert into equipamento values (null, $idcliente, '$this->marcaequip', '$this->modeloequip', '$this->tipoequip', '$this->numserie')";
+		$query = "insert into equipamento values (null, $idcliente, $this->tipoequip, '$this->marcaequip', '$this->modeloequip', '$this->numserie')";
 		return $query;
 	}
 
@@ -42,7 +47,7 @@ class Equipamento{
 		$query = "update equipamento set 
 					marcaequip='$this->marcaequip',
 					modeloequip='$this->modeloequip',
-					tipoequip='$this->tipoequip',
+					idtiposequipamentos=$this->tipoequip,
 					numserie='$this->numserie'
 						where idequipamento=$id";
 		return $query;

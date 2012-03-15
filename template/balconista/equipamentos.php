@@ -54,9 +54,15 @@ if( $editar == ""){
 		</tr>
 		<tr>
 			<td>Tipo: <select id="tipo" style="height: 37px">
-							<option value="" selected>--- Tipo</option>
-							<option value="DVD">Aparelho de DVD</option>
-							<option value="TV">Televisão</option>
+						<option value="" selected>--- Tipo</option>
+						<?php
+							$equip = new Conexao();
+							$equip->conecta();
+							$equip->consulta( TipoEquipamento::listar() );
+							while( $te = $equip->resultado() ){
+						?>
+							<option value="<?=$te['idtiposequipamentos']?>"><?=$te['tipo']?></option>
+						<?php } ?>
 					   </select>
 			</td>		   
 			<td>N. Série: <input type="text" name="serie" id="serie" /></td>
