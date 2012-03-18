@@ -20,14 +20,7 @@ class Peca{
 		$this->dataentrada = data_ymd($p['dataentrada']);
 
 	}
-	/*Função Original CARLOS
-		function consultaCodigo(){
-			$query = "select codigopeca from peca where codigopeca=$codigopeca";
-		}
-		Erros: Sua comparação estava codigopeca=$codigopeca faltando o this codigopeca=$this->codigopeca
-			   Estava faltando o return $query;
-
-	*/
+	
 	function consultaCodigo(){
 		$query = "select codigopeca from peca where codigopeca=$this->codigopeca";
 		
@@ -62,19 +55,43 @@ class Peca{
 
 		return $query;
 	}
+	
+	function editarPeca( $idpeca ){
+		$query = "update peca set
+					nomepeca	='$this->nomepeca',
+					marcapeca	='$this->marcapeca',
+					modelopeca	='$this->modelopeca',
+					precounidade='$this->precounidade'
+					dataentrada	='$this->dataentrada'
+					
+						where idpeca='$idpeca'";
+		return $query;
+	}
+	
+	static function verificaEstoquePeca( $idpeca ){
+		$query = "select quantidade from peca where idpeca = '$idpeca'";
+		
+		return $query;
+	}
+	
+		static function removerPeca( $idpeca ){
+		$query = "delete from peca where idpeca = '$idpeca'";
+
+		return $query;
+	}
 
 }
 
 /*
-Essa parte aqui estava descomentada!!!!!
 
 $testar = new Peca();
-( $peca->novaPeca(1,'abc','tese','qwer',10,10,'15/02/2012') ) ? $msg = "conectado" : $msg = "não conectado";
+( $peca->novaPeca() ) ? $msg = "conectado" : $msg = "não conectado";
 echo $msg,"<br />";
 
-$busca = "select * from cliente";
-$testar->consulta($busca);
+$testar = new Peca();
+$busca = "select * from peca";
+$testar->consultaCodigo();
 
 while( $dados = $testar->resultado() )
-echo $dados['nome']; */
+echo $dados['quantidade']; */
 ?>

@@ -25,6 +25,7 @@ $sql->conecta();
 if( !empty( $arr ) ){
 	$ok = $sql->consulta ( Peca::consultaKey( $arr ) );
 } else {
+	echo var_dump( $arr );
 	$ok = $sql->consulta ( Peca::consultaTodasPecas() );
 }
 
@@ -34,13 +35,13 @@ if($ok){
 	if( $linhas >= 1 ){
 		
 	?>
-	<script>
+        <script type="text/javascript" >
 		$('#retorno').fadeIn(200);
 		$('table.resultado tbody tr:odd').css('background','#bdd5e2');
 		$('table.resultado tbody tr:even').css('background','#EBF3EB');
 		$('table.resultado tbody tr a').css('color','blue');
 		function editar( id ){
-			$(window.document.location).attr('href','peca.php?editar=1&id='+id);
+			$(window.document.location).attr('href','peca.php?editar=1&idpeca='+id);
 		}
 	</script>
 	<table class="resultado">
@@ -62,6 +63,6 @@ if($ok){
 	}
 }else{
 	echo "<script>$('#retornoErro').text('Erro ao consultar Peça');</script>";
-}
+} ?>
 
 sleep(1);

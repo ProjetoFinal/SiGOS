@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-function __autoload( $classe ) {
-	include_once("../../../dao/$classe.class.php");
+function __autoload( $class ){
+	include_once("../../../dao/$class.class.php");
 }
-
-require_once("../../function/formataData.php");
 
 extract( $_GET );
 
@@ -85,32 +83,22 @@ $sql->conecta();
 
 $peca = new Peca( $_GET );
 
-	
-	$verifica = $sql->consulta( $peca->consultaCodigo( $codigoPeca ) );
+$ok = $sql->consulta ( $peca->editarPeca( $idpeca ) );
 
-	$cont = mysql_num_rows( $verifica );
-
-	if( $cont >= 1 ){
-		echo "Peça já cadastrada!
-				<script>$('#retornoErro').fadeOut(15000);</script>";
-	} else { // tinha um */ aqui q vc provavelmente esqueceu de tirar!
-		$ok = $sql->consulta ( $peca->novaPeca() );
-		//echo $peca->novaPeca();
-		if($ok){
-			echo "Cadastrado com sucesso
+	if($ok){ 
+				
+			echo "Cadastro editado com sucesso
 						<script>
-							$('#retornoErro').fadeOut(5000);
+							$('#retornoErro').fadeOut(10000);
 							$('input[type=text]').val('');
+							$('input[type=password]').val('');
 							$('select').val('');
+							$(window.document.location).attr('href','usuario.php');
 						</script>";
-		}else{
-			echo "Erro ao cadastrar Nova Peça!
-					<script>$('#retornoErro').fadeOut(15000);</script>";
-		}
-	
-	}
+
+			}else{
+				echo "<script>$('#retornoErro').text('Erro ao editar Usuario');</script>";
+			}
 }
-	sleep(1);
 
-
-
+sleep(1);

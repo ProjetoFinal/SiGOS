@@ -25,6 +25,7 @@ $sql->conecta();
 if( !empty( $arr ) ){
 	$ok = $sql->consulta ( Peca::consultaKey( $arr ) );
 } else {
+	echo var_dump( $arr );
 	$ok = $sql->consulta ( Peca::consultaTodasPecas() );
 }
 
@@ -62,6 +63,6 @@ if($ok){
 	}
 }else{
 	echo "<script>$('#retornoErro').text('Erro ao consultar Peça');</script>";
-} ?>
+}
 
 sleep(1);

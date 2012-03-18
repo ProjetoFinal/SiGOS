@@ -133,13 +133,13 @@ if( $editar == ""){
 		<tr>
 			<td>Quantidade</td>
 			<td>
-				<input type="text" name="quantidade" id="quantidade" value="<?=$l['quantidade']?> />
+				<input type="text" name="quantidade" id="quantidade" value="<?=$l['quantidade']?>" />
 			</td>
 		</tr>
 		<tr>
 			<td>Preco Unitátio</td>
 			<td>
-				<input type="text" name="precounidade" id="precounidade" value="<?=$l['precounidade']?> />
+				<input type="text" name="precounidade" id="precounidade" value="<?=$l['precounidade']?>" />
 			</td>
 		</tr>
 		<tr>
@@ -168,11 +168,11 @@ if( $editar == ""){
 <div id="retorno"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskMoney.js"></script>
-<script>
+<script type="text/javascript" >
     $(document).ready( function(){
     	
 
-		//Início script Cadastrar nova peça
+		//Início Cadastrar nova peça
 		$("#cadastrar").click( function(){
 			$("#retornoErro").hide(5);
 			$("#retorno").hide(5);
@@ -206,7 +206,7 @@ if( $editar == ""){
 		});
 		// Fim do script Cadastrar Nova peça
 
-		// Início do script Consultar Peça
+		// Início Consultar Peça
 		$("#consultar").click( function(){
 	        var codigopeca	= $("#form2 #codigopeca").val();
 	        var nomepeca	= $("#form2 #nomepeca").val();
@@ -222,7 +222,7 @@ if( $editar == ""){
 	                  "&modelopeca="+modelopeca,
 	            beforeSend: function(){
 	                $('#retornoErro').fadeIn(200);
-	                $("#retornoErro").text('Carregando...');
+	                $("#retornoErro").text('Consultando...');
 	            },
 	            success: function(html){ 
 	            		$('#retornoErro').fadeOut(5000);
@@ -230,7 +230,36 @@ if( $editar == ""){
 	            }
 	        });
 	    });
-	    // Fim do script Consultar peça
+	    //Fim do Consultar Peças
+	    
+	    //Editar Peças
+		$("#editar").click( function(){
+			var idpeca = $("#form2 #idpeca").val();
+			var codigopeca = $("#form2 #codigopeca").val();
+			var nomepeca = $("#form2 #nomepeca").val();
+			var marcapeca = $("#form2 #marcapeca").val();
+			var modelopeca = $("#form2 #modelopeca").val();
+			var quantidade = $("#form2 #quantidade").val();
+
+			$.ajax({
+				type: "GET",
+				url: "ajax/editarPeca.php",
+				data: "idpeca="+idpeca+
+					  "&codigopeca="+codigopeca+
+					  "&nomepeca="+nomepeca+
+					  "&marcapeca="+marcapeca+
+					  "&modelopeca="+modelopeca+
+					  "&quantidade="+quantidade,
+				beforeSend: function(){
+					$('#retornoErro').fadeIn(200);
+					$('#retornoErro').text('Editando...');
+				},
+				success: function(html){ 
+	                    $('#retornoErro').html(html);
+	            }
+			});
+		});
+	    // Fim do editar peça
 		
 		// Função para exibir calendário
 		$("#dataentrada").datepicker({
@@ -241,7 +270,10 @@ if( $editar == ""){
 
 	    //Função para exibir máscara Monetária
 	    $('#precounidade').maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
-			  
+
+            $("#cancelar").click( function(){
+	    	$(window.document.location).attr('href','peca.php');
+	    });
 	});
 </script>
 

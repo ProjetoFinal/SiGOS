@@ -172,7 +172,7 @@ if( $editar == ""){
     $(document).ready( function(){
     	
 
-		//Início script Cadastrar nova peça
+		//Início Cadastrar nova peça
 		$("#cadastrar").click( function(){
 			$("#retornoErro").hide(5);
 			$("#retorno").hide(5);
@@ -206,7 +206,7 @@ if( $editar == ""){
 		});
 		// Fim do script Cadastrar Nova peça
 
-		// Início do script Consultar Peça
+		// Início Consultar Peça
 		$("#consultar").click( function(){
 	        var codigopeca	= $("#form2 #codigopeca").val();
 	        var nomepeca	= $("#form2 #nomepeca").val();
@@ -222,7 +222,7 @@ if( $editar == ""){
 	                  "&modelopeca="+modelopeca,
 	            beforeSend: function(){
 	                $('#retornoErro').fadeIn(200);
-	                $("#retornoErro").text('Carregando...');
+	                $("#retornoErro").text('Consultando...');
 	            },
 	            success: function(html){ 
 	            		$('#retornoErro').fadeOut(5000);
@@ -230,7 +230,59 @@ if( $editar == ""){
 	            }
 	        });
 	    });
-	    // Fim do script Consultar peça
+	    //Fim do Consultar Peças
+	    
+	    //Editar Peças
+		$("#editar").click( function(){
+			var idpeca = $("#form2 #idpeca").val();
+			var codigopeca = $("#form2 #codigopeca").val();
+			var nomepeca = $("#form2 #nomepeca").val();
+			var marcapeca = $("#form2 #marcapeca").val();
+			var modelopeca = $("#form2 #modelopeca").val();
+			var quantidade = $("#form2 #quantidade").val();
+
+			$.ajax({
+				type: "GET",
+				url: "ajax/editarPeca.php",
+				data: "idpeca="+idpeca+
+					  "&codigopeca="+codigopeca+
+					  "&nomepeca="+nomepeca+
+					  "&marcapeca="+marcapeca+
+					  "&modelopeca="+modelopeca+
+					  "&quantidade="+quantidade,
+				beforeSend: function(){
+					$('#retornoErro').fadeIn(200);
+					$('#retornoErro').text('Editando...');
+				},
+				success: function(html){ 
+	                    $('#retornoErro').html(html);
+	            }
+			});
+		});
+	    // Fim do editar peça
+	    
+	    //Início Remover Peças
+		$("#remover").click( function(){
+			var idpeca = $("#form2 #idpeca").val();
+			var nomepeca = $("#form2 #nomepeca").val();	
+
+			if( confirm('Deseja realmente excluir a peça '+nomepeca+'?') ){
+				$.ajax({
+					type: "GET",
+					url: "ajax/removerPeca.php",
+					data: "idpeca="+idpeca,
+					beforeSend: function(){
+				        $('#retornoErro').fadeIn(200);
+				        $("#retornoErro").text('Removendo...');
+				    },
+			        success: function(html){ 
+			            $('#retornoErro').html(html);
+			        }
+				});
+			}
+
+		});
+		//Fim Remover Peças
 		
 		// Função para exibir calendário
 		$("#dataentrada").datepicker({
