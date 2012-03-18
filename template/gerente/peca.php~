@@ -133,13 +133,13 @@ if( $editar == ""){
 		<tr>
 			<td>Quantidade</td>
 			<td>
-				<input type="text" name="quantidade" id="quantidade" value="<?=$l['quantidade']?>" />
+				<input type="text" name="quantidade" id="quantidade" value="<?=$l['quantidade']?> />
 			</td>
 		</tr>
 		<tr>
 			<td>Preco Unitátio</td>
 			<td>
-				<input type="text" name="precounidade" id="precounidade" value="<?=$l['precounidade']?>" />
+				<input type="text" name="precounidade" id="precounidade" value="<?=$l['precounidade']?> />
 			</td>
 		</tr>
 		<tr>
@@ -168,7 +168,7 @@ if( $editar == ""){
 <div id="retorno"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskMoney.js"></script>
-<script type="text/javascript" >
+<script>
     $(document).ready( function(){
     	
 
@@ -241,10 +241,7 @@ if( $editar == ""){
 
 	    //Função para exibir máscara Monetária
 	    $('#precounidade').maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
-
-            $("#cancelar").click( function(){
-	    	$(window.document.location).attr('href','peca.php');
-	    });
+			  
 	});
 </script>
 

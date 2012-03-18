@@ -2,10 +2,10 @@
 
 class Conexao{
 	
-	var $host 		= "localhost";
+	var $host 	= "localhost";
 	var $usuario 	= "root";
-	var $senha 		= "";
-	var $banco 		= "sigos";
+	var $senha 	= "";
+	var $banco 	= "sigos";
 
 	var $conexao    = null;
     var $query      = null;
