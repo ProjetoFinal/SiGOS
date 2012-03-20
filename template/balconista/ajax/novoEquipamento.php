@@ -57,25 +57,20 @@ $sql->conecta();
 
 $equip = new Equipamento( $_GET );
 
-
 	$ok = $sql->consulta ( $equip->novo( $idcliente ) );
 
-		if($ok){
-			
-			echo "Cadastrado com sucesso
-						<script>
-							$('#retornoErro').fadeOut(5000);
-							$('input[type=text]').val('');
-							$('select').val('');
-							$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente=".$idcliente."');
-						</script>";
-		}else{
-			echo "Erro ao cadastrar Novo Equiamento
-					<script>$('#retornoErro').fadeOut(5000);</script>";
-		}
+	if($ok){
+		echo "Cadastrado com sucesso
+					<script>
+						$('#retornoErro').fadeOut(5000);
+						$('input[type=text]').val('');
+						$('select').val('');
+						$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente=".$idcliente."');
+					</script>";
+	}else{
+		echo "Erro ao cadastrar Novo Equiamento
+				<script>$('#retornoErro').fadeOut(5000);</script>";
+	}
 	
-
-
 }
-
 sleep(1);

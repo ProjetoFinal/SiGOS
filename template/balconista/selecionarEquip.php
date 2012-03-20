@@ -58,13 +58,13 @@ if( $editar == ""){
 			<td>Tipo: <select id="tipo" style="height: 37px">
 							<option value="" selected>--- Tipo</option>
 							<?php
-							$equip = new Conexao();
-							$equip->conecta();
-							$equip->consulta( TipoEquipamento::listar() );
-							while( $te = $equip->resultado() ){
-						?>
-							<option value="<?=$te['idtiposequipamentos']?>"><?=$te['tipo']?></option>
-						<?php } ?>
+								$equip = new Conexao();
+								$equip->conecta();
+								$equip->consulta( TipoEquipamento::listar() );
+								while( $te = $equip->resultado() ){
+							?>
+								<option value="<?=$te['idtiposequipamentos']?>"><?=$te['tipo']?></option>
+							<?php } ?>
 					   </select>
 			</td>		   
 			<td>N. Série: <input type="text" name="serie" id="serie" /></td>
