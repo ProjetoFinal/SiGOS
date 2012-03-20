@@ -5,9 +5,19 @@ function __autoload( $class ){
 	include_once("../../../dao/$class.class.php");
 }
 
+require_once("../../function/formataData.php");
+
 extract( $_GET );
 
 $count = 0;
+
+$msgCodigoPeca	= "";
+$msgNomePeca	= "";
+$msgMarcaPeca	= "";
+$msgModeloPeca	= "";
+$msgQuantidade	= "";
+$msgPrecoUnidade	= "";
+$msgDataEntrada	= "";
 
 if( empty( $codigopeca ) ){
 	$msgCodigoPeca = "*Preencha com o código da Peça<br />
@@ -89,15 +99,14 @@ $ok = $sql->consulta ( $peca->editarPeca( $idpeca ) );
 				
 			echo "Cadastro editado com sucesso
 						<script>
-							$('#retornoErro').fadeOut(10000);
-							$('input[type=text]').val('');
-							$('input[type=password]').val('');
-							$('select').val('');
-							$(window.document.location).attr('href','usuario.php');
-						</script>";
+						$('#retornoErro').fadeOut(5000);
+						$('input[type=text]').val('');
+						$('select').val('');
+						$(window.document.location).attr('href','peca.php');
+					</script>";
 
 			}else{
-				echo "<script>$('#retornoErro').text('Erro ao editar Usuario');</script>";
+				echo "<script>$('#retornoErro').text('Erro ao editar Cadastro');</script>";
 			}
 }
 

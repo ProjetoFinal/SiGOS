@@ -21,6 +21,12 @@ class Peca{
 
 	}
 	
+	static function consultaID( $idpeca ){
+		$query = "select * from peca where idpeca = $idpeca";
+
+		return $query;
+	}
+	
 	function consultaCodigo(){
 		$query = "select codigopeca from peca where codigopeca=$this->codigopeca";
 		
@@ -58,12 +64,13 @@ class Peca{
 	
 	function editarPeca( $idpeca ){
 		$query = "update peca set
+					codigopeca	='$this->codigopeca',
 					nomepeca	='$this->nomepeca',
 					marcapeca	='$this->marcapeca',
 					modelopeca	='$this->modelopeca',
-					precounidade='$this->precounidade'
+					quantidade	='$this->quantidade',
+					precounidade	='$this->precounidade',
 					dataentrada	='$this->dataentrada'
-					
 						where idpeca='$idpeca'";
 		return $query;
 	}
@@ -79,7 +86,7 @@ class Peca{
 
 		return $query;
 	}
-
+	
 }
 
 /*

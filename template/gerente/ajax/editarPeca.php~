@@ -5,9 +5,19 @@ function __autoload( $class ){
 	include_once("../../../dao/$class.class.php");
 }
 
+require_once("../../function/formataData.php");
+
 extract( $_GET );
 
 $count = 0;
+
+$msgCodigoPeca	= "";
+$msgNomePeca	= "";
+$msgMarcaPeca	= "";
+$msgModeloPeca	= "";
+$msgQuantidade	= "";
+$msgPrecoUnidade	= "";
+$msgDataEntrada	= "";
 
 if( empty( $codigopeca ) ){
 	$msgCodigoPeca = "*Preencha com o código da Peça<br />
@@ -66,37 +76,37 @@ if( empty( $dataentrada ) ){
 	$count++;
 }
 
-
-
 if( $count >= 1){
 print <<<ERRO
-$msgNome
-$msgLogin
-$msgNivel
-$msgStatus
+$msgCodigoPeca
+$msgNomePeca
+$msgMarcaPeca
+$msgModeloPeca
+$msgQuantidade
+$msgPrecoUnidade
+$msgDataEntrada
 ERRO;
 }else{
 
 $sql = new Conexao();
 $sql->conecta();
 
-$usuario = new Usuario( $_GET );
+$peca = new Peca( $_GET );
 
-$ok = $sql->consulta ( $usuario->editarUsuario( $idUsuario ) );
+$ok = $sql->consulta ( $peca->editarPeca( $idpeca ) );
 
 	if($ok){ 
 				
-			echo "Editado com sucesso
+			echo "Cadastro editado com sucesso
 						<script>
-							$('#retornoErro').fadeOut(10000);
-							$('input[type=text]').val('');
-							$('input[type=password]').val('');
-							$('select').val('');
-							$(window.document.location).attr('href','usuario.php');
-						</script>";
+						$('#retornoErro').fadeOut(5000);
+						$('input[type=text]').val('');
+						$('select').val('');
+						$(window.document.location).attr('href','peca.php');
+					</script>";
 
 			}else{
-				echo "<script>$('#retornoErro').text('Erro ao editar Usuario');</script>";
+				echo "<script>$('#retornoErro').text('Erro ao editar Cadastro');</script>";
 			}
 }
 
