@@ -13,13 +13,25 @@ if($_GET){
 if( $editar == ""){
 ?>
 <div id="busca">
+	<input type="button" id="novoCliente" value="Novo Cliente" />
+</div>
+<div id="busca">
 	<input type="text" id="key" />
 	<input type="button" id="buscar" value="Buscar" />
 </div>
+<br />
 <div id="retornoErro"></div>
 <div id="listaClientes"></div>
 
-<?php } else { ?>
+<?php } elseif( $editar == "novoCliente" ){ ?>
+
+<div id="novoCliente"></div>
+<script>
+	$('#novoCliente').load('novoCliente.php');
+</script>
+
+<?php
+}else { ?>
 
 <div id="dadosCliente">
 	<?php 
@@ -135,7 +147,7 @@ if( $editar == ""){
         $("#retornoErro").text('Carregando...');
         $('#retornoErro').fadeOut(2000);
 		$("#listaClientes").load("ajax/consultarEquipamento2.php");
-		
+
 		$("#buscar").click( function(){
 			var key = $("#key").val();
 			$('#retornoErro').fadeIn(200);
@@ -198,6 +210,10 @@ if( $editar == ""){
 	    $("#tipo").click(function(){
 	        $('#tipo').css('background','#fff');
 	        $('#tipo').css('border','');
+	    });
+
+	    $("#novoCliente").click( function(){
+	    	$(window.document.location).attr('href','selecionarEquip.php?editar=novoCliente');
 	    });
 	    
 	    // Ctrl

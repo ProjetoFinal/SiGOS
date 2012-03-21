@@ -1,6 +1,5 @@
 <?php
 
-
 function validaCPF( $cpf ){
 
   $cpf = preg_replace ("@[.-]@", "", $cpf);
