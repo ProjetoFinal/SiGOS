@@ -1,0 +1,28 @@
+#menu{
+	border: 0px solid red;
+	background: #aaa;
+	width: 100%;
+	height: 50px;
+	position: absolute;
+}
+#menu ul{
+	border: 0px solid red;
+	list-style: none;
+	margin: 13px auto;
+	padding: 0;
+	text-align: left;
+	width: 900px;
+	height: 20px;
+}
+#menu ul li{
+	border: 0px solid red;
+	display: inline;
+	margin-right: 5px;
+}
+#menu ul li a{
+	text-decoration: none;
+	color: #000;
+}
+#menu ul li a:hover{
+	color: #fff;
+}
