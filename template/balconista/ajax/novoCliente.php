@@ -134,7 +134,7 @@ $cliente = new Cliente( $_GET );
 
 if( validaCPF( $cpf ) == true ){
 	//echo $cliente->novoCliente();
-	$verifica = $sql->consulta( Cliente::validaCPF( $cpf ) );
+	$verifica = $sql->consulta( Cliente::verificaCPF( $cpf ) );
 	$cont = mysql_num_rows( $verifica );
 
 	if( $cont >= 1 ){

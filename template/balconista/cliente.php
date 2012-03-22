@@ -287,40 +287,11 @@ $l = $sql->resultado();
     	$("#nome").focus();
     	
 	    $("#cadastrar").click( function(){
-	        var nome = $("#form1 #nome").val();
-	        var identidade = $("#form1 #identidade").val();
-	        var orgaoexpedidor = $("#form1 #orgaoexpedidor").val();
-	        var cpf = $("#form1 #cpf").val();
-	        var nascimento = $("#form1 #nascimento").val();
-	        var telefone = $("#form1 #telefone").val();
-	        var celular = $("#form1 #celular").val();
-	        var cep = $("#form1 #cep").val();
-	        var logradouro = $("#form1 #logradouro").val();
-	        var numero = $("#form1 #numero").val();
-	        var complemento = $("#form1 #complemento").val();
-	        var bairro = $("#form1 #bairro").val();
-	        var cidade = $("#form1 #cidade").val();
-	        var uf = $("#form1 #uf").val();
-	        var email = $("#form1 #email").val();
-
+	    	var formulario = $('#form1').serialize();
 	        $.ajax({
 	            type: "GET",
 	            url: "ajax/novoCliente.php",
-	            data: "nome="+nome+
-	                  "&identidade="+identidade+
-	                  "&orgaoexpedidor="+orgaoexpedidor+
-	                  "&cpf="+cpf+
-	                  "&nascimento="+nascimento+
-	                  "&telefone="+telefone+
-	                  "&celular="+celular+
-	                  "&cep="+cep+
-	                  "&logradouro="+logradouro+
-	                  "&numero="+numero+
-	                  "&complemento="+complemento+
-	                  "&bairro="+bairro+
-	                  "&cidade="+cidade+
-	                  "&uf="+uf+
-	                  "&email="+email,  
+	            data: formulario,  
 	            beforeSend: function(){
 	                $('#retornoErro').fadeIn(200);
 	                $("#retornoErro").text('Carregando...');
@@ -359,42 +330,11 @@ $l = $sql->resultado();
 		
 
 	    $("#editar").click( function(){
-	    	var idcliente = $("#form2 #idcliente").val();
-	    	var nome = $("#form2 #nome").val();
-	        var identidade = $("#form2 #identidade").val();
-	        var orgaoexpedidor = $("#form2 #orgaoexpedidor").val();
-	        var cpf = $("#form2 #cpf").val();
-	        var nascimento = $("#form2 #nascimento").val();
-	        var telefone = $("#form2 #telefone").val();
-	        var celular = $("#form2 #celular").val();
-	        var cep = $("#form2 #cep").val();
-	        var logradouro = $("#form2 #logradouro").val();
-	        var numero = $("#form2 #numero").val();
-	        var complemento = $("#form2 #complemento").val();
-	        var bairro = $("#form2 #bairro").val();
-	        var cidade = $("#form2 #cidade").val();
-	        var uf = $("#form2 #uf").val();
-	        var email = $("#form2 #email").val();
-
+	    	var formulario = $('#form2').serialize();
 	        $.ajax({
 	            type: "GET",
 	            url: "ajax/editarCliente.php",
-	            data: "idcliente="+idcliente+
-	            	  "&nome="+nome+
-	                  "&identidade="+identidade+
-	                  "&orgaoexpedidor="+orgaoexpedidor+
-	                  "&cpf="+cpf+
-	                  "&nascimento="+nascimento+
-	                  "&telefone="+telefone+
-	                  "&celular="+celular+
-	                  "&cep="+cep+
-	                  "&logradouro="+logradouro+
-	                  "&numero="+numero+
-	                  "&complemento="+complemento+
-	                  "&bairro="+bairro+
-	                  "&cidade="+cidade+
-	                  "&uf="+uf+
-	                  "&email="+email,  
+	            data: formulario,  
 	            beforeSend: function(){
 	                $('#retornoErro').fadeIn(200);
 	                $("#retornoErro").text('Carregando...');
