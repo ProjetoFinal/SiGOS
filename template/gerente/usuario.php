@@ -60,7 +60,7 @@ if( $editar == "" ){
 
 <div id="lineButton">
 	<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-	<input type="button" id="consultar" value="Consultar (Ctrl + F11)" />
+	<input type="button" id="consultar" value="Consultar (Enter)" />
 	<input type="button" id="cancelar" value="Cancelar (F5)" />
 </div>
 </form>
@@ -165,7 +165,7 @@ $l = $sql->resultado();
 <div id="retorno"></div>
 
 
-<script type="text/javascript" src="teclas.js"></script>
+<script type="text/javascript" src="teclasGerente.js"></script>
 
 <script>
 	$(document).ready( function(){
