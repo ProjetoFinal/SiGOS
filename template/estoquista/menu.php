@@ -2,11 +2,11 @@
 	<ul>
 		<li><a href="index.php">Início</a></li>
 		<li> | </li>
-		<li><a href="cliente.php">clientes</a></li>
+		<li><a href="fornecedor.php">Fornecedores</a></li>
 		<li> | </li>
-		<li><a href="equipamentos.php">Equipamentos</a></li>
+		<li><a href="peca.php">Peças</a></li>
 		<li> | </li>
-		<li><a href="os.php">Ordens de Serviço</a></li>
+		<li><a href="solicitacaopeca.php">Solicitacao de Peças</a></li>
 		<li> | </li>
 		<!--
 		<?php for($i=1; $i <= 5; $i++){ ?>

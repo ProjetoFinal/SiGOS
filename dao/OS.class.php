@@ -84,6 +84,16 @@ class OS{
 		return $query;
 	}
 
+	static function listarOsAguardandoPeca(){
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
+						inner join equipamento e on e.idequipamento = os.idequipamento 
+						inner join cliente c on c.idcliente = e.idcliente 
+						inner join statusos s on s.idstatus = os.idstatus 
+						inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+						where os.idstatus=7
+						order by os.entrada asc";
+		return $query;
+	}
 	function nova(){
 		$query = "insert into ordemdeservico (idequipamento,idstatus,defeito,acessorios,entrada) values ($this->idequipamento, 1, '$this->defeito', '$this->acessorios', now())";
 		return $query;
