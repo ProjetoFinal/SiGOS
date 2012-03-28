@@ -6,5 +6,10 @@ class Orcamento{
 		$query = "insert into orcamento values (null, $idos, '$maodeobra', '0.00')";
 		return $query;
 	}
+
+	static function updateValorPecasUsadas( $idor, $valor ){
+		$query = "update orcamento set valorpecasusadas=$valor where idorcamento=$idor";
+		return $query;
+	}
 	
 }
