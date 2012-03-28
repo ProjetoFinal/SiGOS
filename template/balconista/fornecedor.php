@@ -17,7 +17,6 @@ if($_GET){
 if( $editar == "" ){
 ?>
 
-<div id="corpoForm">
 <form id="form1">
 <div id="column1">
 <table>
@@ -124,11 +123,10 @@ if( $editar == "" ){
 
 <div id="lineButton">
 	<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-	<input type="button" id="consultar" value="Consultar (Enter)" />
+	<input type="button" id="consultar" value="Consultar (F10)" />
 	<input type="button" id="cancelar" value="Cancelar (F5)" />
 </div>
 </form>
-</div>
 <?php }else{
 
 $sql = new Conexao();
@@ -137,7 +135,6 @@ $sql->consulta( Fornecedor::consultaId( $idfornecedor ) );
 $l = $sql->resultado();
 
 ?>
-<div id="corpoForm">
 <form id="form2">
 <div id="column1">
 	<input type="hidden" name="idfornecedor" id="idfornecedor" value="<?=$l['idfornecedor']?>" />
@@ -244,14 +241,13 @@ $l = $sql->resultado();
 	<input type="button" id="remover"  value="Remover (Ctrl + F7)" />
 </div>
 </form>
-</div>
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno" style="margin-top:290px;"></div>
+<div id="retorno"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
-<script type="text/javascript" src="teclasFornecedor.js"></script>
+<script type="text/javascript" src="teclas.js"></script>
  <script>
     $(document).ready( function(){
     	$("#nome").focus();
@@ -308,11 +304,11 @@ $l = $sql->resultado();
 	            data: "nomefantasia="+nomefantasia+
 	                  "&cnpj="+cnpj,  
 	            beforeSend: function(){
-					$('#retornoErro').fadeIn(200);
-					$('#retornoErro').text('Consultando...');
-				},
-				success: function(html){ 
-	            		$('#retornoErro').fadeOut(3000);
+	                $('#retornoErro').fadeIn(200);
+	                $("#retornoErro").text('Carregando...');
+	            },
+	            success: function(html){ 
+	            		$('#retornoErro').fadeOut(5000);
 	                    $('#retorno').html(html);
 	            }
 	        });

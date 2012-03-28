@@ -79,7 +79,7 @@ if( $editar == ""){
 
 <div id="lineButton">
 	<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-	<input type="button" id="consultar" value="Consultar (Enter)" />
+	<input type="button" id="consultar" value="Consultar (F10)" />
 	<input type="button" id="cancelar" value="Cancelar (F5)" />
 </div>
 
@@ -168,7 +168,6 @@ if( $editar == ""){
 <div id="retorno"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskMoney.js"></script>
-<script type="text/javascript" src="teclasPeca.js"></script>
 <script type="text/javascript" >
     $(document).ready( function(){
     	
@@ -235,12 +234,26 @@ if( $editar == ""){
 	    
 	    //Editar Peças
 		$("#editar").click( function(){
-			var formulario = $("#form2").serialize();
+			var idpeca 		= $("#form2 #idpeca").val();
+			var codigopeca	= $("#form2 #codigopeca").val();
+			var nomepeca	= $("#form2 #nomepeca").val();
+			var marcapeca	= $("#form2 #marcapeca").val();
+			var modelopeca	= $("#form2 #modelopeca").val();
+			var quantidade	= $("#form2 #quantidade").val();
+			var precoentrada= $("#form2 #precounidade").val();
+			var dataentrada	= $("#form2 #dataentrada").val();
 
 			$.ajax({
 				type: "GET",
 				url: "ajax/editarPeca.php",
-				data: formulario,
+				data: "idpeca="+idpeca+
+					  "&codigopeca="+codigopeca+
+					  "&nomepeca="+nomepeca+
+					  "&marcapeca="+marcapeca+
+					  "&modelopeca="+modelopeca+
+					  "&quantidade="+quantidade+
+					  "&precounidade="+precoentrada+
+					  "&dataentrada"+dataentrada,
 				beforeSend: function(){
 					$('#retornoErro').fadeIn(200);
 					$('#retornoErro').text('Editando...');
@@ -254,13 +267,14 @@ if( $editar == ""){
 	    
 	    //Início Remover Peças
 		$("#remover").click( function(){
-			var formulario = $("#form2").serialize();
+			var idpeca = $("#form2 #idpeca").val();
+			var nomepeca = $("#form2 #nomepeca").val();	
 
 			if( confirm('Deseja realmente excluir a peça '+nomepeca+'?') ){
 				$.ajax({
 					type: "GET",
 					url: "ajax/removerPeca.php",
-					data: formulario,
+					data: "idpeca="+idpeca,
 					beforeSend: function(){
 				        $('#retornoErro').fadeIn(200);
 				        $("#retornoErro").text('Removendo...');
@@ -284,7 +298,9 @@ if( $editar == ""){
 	    //Função para exibir máscara Monetária
 	    $('#precounidade').maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
 
-            
+            $("#cancelar").click( function(){
+	    	$(window.document.location).attr('href','peca.php');
+	    });
 	});
 </script>
 
