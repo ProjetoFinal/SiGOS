@@ -1,14 +1,14 @@
 <div id="menu">
 	<ul>
 		<!--
-			Orçamento Aprovado
-		-->
-		<li><a href="aprovadas.php">APROVADAS ( <?=OS::contadorOS(4, $_SESSION['idusuario'])?> )</a></li>
-		<li> | </li>
-		<!--
 			Em Aberto
 		-->
 		<li><a href="abertas.php">ABERTAS ( <?=OS::contadorOS(1, $_SESSION['idusuario'])?> )</a></li>
+		<li> | </li>
+		<!--
+			Orçamento Aprovado
+		-->
+		<li><a href="aprovadas.php">APROVADAS ( <?=OS::contadorOS(4, $_SESSION['idusuario'])?> )</a></li>
 		<li> | </li>
 		<!--
 			Em Análise Técnica + Em Manutenção

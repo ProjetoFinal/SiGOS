@@ -61,7 +61,8 @@ if( $_GET ){
 			$.ajax({
 				type: "GET",
 				url: "ajax/assumirOsAberta.php",
-				data: "idos="+idos,
+				data: "idos="+idos+
+					  "&idstatus=2",
 				beforeSend: function(){
 					$('#retornoErro').fadeIn(200);
 		            $("#retornoErro").text('Carregando...');

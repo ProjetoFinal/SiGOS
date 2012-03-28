@@ -43,10 +43,10 @@ class PecaSolicitada{
 	function editarPecaSolicitada( $idpecasolicitada ){
 		$query = "update pecasolicitada 
                           set idordemservico = $this->idordemdeservico,
-			      idpeca         = $this->idpeca,
-			      qtdsolicitada  = $this->qtdsolicitada,
-			      posicao        = $this->posicao
-			  where idpecasolicitada = $idpecasolicitada";
+			      			idpeca = $this->idpeca,
+			      				qtdsolicitada = $this->qtdsolicitada,
+			      					posicao = $this->posicao
+			 							 where idpecasolicitada = $idpecasolicitada";
 		return $query;
 	}
 	

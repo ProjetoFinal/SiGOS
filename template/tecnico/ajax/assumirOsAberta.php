@@ -10,13 +10,13 @@ extract( $_GET );
 $sql = new Conexao();
 $sql->conecta();
 
-$ok = $sql->consulta( OS::assumirOsAberta( $_SESSION['idusuario'], $idos ) );
+$ok = $sql->consulta( OS::assumirOs( $_SESSION['idusuario'], $idos, $idstatus ) );
 if($ok){
 	echo "OS nr. ".$idos." assumida pelo usuario ".$_SESSION['nome'].".
 				<script>
 					$('#retornoErro').fadeOut(5000);
 				</script>
-				<META HTTP-EQUIV='REFRESH' CONTENT='2; URL=abertas.php'>";
+				<META HTTP-EQUIV='REFRESH' CONTENT='2; URL=assumidas.php'>";
 }else{
 	echo "Erro ao tentar assumir OS de nr. ".$idos."
 		<script>$('#retornoErro').fadeOut(5000);</script>";	

@@ -26,7 +26,7 @@ if( $_GET ){
 			echo"
 				<tr>
 					<td class='um'>
-						<a href='.php?acao=ver&idos=".$l['idordemdeservico']."'>".$l['idordemdeservico']."</a>
+						<a href='#' onclick='assumirOS(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>
 					</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
@@ -56,6 +56,25 @@ if( $_GET ){
 			$(window.document.location).attr('href','aprovadas.php?key='+key);
 		})
 	});
+
+	function assumirOS( idos ){
+		if( confirm('A OS de nr. '+idos+' entrara em manutencao.') ){
+			$.ajax({
+				type: "GET",
+				url: "ajax/assumirOsAberta.php",
+				data: "idos="+idos+
+					  "&idstatus=6"	,
+				beforeSend: function(){
+					$('#retornoErro').fadeIn(200);
+		            $("#retornoErro").text('Carregando...');
+				},
+				success: function(html){
+					$('#retornoErro').fadeIn(200);
+					$("#retornoErro").html(html);
+				}
+			});
+		}
+	}
 </script>
 
 <?php

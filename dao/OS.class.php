@@ -137,8 +137,8 @@ class OS{
 		return $l['n'];
 	}
 
-	static function assumirOsAberta( $idusuario, $idos ){
-		$query = "update ordemdeservico set idusuario=$idusuario, idstatus=2 where idordemdeservico=$idos and idstatus=1";
+	static function assumirOs( $idusuario, $idos, $idstatus ){
+		$query = "update ordemdeservico set idusuario=$idusuario, idstatus=$idstatus where idordemdeservico=$idos";
 		return $query;
 	}
 }
