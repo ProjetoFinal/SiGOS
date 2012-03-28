@@ -1,4 +1,7 @@
 <?php
+function __autoload($class){
+    include_once("../../dao/$class.class.php");
+}
 include_once("topo.php");
 require_once("../function/formataData.php");
 if( $_GET ){

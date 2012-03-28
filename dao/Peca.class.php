@@ -10,9 +10,6 @@ class Peca{
 	var $precounidade;
 	var $dataentrada;
 
-	function __constructor() {
-	}
-
 	function __construct( $p ){
 		$this->codigopeca = $p['codigopeca'];
 		$this->nomepeca = $p['nomepeca'];
@@ -30,9 +27,8 @@ class Peca{
 		return $query;
 	}
 	
-	static function consultaCodigo(){
-		$query = "select codigopeca from peca where codigopeca=$this->codigopeca";
-		
+	static function consultaCodigo( $codigopeca ){
+		$query = "select codigopeca from peca where codigopeca=$codigopeca";
 		return $query;
 	}
 
@@ -85,17 +81,16 @@ class Peca{
 	}
 	
 	static function removerPeca( $idpeca ){
-	$query = "delete from peca where idpeca = '$idpeca'";
-
- 	static function atualizaQuantidadeEstoquePeca( $idpeca, $quantidade ){
-		$query = "update peca 
-			  set quantidade = $quantidade
-			  where idpeca = '$idpeca'";
-		
+		$query = "delete from peca where idpeca = '$idpeca'";
 		return $query;
 	}
 
-	return $query;
+ 	static function atualizaQuantidadeEstoquePeca( $idpeca, $quantidade ){
+		$query = "update peca 
+					set quantidade=$quantidade 
+						where idpeca='$idpeca'";
+		
+		return $query;
 	}
 	
 }

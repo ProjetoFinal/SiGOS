@@ -1,4 +1,5 @@
 <?php
+
 function __autoload( $class ){
 	include_once("../../dao/$class.class.php");
 }
