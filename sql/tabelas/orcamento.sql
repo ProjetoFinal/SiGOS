@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mar 15, 2012 as 03:36 PM
+-- Tempo de Geração: Mar 28, 2012 as 04:53 PM
 -- Versão do Servidor: 5.1.49
 -- Versão do PHP: 5.3.3-1ubuntu9.6
 
@@ -30,12 +30,14 @@ CREATE TABLE IF NOT EXISTS `orcamento` (
   `idordemdeservico` int(11) NOT NULL,
   `maodeobra` decimal(8,2) NOT NULL,
   `valorpecasusadas` decimal(8,2) DEFAULT '0.00',
+  `comentarios` text,
   PRIMARY KEY (`idorcamento`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `orcamento`
 --
 
-INSERT INTO `orcamento` (`idorcamento`, `idordemdeservico`, `maodeobra`, `valorpecasusadas`) VALUES
-(1, 11, 150.00, 0.00);
+INSERT INTO `orcamento` (`idorcamento`, `idordemdeservico`, `maodeobra`, `valorpecasusadas`, `comentarios`) VALUES
+(1, 11, 150.00, 0.00, NULL),
+(2, 12, 50.00, 0.50, NULL);
