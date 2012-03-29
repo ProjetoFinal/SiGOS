@@ -16,5 +16,15 @@ class Orcamento{
 		$query = "select * from orcamento where idorcamento=$id";
 		return $query;
 	}
+
+	static function finalizarOrcamento( $id ){
+		$query = "update ordemdeservico set idstatus=3 where idordemdeservico=$id";
+		return $query;
+	}
+
+	static function attComentarios( $id, $comentarios ){
+		$query = "update orcamento set comentarios='$comentarios' where idorcamento=$id";
+		return $query;
+	}
 	
 }

@@ -35,7 +35,11 @@ $l = $sql->resultado();
 <table border=1>
 	<tr>
 		<td>OS N.</td>
-		<td><?=$l['idordemdeservico']?></td>
+		<td>
+			<?=$l['idordemdeservico']?>
+			<input type="hidden" id="idordemdeservico" value="<?=$l['idordemdeservico']?>" />
+			<input type="hidden" id="idorcamento" value="<?=$idor?>" />
+		</td>
 	</tr>
 	<tr>
 		<td>Entrada</td>
@@ -80,12 +84,13 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td>Comentários</td>
-		<td><textarea id="comentarios"><?=$l['comentarios']?></textarea></td>
+		<td>
+			<textarea id="comentarios"><?=$l['comentarios']?></textarea>
+			<input type="button" id="attComent" value="Att Cometário" />
+		</td>
+
 	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-	</tr>
+
 	<tr style="background:green; color: #000; text-transform: bold;">
 		<td>Valor Final</td>
 		<td>R$ <?=$l['valorpecasusadas'] + $l['maodeobra']?></td>
@@ -144,4 +149,41 @@ $l = $sql->resultado();
 			}
 		});
 	}
+
+	$('#attComent').click( function(){
+		var idor = $('#idorcamento').val();
+		var comentarios = $('#comentarios').val();
+		$.ajax({
+				type: "GET",
+				url: "ajax/attComentarios.php",
+				data: "idor="+idor+
+					  "&comentarios="+comentarios,
+				success: function(data){
+					if(data==1){
+						location.reload();			
+					}else{
+						alert('Erro ao tentar finalizar Orcamento');						
+					}					
+				}
+			});
+	});
+
+	$('#fecharOrcamento').click( function(){
+		var idos = $('#idordemdeservico').val();
+		if(confirm('Deseja finalizar o Orcamento da OS de Nr. '+idos)){
+			$.ajax({
+				type: "GET",
+				url: "ajax/fecharOrcamento.php",
+				data: "idos="+idos,
+				success: function(data){
+					if(data==1){
+						opener.location.reload();
+						window.close();			
+					}else{
+						alert('Erro ao tentar finalizar Orcamento');						
+					}					
+				}
+			});
+		}
+	});
 </script>
