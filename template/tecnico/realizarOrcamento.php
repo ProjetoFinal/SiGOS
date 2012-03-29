@@ -63,13 +63,12 @@ $l = $sql->resultado();
 					while( $p = $sql->resultado() ){
 				?>
 					<div id="linhaPeca">
-						<?=$p['nomepeca']?>  |  <input type="text" id="qtdPeca" 
+						<?=$p['nomepeca']?>  |  <input type="text" id="qtdPeca<?=$p['idpecasolicitada']?>" 
 												value="<?=$p['qtdsolicitada']?>" 
 													style="width: 20px; height: 15px"
 													readonly />	
 					</div>
-					<img src="../img/btn_fechar.png" id="menosUm" 
-						onclick="menosUm(<?=$p['idpecasolicitada']?>)" />
+					<input type="image" src="../img/btn_fechar.png" id="menosUm" onclick="menosUm(<?=$p['idpecasolicitada']?>, <?=$idor?>, <?=$p['precounidade']?>)" />
 				<?php } } else { echo "Sem registros"; } ?>
 			</div>
 			<input type="button" id="addPeca" value="Add Peça" />
@@ -90,6 +89,13 @@ $l = $sql->resultado();
 	<tr style="background:green; color: #000; text-transform: bold;">
 		<td>Valor Final</td>
 		<td>R$ <?=$l['valorpecasusadas'] + $l['maodeobra']?></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="button" id="fecharOrcamento" value="Finalizar Orçamento" />
+			&nbsp;
+			<input type="button" onclick="window.close()" value="Fechar sem Finalizar" />
+		</td>
 	</tr>
 </table>
 
@@ -117,4 +123,25 @@ $l = $sql->resultado();
 	$('#addPeca').click( function(){
 		abrir('addPeca.php?idos=<?=$idos?>&idor=<?=$idor?>','1000','600');
 	});
+
+	$('#menosUm').css('cursor','pointer');
+
+	function menosUm( id, idor, valor ){
+		var qtd = $('#qtdPeca'+id).val() - 1;
+		$.ajax({
+			type: "GET",
+			url: "ajax/menosUma.php",
+			data: "idpecasolicitada="+id+
+				  "&idor="+idor+
+				  "&qtd="+qtd+
+				  "&valor="+valor,
+			success: function(data){
+				if(data==1){
+					location.reload();						
+				}else{
+					alert('Erro ao remover uma unidade de Peca');						
+				}					
+			}
+		});
+	}
 </script>

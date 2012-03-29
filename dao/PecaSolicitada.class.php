@@ -57,9 +57,14 @@ class PecaSolicitada{
 	}
 
 	static function addMaisUm( $idpecasolicitada, $qtd ){
-		$query = "update pecasolictada set qtdsolicitada=$qtd where idpecasolicitada=$idpecasolicitada";
+		$query = "update pecasolicitada set qtdsolicitada=$qtd where idpecasolicitada=$idpecasolicitada";
 		return $query;
 	}
-	
+
+	static function menosUm( $id ){
+		$query = "delete from pecasolicitada where idpecasolicitada=$id";
+		return $query;
+	}
+
 }
 

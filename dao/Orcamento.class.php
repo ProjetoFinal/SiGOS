@@ -11,5 +11,10 @@ class Orcamento{
 		$query = "update orcamento set valorpecasusadas=$valor where idorcamento=$idor";
 		return $query;
 	}
+
+	static function valorPecaUsada( $id ){
+		$query = "select * from orcamento where idorcamento=$id";
+		return $query;
+	}
 	
 }

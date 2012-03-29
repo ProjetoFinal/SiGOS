@@ -17,6 +17,12 @@ if( $contRow >= 1 ){
 	$qtd = $l['qtdsolicitada'] + 1;
 	$addMaisUm = $sql->consulta( PecaSolicitada::addMaisUm( $l['idpecasolicitada'], $qtd ) );
 	if($addMaisUm){
+		$sql->consulta( Orcamento::valorPecaUsada( $idor ) );
+		$v = $sql->resultado();
+
+		$valorFinal = $v['valorpecasusadas'] + $valor;
+
+		$sql->consulta( Orcamento::updateValorPecasUsadas( $idor, $valorFinal ) );
 		echo"
 			<script>
 				opener.location.reload();
@@ -37,7 +43,12 @@ if( $contRow >= 1 ){
 }else{
 	$novo = $sql->consulta( PecaSolicitada::novaPecaSolicitada( $idos, $idpeca ) );
 	if($novo){
-		$sql->consulta( Orcamento::updateValorPecasUsadas( $idor, $valor ) );
+		$sql->consulta( Orcamento::valorPecaUsada( $idor ) );
+		$v = $sql->resultado();
+
+		$valorFinal = $v['valorpecasusadas'] + $valor;
+
+		$sql->consulta( Orcamento::updateValorPecasUsadas( $idor, $valorFinal ) );
 		echo"
 			<script>
 				opener.location.reload();
