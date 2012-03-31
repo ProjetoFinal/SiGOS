@@ -274,6 +274,10 @@ if( $editar == ""){
 		});
 		//Fim Remover Peças
 		
+		$("#cancelar").click( function(){
+	    	$(window.document.location).attr('href','peca.php');
+	    });
+		
 		// Função para exibir calendário
 		$("#dataentrada").datepicker({
 	            showOn: "button",
