@@ -75,7 +75,8 @@ class Peca{
 	}
 	
 	static function verificaEstoquePeca( $idpeca ){
-		$query = "select quantidade from peca where idpeca = '$idpeca'";
+		//$query = "select quantidade from peca where idpeca = '$idpeca'";
+		$query = "SELECT  `quantidade` FROM  `peca` WHERE  `idpeca` = '$idpeca'";
 		
 		return $query;
 	}

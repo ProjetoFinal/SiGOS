@@ -14,7 +14,7 @@ $verificaEstoquePeca = $sql->consulta( Peca::verificaEstoquePeca( $idpeca ) );
 $verPeca = mysql_num_rows( $verificaEstoquePeca );
 
 if( $verPeca >= 1 ){
-	echo "Peça com quantidade em estoque.
+	echo "Peça com quantidade em estoque NÃO PODE SER REMOVIDA.
 				<script>$('#retornoErro').fadeOut(5000);</script>";
 }
 

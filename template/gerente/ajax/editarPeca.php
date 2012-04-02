@@ -87,6 +87,8 @@ $msgPrecoUnidade
 $msgDataEntrada
 ERRO;
 }else{
+	
+	
 
 $sql = new Conexao();
 $sql->conecta();
