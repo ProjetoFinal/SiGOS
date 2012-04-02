@@ -85,7 +85,7 @@ if( $_GET ){
 		abrir('realizarOrcamento.php?idos='+idos+'&idor='+idor,'520','600'); 
 	}
 	function manutencao( idos ){
-		alert('manutencao');
+		abrir('realizarManutencao.php?idos='+idos,'520','600');
 	}
 </script>
 

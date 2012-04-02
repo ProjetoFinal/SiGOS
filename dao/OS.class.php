@@ -151,4 +151,15 @@ class OS{
 						where os.idordemdeservico=$idos";
 		return $query;
 	}
+
+	static function attAcompanhamento( $id, $acomp ){
+		$query = "update ordemdeservico set acompanhamento='$acomp' where idordemdeservico=$id";
+		return $query;
+	}
+
+	static function finalizarManutencao( $id, $solucao ){
+		$query = "update ordemdeservico set idstatus=8 ,solucao='$solucao' where idordemdeservico=$id";
+		return $query;
+	}
+
 }
