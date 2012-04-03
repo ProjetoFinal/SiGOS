@@ -162,4 +162,9 @@ class OS{
 		return $query;
 	}
 
+	static function reabrirPrioridade($idusuario, $idos){
+		$query = "update ordemdeservico set idstatus=6 where idordemdeservico=$idos";
+		return $query;
+	}
+
 }

@@ -27,7 +27,7 @@ if( $_GET ){
 			echo"
 				<tr>
 					<td class='um'>
-						<a href='#' onclick='manutencao(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>
+						<a href='#' onclick='reabrirOS(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>
 					</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
@@ -56,6 +56,25 @@ if( $_GET ){
 			$(window.document.location).attr('href','prioridade.php?key='+key);
 		});
 	});
+
+	function reabrirOS( idos ){
+		if( confirm('A OS de nr. '+idos+' entrara em manutencao novamente.') ){
+			$.ajax({
+				type: "GET",
+				url: "ajax/reabrirPrioridade.php",
+				data: "idos="+idos+
+					  "&idstatus=2",
+				beforeSend: function(){
+					$('#retornoErro').fadeIn(200);
+		            $("#retornoErro").text('Carregando...');
+				},
+				success: function(html){
+					$('#retornoErro').fadeIn(200);
+					$("#retornoErro").html(html);
+				}
+			});
+		}
+	}
 </script>
 
 <?php
