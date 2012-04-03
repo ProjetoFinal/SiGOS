@@ -41,8 +41,8 @@
 			</a>
 		</li> 
 		<li style="float:right"> | </li> 
-		<li style="float:right">
+		<!--<li style="float:right">
 			<a href="configuracoes.php">Configurações</a>
-		</li>
+		</li>-->
 	</ul>
 </div>
