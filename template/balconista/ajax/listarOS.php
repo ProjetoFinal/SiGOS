@@ -18,9 +18,11 @@ extract( $_GET );
 			if( $l['idstatus'] <= 7 or $l['idstatus'] == 9 or $l['idstatus'] == 10 && $l['idstatus'] != 3 )
 				$link = "<a href='os.php?acao=ver&idos=".$l['idordemdeservico']."'>".$l['idordemdeservico']."</a>";
 			if( $l['idstatus'] == 3 )
-				$link = "<a href='b'>".$l['idordemdeservico']."</a>";	
+				$link = "<a href='#' onclick='apRp(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";	
 			if( $l['idstatus'] == 8 )
 				$link = "<a href='c'>".$l['idordemdeservico']."</a>";
+			if( $l['idstatus'] == 6 )
+				$link = "<a href='#' onclick='emManutencao(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
 				
 		echo "
 			<table>
@@ -46,6 +48,35 @@ extract( $_GET );
 <script>
 	$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
 	$('#listaOS table tbody tr:even').css('background','#EBF3EB');
+
+	function abrir(pagina,largura,altura) {
+
+		//pega a resolução do visitante
+		w = screen.width;
+		h = screen.height;
+
+		//divide a resolução por 2, obtendo o centro do monitor
+		meio_w = w/2;
+		meio_h = h/2;
+
+		//diminui o valor da metade da resolução pelo tamanho da janela, fazendo com q ela fique centralizada
+		altura2 = altura/2;
+		largura2 = largura/2;
+		meio1 = meio_h-altura2;
+		meio2 = meio_w-largura2;
+
+		//abre a nova janela, já com a sua devida posição
+		window.open(pagina,'','height='+altura+',width='+largura+',top='+meio1+',left='+meio2+',scrollbars=no, toolbar=no'); 
+	}
+
+	function emManutencao( idos ){
+		abrir('emManutencao.php?idos='+idos,'520','600'); 
+	}
+
+	function apRp( idos ){
+		abrir('apRp.php?idos='+idos,'520','600'); 
+	}
+
 	function verOS( id ){
 		window.open('verOS.php?idos='+id,'Janela','width=400,height=400');
 	}

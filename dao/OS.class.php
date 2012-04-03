@@ -167,4 +167,9 @@ class OS{
 		return $query;
 	}
 
+	static function apRp( $idos, $idstatus ){
+		$query = "update ordemdeservico set idstatus=$idstatus where idordemdeservico=$idos";
+		return $query;
+	}
+
 }
