@@ -79,7 +79,7 @@ if( $editar == "" ){ ?>
 		<?php
 			if( empty($editar) && !empty($idOS) ){
 		?>
-		window.open('impOS.php?idos=<?=$idOS?>','Janela','width=400,height=400');			
+			window.open('verOs.php?idos=<?=$idOS?>','Janela','width=520,height=600');			
 		<?php }	?>
 
 		$("#novaOS").click( function(){

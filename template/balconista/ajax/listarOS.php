@@ -20,7 +20,7 @@ extract( $_GET );
 			if( $l['idstatus'] == 3 )
 				$link = "<a href='#' onclick='apRp(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";	
 			if( $l['idstatus'] == 8 )
-				$link = "<a href='c'>".$l['idordemdeservico']."</a>";
+				$link = "<a href='#' onclick='prontaEntrega(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
 			if( $l['idstatus'] == 6 )
 				$link = "<a href='#' onclick='emManutencao(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
 				
@@ -71,6 +71,10 @@ extract( $_GET );
 
 	function emManutencao( idos ){
 		abrir('emManutencao.php?idos='+idos,'520','600'); 
+	}
+
+	function prontaEntrega( idos ){
+		abrir('prontaEntrega.php?idos='+idos,'520','600'); 
 	}
 
 	function apRp( idos ){

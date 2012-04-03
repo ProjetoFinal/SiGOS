@@ -172,4 +172,9 @@ class OS{
 		return $query;
 	}
 
+	static function reabrirOs( $idos ){
+		$query = "update ordemdeservico set idstatus=9 where idordemdeservico=$idos";
+		return $query;
+	}
+
 }
