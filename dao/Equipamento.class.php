@@ -15,12 +15,12 @@ class Equipamento{
 	}
 	
 	static function exibirEquipamentos( $key ){
-		$query = "select e.*, c.*, te.tipo as tipoequip,count(e.idcliente) as qtd from equipamento e
-					right join cliente c on c.idcliente = e.idcliente
-					left join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-						where c.nome like '%$key%' or c.cpf like '%$key%' or c.telefone like '%$key%' or e.marcaequip like '%$key%' or e.modeloequip like '%$key%' or numserie like '%$key%'
-							group by e.idcliente
-								order by c.nome asc";
+		$query = "select e.*, c.*, te.tipo as tipoequip,count(e.idcliente) as qtd from cliente c 
+					left join equipamento e on c.idcliente = e.idcliente 
+						left join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+								where c.nome like '%$key%' or c.cpf like '%$key%' or c.telefone like '%$key%' or e.marcaequip like '%$key%' or e.modeloequip like '%$key%' or numserie like '%$key%' 
+									group by c.idcliente 
+										order by c.nome asc";
 		return $query;
 	}
 
