@@ -281,7 +281,7 @@ $l = $sql->resultado();
 <div id="retornoErro"></div>
 <div id="retorno"></div>
 
-<script type="text/javascript" src="/sigos/template/js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="teclas.js"></script>
  <script>
     $(document).ready( function(){
