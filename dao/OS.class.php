@@ -35,7 +35,7 @@ class OS{
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
 									inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-									where c.nome like '%$key%' or c.cpf like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%'
+									where c.nome like '%$key[nome]%' and c.cpf like '%$key[cpf]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%'
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
@@ -57,7 +57,7 @@ class OS{
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
 								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idstatus=$idstatus
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idstatus=$idstatus
 										order by os.entrada asc";
 		return $query;
 	}
@@ -69,7 +69,7 @@ class OS{
 								inner join statusos s on s.idstatus = os.idstatus
 								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 								left join orcamento orc on orc.idordemdeservico = os.idordemdeservico
-									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and (os.idstatus=2 or os.idstatus=6)
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and (os.idstatus=2 or os.idstatus=6)
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
@@ -80,7 +80,7 @@ class OS{
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
 								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and os.idstatus=3
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and os.idstatus=3
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
@@ -91,7 +91,7 @@ class OS{
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
 								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and os.idstatus=9
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and os.idstatus=9
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}
@@ -102,7 +102,7 @@ class OS{
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
 								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-									where (c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idusuario=$idusuario and os.idstatus=4
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and os.idstatus=4
 										order by os.entrada asc";
 		return $query;
 	}
@@ -117,6 +117,7 @@ class OS{
 						order by os.entrada asc";
 		return $query;
 	}
+	
 	function nova(){
 		$query = "insert into ordemdeservico (idequipamento,idstatus,defeito,acessorios,entrada) values ($this->idequipamento, 1, '$this->defeito', '$this->acessorios', now())";
 		return $query;

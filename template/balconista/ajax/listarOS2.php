@@ -10,7 +10,12 @@ extract( $_GET );
 
 	$sql = new Conexao();
 	$sql->conecta();
-	$res = $sql->consulta( OS::listarOS2( $key ) );
+
+	$bomba = explode(":",$key);
+
+	$word = array( $bomba[0] => ltrim($bomba[1]) );
+
+	$res = $sql->consulta( OS::listarOS2( $word ) );
 	$cont = mysql_num_rows( $res );
 
 	if( $cont >=1 ){

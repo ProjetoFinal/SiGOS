@@ -16,7 +16,12 @@ if( $_GET ){
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();
-		$qtd = $sql->consulta( OS::listarOsAprovadas( $key, $_SESSION['idusuario'] ) );
+
+		$bomba = explode(":",$key);
+
+		$word = array( $bomba[0] => ltrim($bomba[1]) );
+
+		$qtd = $sql->consulta( OS::listarOsAprovadas( $word, $_SESSION['idusuario'] ) );
 		$numRows = mysql_num_rows($qtd);
 
 		if( $numRows >=1 ){

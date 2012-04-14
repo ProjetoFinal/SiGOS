@@ -16,7 +16,12 @@ if( $_GET ){
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();
-		$qtd = $sql->consulta( OS::listarOsId( $key, 7 ) );
+
+		$bomba = explode(":",$key);
+
+		$word = array( $bomba[0] => ltrim($bomba[1]) );
+
+		$qtd = $sql->consulta( OS::listarOsId( $word, 7 ) );
 		$numRows = mysql_num_rows($qtd);
 
 		if( $numRows >=1 ){
@@ -52,7 +57,7 @@ if( $_GET ){
 
 		$("#buscar").click( function(){
 			var key = $('#key').val();
-			$(window.document.location).attr('href','abertas.php?key='+key);
+			$(window.document.location).attr('href','aguardandoPeca.php?key='+key);
 		});
 	});
 
