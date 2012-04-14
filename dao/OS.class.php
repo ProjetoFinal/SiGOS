@@ -107,14 +107,14 @@ class OS{
 		return $query;
 	}
 
-	static function listarOsAguardandoPeca(){
+	static function listarOsAguardandoPeca( $key, $idusuario ){
 		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
-						inner join cliente c on c.idcliente = e.idcliente 
-						inner join statusos s on s.idstatus = os.idstatus 
-						inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-						where os.idstatus=7
-						order by os.entrada asc";
+							inner join cliente c on c.idcliente = e.idcliente 
+								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and os.idstatus=7
+										order by os.entrada asc";
 		return $query;
 	}
 	

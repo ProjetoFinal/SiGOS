@@ -9,6 +9,10 @@ if( $_GET ){
 <div id="busca">
 	<input type="text" id="key" />
 	<input type="button" id="buscar" value="Buscar" />
+	<div id="filtro2">
+		<div id="os" class="filtro">ordem de serviço</div>		
+		<div id="fechar" class="fechar">FECHAR</div>
+	</div>
 </div>
 
 <div id='retornoErro'></div>
@@ -59,6 +63,24 @@ if( $_GET ){
 			var key = $('#key').val();
 			$(window.document.location).attr('href','abertas.php?key='+key);
 		});
+
+		$('#key').click( function(){
+	    	if( $('#key').val() == '')
+	    		$('#filtro2').fadeIn(200);
+	    });
+
+	    $('#filtro2 #os').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#key').val("idos:");
+	    	$('#filtro2').fadeOut(100);
+	    });
+
+	    $('#filtro2 #fechar').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#filtro2').fadeOut(100);
+	    });
 	});
 
 	function assumirOS( idos ){

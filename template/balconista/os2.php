@@ -18,6 +18,13 @@ if( $editar == "" ){ ?>
 
 <div id="busca">
 	<input type="button" id="novaOS" value="Nova OS (Insert)" />
+	<div id="filtro">
+		<div id="nome" class="filtro">nome</div>
+		<div id="cpf" class="filtro">cpf</div>
+		<div id="os" class="filtro">ordem de serviço</div>
+		<div id="status" class="filtro">status</div>		
+		<div id="fechar" class="fechar">FECHAR</div>
+	</div>
 </div>
 <div id="busca">
 	<input type="text" id="key" />
@@ -135,6 +142,46 @@ if( $editar == "" ){ ?>
 	        $('#defeito').css('background','#fff');
 	        $('#defeito').css('border','');
 	    });
+
+	    $('#key').click( function(){
+	    	if( $('#key').val() == '')
+	    		$('#filtro').fadeIn(200);
+	    });
+
+	    $('#filtro #nome').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#key').val("nome:");
+	    	$('#filtro').fadeOut(100);
+	    });
+
+	    $('#filtro #cpf').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#key').val("cpf:");
+	    	$('#filtro').fadeOut(100);
+	    });
+
+	    $('#filtro #os').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#key').val("idos:");
+	    	$('#filtro').fadeOut(100);
+	    });
+
+	    $('#filtro #status').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#key').val("status:");
+	    	$('#filtro').fadeOut(100);
+	    });
+		
+		$('#filtro #fechar').click( function(){
+	    	$('#key').val();
+	    	$('#key').focus();
+	    	$('#filtro').fadeOut(100);
+	    });
+	    	    
 	});
 </script>
 <?php
