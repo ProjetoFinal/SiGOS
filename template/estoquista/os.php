@@ -17,7 +17,7 @@ if($_GET){
 if( $editar == "" ){ ?>
 
 <div id="busca">
-	<input type="button" id="novaOS" value="Nova OS (Insert)" />
+	<!--<input type="button" id="novaOS" value="Nova OS (Insert)" />-->
 </div>
 <div id="busca">
 	<!--<input type="text" id="key" />

@@ -24,7 +24,29 @@ class OS{
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus 
 									inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
-									where c.nome like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%'
+									where (c.nome like '%$key%' or c.cpf like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and (os.idstatus=8 or os.idstatus=3)
+										order by os.idstatus desc, os.entrada asc";
+		return $query;
+	}
+
+	static function listarOS2( $key ){
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
+						inner join equipamento e on e.idequipamento = os.idequipamento 
+							inner join cliente c on c.idcliente = e.idcliente 
+								inner join statusos s on s.idstatus = os.idstatus 
+									inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+									where c.nome like '%$key%' or c.cpf like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%'
+										order by os.idstatus desc, os.entrada asc";
+		return $query;
+	}
+
+	static function listarOSEstoque( $key ){
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip from ordemdeservico os 
+						inner join equipamento e on e.idequipamento = os.idequipamento 
+							inner join cliente c on c.idcliente = e.idcliente 
+								inner join statusos s on s.idstatus = os.idstatus 
+									inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+									where (c.nome like '%$key%' or c.cpf like '%$key%' or os.idordemdeservico like '%$key%' or s.status like '%$key%') and os.idstatus=7
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}

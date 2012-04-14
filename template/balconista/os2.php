@@ -20,8 +20,8 @@ if( $editar == "" ){ ?>
 	<input type="button" id="novaOS" value="Nova OS (Insert)" />
 </div>
 <div id="busca">
-	<!--<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />-->
+	<input type="text" id="key" />
+	<input type="button" id="buscar" value="Buscar" />
 </div>
 
 <div id='retornoErro'></div>
@@ -29,7 +29,7 @@ if( $editar == "" ){ ?>
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");
-			$('#listaOS').load('ajax/listarOS.php');
+			$('#listaOS').load('ajax/listarOS2.php');
 			$("#retornoErro").fadeOut(3000);
 	</script>
 </div>
@@ -123,7 +123,7 @@ if( $editar == "" ){ ?>
 
 			$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");
-			$('#listaOS').load('ajax/listarOS.php?key='+key);
+			$('#listaOS').load('ajax/listarOS2.php?key='+key);
 			$("#retornoErro").fadeOut(3000);
 		});
 

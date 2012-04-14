@@ -93,48 +93,29 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" name="ap" id="ap" value="Aprovar" />
-			<input type="button" name="rp" id="rp" value="Reprovar" />
+			&nbsp;
+			<input type="button" id="atPeca" value="Atender Peça" />
 			<input type="button" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>
-
 <script>
-	$('#ap').click( function(){
+	$('#atPeca').click( function(){
 		var idos = $('#idordemdeservico').val();
 
-		if(confirm('Deseja Aprovar o Orcamento da OS de Nr. '+idos)){
+		if(confirm('Deseja Atender Peça da OS de Nr. '+idos)){
 			$.ajax({
 				type: "GET",
-				url: "ajax/apRp.php",
-				data: "idos="+idos+"&status=7",
+				url: "ajax/atPeca.php",
+				data: "idos="+idos,
 				success: function(data){
 					if(data==1){
 						opener.location.reload();
 						window.close();			
+					}else if(data==2){
+						alert('Erro ao dar baixa no estoque');	
 					}else{
-						alert('Erro ao tentar Aprovar Orçamento');						
-					}					
-				}
-			});
-		}
-	});
-
-	$('#rp').click( function(){
-		var idos = $('#idordemdeservico').val();
-
-		if(confirm('Deseja Reprovar o Orcamento da OS de Nr. '+idos)){
-			$.ajax({
-				type: "GET",
-				url: "ajax/apRp.php",
-				data: "idos="+idos+"&status=5",
-				success: function(data){
-					if(data==1){
-						opener.location.reload();
-						window.close();			
-					}else{
-						alert('Erro ao tentar Reprovar Orçamento');						
+						alert('A(s) peca(s): '+ data + 'nao possuem saldo em estoque');					
 					}					
 				}
 			});
