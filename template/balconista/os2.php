@@ -148,6 +148,14 @@ if( $editar == "" ){ ?>
 	    		$('#filtro').fadeIn(200);
 	    });
 
+	    $('#central').hover( function(){
+	    	$('#filtro').hide();
+	    });
+
+	    $('#listaOS').hover( function(){
+	    	$('#filtro').hide();
+	    });
+
 	    $('#filtro #nome').click( function(){
 	    	$('#key').val();
 	    	$('#key').focus();
