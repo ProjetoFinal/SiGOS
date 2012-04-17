@@ -34,26 +34,32 @@ input[type=button], input[type=reset], input[type=password]{
 }
 
 #filtro{
-	border: 1px solid #999;
+	border-left: 0.7mm outset #999;
+	border-right: 2px solid #eee;
+	border-bottom: 2px solid #ddd;
+	border-top: none;
 	background: #fff;
-	width: 233px;
+	width: 230px;
 	height: auto;
 	display: none;
 	position: absolute;
 	z-index: 10;
-	margin: 50px 0 0 280px;
+	margin: 42px 0 0 281px;
 	padding-top: 5px;
 }
 
 #filtro2{
-	border: 1px solid #999;
+	border-left: 0.7mm outset #999;
+	border-right: 2px solid #eee;
+	border-bottom: 2px solid #ddd;
+	border-top: none;
 	background: #fff;
-	width: 233px;
+	width: 230px;
 	height: auto;
 	display: none;
 	position: relative;
 	z-index: 10;
-	margin: 0 0 0 280px;
+	margin: -2px 0 0 281px;
 	padding-top: 5px;
 }
 
@@ -81,6 +87,18 @@ input[type=button], input[type=reset], input[type=password]{
 	text-align: right;
 	padding-right: 5px;
 	margin-top: 2px;
-	margin-bottom: 2px;
+	margin-bottom: 0px;
 	cursor: pointer;
+	font-weight: bold;
+}
+
+.fechar:hover{
+	background: red;
+	color: red;
+}
+
+#txtFechar{
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
 }

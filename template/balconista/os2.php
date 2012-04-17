@@ -14,6 +14,8 @@ if($_GET){
 	$idOS = $_GET['idos'];
 }
 
+echo "<div id='areaOff'>";
+
 if( $editar == "" ){ ?>
 
 <div id="busca">
@@ -23,7 +25,7 @@ if( $editar == "" ){ ?>
 		<div id="cpf" class="filtro">cpf</div>
 		<div id="os" class="filtro">ordem de serviço</div>
 		<div id="status" class="filtro">status</div>		
-		<div id="fechar" class="fechar">FECHAR</div>
+		<div id="fechar" class="fechar"><span id="txtFechar">FECHAR</span> X</div>
 	</div>
 </div>
 <div id="busca">
@@ -80,6 +82,7 @@ if( $editar == "" ){ ?>
 
 <?php }else{} ?>
 
+</div>
 <script>
 	$(document).ready( function(){
 		//$("#listaOS").load('ajax/listarOS.php?key=0');
@@ -144,16 +147,19 @@ if( $editar == "" ){ ?>
 	    });
 
 	    $('#key').click( function(){
-	    	if( $('#key').val() == '')
+	    	if( $('#key').val() == ''){
 	    		$('#filtro').fadeIn(200);
+	    		$('#buscar').focus();
+	    	}
+	    	$('#busca #key').css('border-bottom','1px solid transparent');
 	    });
 
-	    $('#central').hover( function(){
-	    	$('#filtro').hide();
+	    $('#areaOff').hover( function(){
+	    	$('#filtro').fadeOut(200);
 	    });
 
 	    $('#listaOS').hover( function(){
-	    	$('#filtro').hide();
+	    	$('#filtro').fadeOut(200);
 	    });
 
 	    $('#filtro #nome').click( function(){
@@ -189,7 +195,7 @@ if( $editar == "" ){ ?>
 	    	$('#key').focus();
 	    	$('#filtro').fadeOut(100);
 	    });
-	    	    
+    	    
 	});
 </script>
 <?php

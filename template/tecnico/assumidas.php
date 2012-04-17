@@ -12,7 +12,7 @@ if( $_GET ){
 	<input type="button" id="buscar" value="Buscar" />
 	<div id="filtro2">
 		<div id="os" class="filtro">ordem de serviço</div>		
-		<div id="fechar" class="fechar">FECHAR</div>
+		<div id="fechar" class="fechar"><span id="txtFechar">FECHAR</span> X</div>
 	</div>
 </div>
 
@@ -70,8 +70,19 @@ if( $_GET ){
 		});
 
 		$('#key').click( function(){
-	    	if( $('#key').val() == '')
+	    	if( $('#key').val() == ''){
 	    		$('#filtro2').fadeIn(200);
+	    		$('#buscar').focus();
+	    	}
+	    	$('#busca #key').css('border-bottom','1px solid transparent');
+	    });
+
+	    $('#areaOff').hover( function(){
+	    	$('#filtro2').fadeOut(200);
+	    });
+
+	    $('#listaOS').hover( function(){
+	    	$('#filtro2').fadeOut(200);
 	    });
 
 	    $('#filtro2 #os').click( function(){
