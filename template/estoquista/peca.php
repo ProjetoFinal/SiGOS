@@ -284,6 +284,9 @@ if( $editar == ""){
 	    //Função para exibir máscara Monetária
 	    $('#precounidade').maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
 
+	    $('#cancelar').click( function(){
+	    	window.location='peca.php';
+	    });
             
 	});
 </script>

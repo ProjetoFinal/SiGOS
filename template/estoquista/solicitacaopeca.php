@@ -4,9 +4,11 @@ function __autoload($class){
 }
 include_once("topo.php");
 require_once("../function/formataData.php");
+
 if( $_GET ){
 	$key = $_GET['key'];
 }
+
 ?>
 
 <div id='retornoErro'>
@@ -16,7 +18,7 @@ if( $_GET ){
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();
-		$qtd = $sql->consulta( OS::listarOsAguardandoPeca() );
+		$qtd = $sql->consulta( Peca::semEstoque() );
 		$numRows = mysql_num_rows($qtd);
 
 		if( $numRows >=1 ){
@@ -26,12 +28,10 @@ if( $_GET ){
 			echo"
 				<tr>
 					<td class='um'>
-						<a href='#' onclick='solicitarPeca(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>
+						<a href='#' onclick='solicitarPeca(".$l['idordemdeservico'].")'>".$l['idpeca']."</a>
 					</td>
-					<td class='um'>".data_dmy($l['entrada'])."</td>
-					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
-					<td class='tres'>".$l['nome']." - ".$l['telefone']."</td>
-					<td class='quatro'>".$l['status']."</td>
+					<td class='um'>".$l['codigopeca']."</td>
+					<td class='dois'>".$l['nomepeca']." - ".$l['modelopeca']."</td>
 				</tr>";
 			}
 			echo "</tbody></table>";
@@ -53,7 +53,7 @@ if( $_GET ){
 
 		$("#buscar").click( function(){
 			var key = $('#key').val();
-			$(window.document.location).attr('href','solicitacaopeca.php);
+			$(window.document.location).attr('href','solicitacaopeca.php');
 		})
 	});
 
