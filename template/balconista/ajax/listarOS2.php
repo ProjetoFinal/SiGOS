@@ -21,7 +21,7 @@ extract( $_GET );
 	if( $cont >=1 ){
 		while( $l = $sql->resultado() ){
 			if( $l['idstatus'] <= 7 or $l['idstatus'] == 9 or $l['idstatus'] == 10 && $l['idstatus'] != 3 )
-				$link = "<a href='os.php?acao=ver&idos=".$l['idordemdeservico']."'>".$l['idordemdeservico']."</a>";
+				$link = "<a href='os2.php?acao=ver&idos=".$l['idordemdeservico']."'>".$l['idordemdeservico']."</a>";
 			if( $l['idstatus'] == 3 )
 				$link = "<a href='#' onclick='apRp(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";	
 			if( $l['idstatus'] == 8 )
