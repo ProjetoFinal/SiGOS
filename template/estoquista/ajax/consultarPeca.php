@@ -53,6 +53,14 @@ if($ok){
 				<td><?=$l['nomepeca']?></td>
 				<td><?=ucfirst($l['marcapeca'])?></td>
 				<td><?=ucfirst($l['modelopeca'])?></td>
+				<td>
+					<?php
+						if( $l['quantidade'] > 0 )
+							echo  $l['quantidade'];
+						else
+							echo  "<a href='solicitacaopeca.php' style='color:red !important'>".$l['quantidade']."</a>";
+					?>
+				</td>
 				<td><?=ucfirst($l['precounidade'])?></td>
 			</tr>
 		<?php } ?>
