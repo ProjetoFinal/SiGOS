@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Abr 24, 2012 as 02:30 PM
+-- Tempo de Geração: Abr 24, 2012 as 04:37 PM
 -- Versão do Servidor: 5.1.49
 -- Versão do PHP: 5.3.3-1ubuntu9.6
 
@@ -64,6 +64,7 @@ INSERT INTO `cliente` (`idcliente`, `nome`, `identidade`, `orgaoexpedidor`, `cpf
 CREATE TABLE IF NOT EXISTS `comprapeca` (
   `idcomprapeca` int(11) NOT NULL AUTO_INCREMENT,
   `idpeca` int(11) NOT NULL,
+  `qtd` int(11) DEFAULT '0',
   `status` varchar(30) NOT NULL,
   `datapedido` date NOT NULL,
   PRIMARY KEY (`idcomprapeca`)

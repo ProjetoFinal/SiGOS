@@ -3,7 +3,7 @@
 class Compra{
 
 	static function consulta(){
-		$query = "select *, count(1) as qtdpeca from comprapeca group by datapedido";
+		$query = "select *, count(1) as qtdpeca from comprapeca group by datapedido order by status asc, datapedido asc";
 		return $query;
 	}
 
@@ -20,8 +20,29 @@ class Compra{
 	}
 
 	static function novo( $idpeca ){
-		$query = "insert into comprapeca values (null,$idpeca,'aaa',now())";
+		$query = "insert into comprapeca values (null,$idpeca,0,'aberta',now())";
+		return $query;
+	}
+
+	static function consultaData( $data ){
+		$query = "select * from comprapeca where datapedido='$data'";
+		return $query;
+	}
+
+	static function verPeca( $data ){
+		$query = "select cp.*, p.nomepeca from comprapeca cp 
+					inner join peca p on p.idpeca = cp.idpeca
+						where cp.datapedido='$data'";
+		return $query;
+	}
+
+	static function finalizar( $datapedido ){
+		$query = "update comprapeca set status='finalizada' where datapedido='$datapedido'";
 		return $query;
 	}
 	
+	static function cancelar( $datapedido ){
+		$query = "delete from comprapeca where datapedido='$datapedido'";
+		return $query;
+	}
 }
