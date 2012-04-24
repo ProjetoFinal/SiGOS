@@ -18,37 +18,36 @@ if( $_GET ){
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();
-		$qtd = $sql->consulta( Peca::semEstoque() );
+		$qtd = $sql->consulta( Compra::consulta() );
 		$numRows = mysql_num_rows($qtd);
 
 		$sql2 = new Conexao();
 		$sql2->conecta();
 
 		if( $numRows >=1 ){
-			
-			echo "<table><tbody>";
-			
-			while( $l = $sql->resultado() ){
-				
-				$cont = mysql_num_rows ( $sql2->consulta( Compra::verificaPeca( $l['idpeca'] ) ) );
 
-				if( $cont >= 1 ){
-				
-				}else{
-					echo"
-						<tr>
-							<td class='um'>
-								<a href='#' onclick='solicitarPeca(".$l['idpeca'].")'>".$l['idpeca']."</a>
-								<input type='hidden' id='nomepeca' value='".$l['nomepeca']."' />
-							</td>
-							<td class='um'>".$l['codigopeca']."</td>
-							<td class='dois'>".$l['nomepeca']." - ".$l['modelopeca']."</td>
-						</tr>";
-					}
+			echo "<table><tbody>";
+
+			while( $l = $sql->resultado() ){
+				$sql2->consulta( Compra::verificarOS( $l['idcomprapeca'] ) );
+				$trcor = $sql2->resultado();
 					
+				if($trcor['idos'] != ''){
+					$style = "style='color:red !important'";
+				}else{
+					$style = "";
+				}
+
+			echo "<tr>
+					<td class='um'>
+						<a href='#' ".$style." onclick='ver(".$l['idcomprapeca'].")'>".$l['idcomprapeca']."</a>
+					</td>
+					<td class='um'>".data_dmy($l['datapedido'])."</td>
+					<td class='dois'>".$l['qtdpeca']." peça(s)</td>
+				</tr>";
 			}
 			echo "</tbody></table>";
-				
+
 		}else{
 			echo "Sem registros";
 		}
@@ -70,24 +69,6 @@ if( $_GET ){
 		})
 	});
 
-	function solicitarPeca( idpeca ){
-		var nomepeca = $('#nomepeca').val();
-		if( confirm('Deseja Solicitar Compra da Peça '+nomepeca) ){
-			$.ajax({
-				type: "GET",
-				url: "ajax/solicitarPeca.php",
-				data: "idpeca="+idpeca,
-				beforeSend: function(){
-					$('#retornoErro').fadeIn(200);
-		            $("#retornoErro").text('Carregando...');
-				},
-				success: function(html){
-					$('#retornoErro').fadeIn(200);
-					$("#retornoErro").html(html);
-				}
-			});
-		}
-	}
 </script>
 
 <?php
