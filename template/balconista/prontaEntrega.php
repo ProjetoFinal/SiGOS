@@ -89,18 +89,24 @@ $l = $sql->resultado();
 	</tr>
 	<tr style="background:green; color: #000; text-transform: bold;">
 		<td>Valor Final</td>
-		<td>R$ <?=$l['valorpecasusadas'] + $l['maodeobra']?></td>
+		<td>
+			R$ <?=$l['valorpecasusadas'] + $l['maodeobra']?>
+			<input type="hidden" id="totalFinal" value="<?=$l['valorpecasusadas'] + $l['maodeobra']?>" />	
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
+			<?php if($l['idstatus'] == 8 ){ ?>
 			<input type="button" name="ap" id="ap" value="Entregar" />
 			<input type="button" name="rp" id="rp" value="Reabrir" />
+			<?php } ?>
 			<input type="button" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>
 
 <script>
+	/*
 	$('#ap').click( function(){
 		var idos = $('#idordemdeservico').val();
 
@@ -119,6 +125,13 @@ $l = $sql->resultado();
 				}
 			});
 		}
+	});
+	*/
+
+	$('#ap').click( function(){
+		var idos = $('#idordemdeservico').val();
+		var total = $('#totalFinal').val();
+		window.open('pagarOs.php?idos='+idos+'&total='+total, 'PagarOs','width=400,height=300');
 	});
 
 	$('#rp').click( function(){
