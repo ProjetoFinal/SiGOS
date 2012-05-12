@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.2deb1ubuntu1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mai 12, 2012 as 02:27 PM
--- Versão do Servidor: 5.1.61
--- Versão do PHP: 5.3.2-1ubuntu4.14
+-- Tempo de Geração: 12/05/2012 às 20h09min
+-- Versão do Servidor: 5.5.16
+-- Versão do PHP: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -43,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `uf` varchar(100) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=8 ;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -51,13 +52,12 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `identidade`, `orgaoexpedidor`, `cpf`, `nascimento`, `telefone`, `celular`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `uf`, `email`) VALUES
 (1, 'Leonardo Neves', 121488969, 'detran', '112.963.387-03', '2012-04-03', '(21)3331-5441', '', '21820-090', 'Rua Rio da Prata', 1904, '', 'Bangu', 'Rio de Janeiro', 'Rio de Janeiro', ''),
-(2, 'Carlos', 2147483647, 'detran', '054.495.587-08', '2012-04-03', '(21)0000-0000', '(21)0000-0000', '21870-002', 'rua carlos', 345, 'ap 10', 'Bangu', 'Rio', 'Rio de Janeiro', 'carlos@ls.com'),
-(3, 'dudu', 2147483647, 'ifp', '109.464.907-40', '2012-04-05', '(21)9999-9999', '(21)9999-9999', '21870-002', 'rua dudu', 12, 'ap 09', 'Bangu', 'Rio', 'Rio de Janeiro', 'dudu@dudu.com'),
-(4, 'Valdirene ', 2147483647, 'IIRGD', '098.440.167-97', '2012-04-04', '(21)7676-7676', '(21)8787-8787', '87643-245', 'Rua das couves', 90, 'rua y', 'das flores', 'Rio de janeiro', 'Rio de Janeiro', ''),
-(5, 'João Fernando', 121488969, 'dic', '484.332.348-97', '2012-05-08', '(21)3331-5441', '', '21820-090', 'rua cap teixeira', 121, '', 'Realengo', 'Rio de Janeiro', 'Rio de Janeiro', ''),
-(6, 'joao', 123, 'dic', '455.688.125-00', '2012-05-10', '(21)0000-0000', '', '00000-000', 'aaaa', 123, '', 'bangu', 'rio de jneiro', 'Rio de Janeiro', ''),
-(7, 'mariaa', 988908, 'dic', '613.275.625-61', '2012-05-02', '(00)0000-0000', '', '11111-111', '111111111', 1111, '111', '111', '111', 'Acre', ''),
-(8, 'mariazinha', 123, 'dic', '809.006.666-68', '2012-05-02', '(11)1111-1111', '', '11111-111', '11111111111111', 1111, '111', '1111', '11111', 'Rio de Janeiro', '');
+(2, 'Carlos Adean', 2147483647, 'detran', '054.495.587-08', '2012-04-03', '(21)0000-0000', '(21)0000-0000', '21870-002', 'rua carlos', 345, 'ap 10', 'Bangu', 'Rio', 'Rio de Janeiro', 'carlos@ls.com'),
+(3, 'Eduardo dos Reis', 2147483647, 'ifp', '109.464.907-40', '2012-04-05', '(21)9999-9999', '(21)9999-9999', '21870-002', 'rua dudu', 12, 'ap 09', 'Bangu', 'Rio', 'Rio de Janeiro', 'efernandes@gmail.com'),
+(4, 'Valdirene Villa', 2147483647, 'IIRGD', '098.440.167-97', '2012-04-04', '(21)7676-7676', '(21)8787-8787', '87643-245', 'Rua das couves', 90, 'rua y', 'das flores', 'Rio de janeiro', 'Rio de Janeiro', ''),
+(5, 'Maria José', 987898, 'PMRJ', '622.855.025-08', '1973-05-10', '(21)2401-9226', '(21)7657-2312', '23045-120', 'Rua Mirador', 62, 'Casa 01', 'Realengo', 'Rio de Janeiro', 'Rio de Janeiro', ''),
+(6, 'Romário de Souza', 90876921, 'IFP', '808.826.519-35', '1974-05-03', '(11)4324-0989', '(11)9878-8445', '43209-010', 'Rua Vasco da Gama', 100, '', 'Centro', 'São Paulo', 'São Paulo', ''),
+(7, 'Neymar dos Santos', 76678289, 'IIRGD', '431.681.275-07', '1990-05-09', '(21)3333-4444', '(21)9999-8888', '12092-010', 'Rua da praia', 100, '', 'Centro', 'Rio de Janeiro', 'Rio de Janeiro', 'neymar@santos.com.br');
 
 -- --------------------------------------------------------
 
@@ -72,14 +72,7 @@ CREATE TABLE IF NOT EXISTS `comprapeca` (
   `status` varchar(30) NOT NULL,
   `datapedido` date NOT NULL,
   PRIMARY KEY (`idcomprapeca`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `comprapeca`
---
-
-INSERT INTO `comprapeca` (`idcomprapeca`, `idpeca`, `qtd`, `status`, `datapedido`) VALUES
-(1, 5, 0, 'aberta', '2012-05-12');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -107,8 +100,8 @@ INSERT INTO `equipamento` (`idequipamento`, `idcliente`, `idtiposequipamentos`, 
 (3, 2, 4, 'SONY', 'JPA2003', 'XBP2012'),
 (4, 1, 13, 'Zenity', 'APOSTI', 'ZEN2012'),
 (5, 3, 16, 'MITSUBISH', 'MIT2012', 'MITXVA3000'),
-(6, 1, 9, 'AAAAAAA', '1234', '1234'),
-(7, 8, 16, 'aaaaa', 'aaaaaaaaa', 'aaaaaaaaa');
+(6, 2, 11, 'PHILIPS', 'PHIL3010', 'PH010203'),
+(7, 7, 1, 'CCE', 'CCE1100', 'CCE010203');
 
 -- --------------------------------------------------------
 
@@ -161,14 +154,14 @@ CREATE TABLE IF NOT EXISTS `orcamento` (
 --
 
 INSERT INTO `orcamento` (`idorcamento`, `idordemdeservico`, `maodeobra`, `valorpecasusadas`, `comentarios`) VALUES
-(1, 1, '70.00', '43.21', 'Foda-se'),
-(2, 2, '30.00', '1.73', 'teste'),
-(3, 3, '70.00', '1.23', NULL),
-(4, 4, '50.00', '56.17', 'Whatever'),
-(5, 5, '160.00', '1.23', NULL),
-(6, 6, '30.00', '0.00', 'whatever'),
-(7, 7, '40.00', '0.00', NULL),
-(8, 8, '60.00', '0.00', NULL);
+(1, 1, 70.00, 43.21, 'Foda-se'),
+(2, 2, 30.00, 1.73, 'teste'),
+(3, 3, 70.00, 1.23, NULL),
+(4, 4, 50.00, 56.17, 'Whatever'),
+(5, 5, 160.00, 1.23, NULL),
+(6, 6, 30.00, 0.00, 'whatever'),
+(7, 7, 40.00, 0.00, NULL),
+(8, 8, 30.00, 0.00, 'cabo interno flyback estava solto, já foi recolocado.');
 
 -- --------------------------------------------------------
 
@@ -204,11 +197,11 @@ INSERT INTO `ordemdeservico` (`idordemdeservico`, `idequipamento`, `idusuario`, 
 (1, 1, 2, 10, 'Desligando', NULL, 'Controle Remoto', 'fuck you', '2012-04-04', NULL, NULL, NULL, 0, 'impressao/os1333583497.txt'),
 (2, 2, 2, 10, 'Tela preta', 'teste', 'Cabo   controle', 'bbvbvbvbvbvvbvbvbvbv', '2012-04-04', NULL, NULL, NULL, 0, 'impressao/os1333584140.txt'),
 (3, 1, 2, 7, 'Parado', NULL, 'Nenhum', NULL, '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334411626.txt'),
-(4, 3, 2, 4, 'Linha em branco na tela', NULL, 'Cabos', NULL, '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334417163.txt'),
-(5, 4, 2, 8, 'Não liga', NULL, '', 'teste', '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334418658.txt'),
+(4, 3, 2, 8, 'Linha em branco na tela', NULL, 'Cabos', 'Teste', '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334417163.txt'),
+(5, 4, 2, 6, 'Não liga', NULL, '', NULL, '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334418658.txt'),
 (6, 2, 2, 4, 'Não exibe imagem', NULL, '', NULL, '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334418713.txt'),
-(7, 5, 2, 2, 'Sem som', NULL, '', NULL, '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334418901.txt'),
-(8, 6, 2, 10, '1234', NULL, '1234', 'troca', '2012-05-12', '2012-05-12', '2012-05-12', '2012-05-12', 0, 'impressao/os1336834935.txt');
+(7, 5, NULL, 1, 'Sem som', NULL, '', NULL, '2012-04-14', NULL, NULL, NULL, 0, 'impressao/os1334418901.txt'),
+(8, 7, 2, 4, 'tela preta', NULL, 'cabo vga', NULL, '2012-05-12', NULL, NULL, NULL, 0, 'impressao/os1336844223.txt');
 
 -- --------------------------------------------------------
 
@@ -327,23 +320,23 @@ CREATE TABLE IF NOT EXISTS `tiposequipamentos` (
 --
 
 INSERT INTO `tiposequipamentos` (`idtiposequipamentos`, `tipo`, `maodeobra`) VALUES
-(1, 'TV/MONITOR - CRT 14 a 20''', '30.00'),
-(2, 'TV/MONITOR - CRT 21 a 26''', '50.00'),
-(3, 'TV/MONITOR - CRT 29 a 32''', '70.00'),
-(4, 'TV/MONITOR - LCD 14 a 20''', '50.00'),
-(5, 'TV/MONITOR - LCD 21 a 26''', '70.00'),
-(6, 'TV/MONITOR - LCD 29 a 32''', '90.00'),
-(7, 'TV/MONITOR - LCD 40 a 55''', '120.00'),
-(8, 'TV/MONITOR - LCD 55+''', '150.00'),
-(9, 'TV/MONITOR - LED 14 a 20''', '60.00'),
-(10, 'TV/MONITOR - LED 21 a 26''', '80.00'),
-(11, 'TV/MONITOR - LED 29 a 32''', '100.00'),
-(12, 'TV/MONITOR - LED 40 a 55''', '130.00'),
-(13, 'TV/MONITOR - LED 55+''', '160.00'),
-(14, 'DVD Player', '30.00'),
-(15, 'Audio - MiniSystem', '20.00'),
-(16, 'Audio - MicroSystem', '40.00'),
-(17, 'Audio - System', '60.00');
+(1, 'TV/MONITOR - CRT 14 a 20''', 30.00),
+(2, 'TV/MONITOR - CRT 21 a 26''', 50.00),
+(3, 'TV/MONITOR - CRT 29 a 32''', 70.00),
+(4, 'TV/MONITOR - LCD 14 a 20''', 50.00),
+(5, 'TV/MONITOR - LCD 21 a 26''', 70.00),
+(6, 'TV/MONITOR - LCD 29 a 32''', 90.00),
+(7, 'TV/MONITOR - LCD 40 a 55''', 120.00),
+(8, 'TV/MONITOR - LCD 55+''', 150.00),
+(9, 'TV/MONITOR - LED 14 a 20''', 60.00),
+(10, 'TV/MONITOR - LED 21 a 26''', 80.00),
+(11, 'TV/MONITOR - LED 29 a 32''', 100.00),
+(12, 'TV/MONITOR - LED 40 a 55''', 130.00),
+(13, 'TV/MONITOR - LED 55+''', 160.00),
+(14, 'DVD Player', 30.00),
+(15, 'Audio - MiniSystem', 20.00),
+(16, 'Audio - MicroSystem', 40.00),
+(17, 'Audio - System', 60.00);
 
 -- --------------------------------------------------------
 
@@ -417,3 +410,7 @@ INSERT INTO `usuario` (`idUsuario`, `nome`, `login`, `senha`, `nivel`, `statusUs
 (3, 'Balconista', 'balconista', '038f6a53562e0f81fe7f7302eef6f67e1d3e029c', 'balconista', 'ativo'),
 (4, 'Gerente', 'gerente', '4299478c1f474b8b8a8f8069a39be46b2377597e', 'gerente', 'ativo'),
 (5, 'Estoquista', 'estoque', '2d211a1072d7779cbdf018f3b530f731b1111809', 'estoquista', 'ativo');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

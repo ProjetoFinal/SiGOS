@@ -2,7 +2,7 @@
 	<ul>
 		<li><a href="index.php">Início</a></li>
 		<li> | </li>
-		<li><a href="cliente.php">clientes</a></li>
+		<li><a href="cliente.php">Clientes</a></li>
 		<li> | </li>
 		<li><a href="equipamentos.php">Equipamentos</a></li>
 		<li> | </li>

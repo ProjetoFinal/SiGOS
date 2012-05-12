@@ -4,7 +4,7 @@ body{
 	text-align: center;
 	background-color: #DDD;
 	font-family: Arial;
-	font-size: 15px;
+	font-size: 12px;
 }
 #central{
 	background: #fff;
@@ -17,12 +17,12 @@ body{
 input[type=text], select{
 	width: 200px;
 	height: 30px;
-	font-size: 17px;
+	font-size: 12px;
 }
 input[type=button], input[type=reset], input[type=password]{
 	width: 200px;
 	height: 30px;
-	font-size: 15px;
+	font-size: 12px;
 }
 #retorno, #retornoErro{
 	display: none;
