@@ -12,10 +12,10 @@ if($_GET){
 
 if( $editar == ""){
 ?>
-<div id="busca">
+<div id="busca" style="border: 0px solid red; width: 800px">
 	<input type="button" id="novoCliente" value="Novo Cliente" />
 </div>
-<div id="busca">
+<div id="busca" style="border: 0px solid red; width: 800px">
 	<input type="text" id="key" />
 	<input type="button" id="buscar" value="Buscar" />
 </div>
@@ -27,7 +27,8 @@ if( $editar == ""){
 
 <div id="novoCliente"></div>
 <script>
-	$('#novoCliente').load('novoCliente.php');
+	//$('#novoCliente').load('novoCliente.php');
+	window.location='novoCliente.php';
 </script>
 
 <?php

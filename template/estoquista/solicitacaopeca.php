@@ -35,14 +35,16 @@ if( $_GET ){
 				if( $cont >= 1 ){
 				
 				}else{
+					($l['quantidade'] == 0) ? $color = "style='color:red'" : $color = '';
 					echo"
-						<tr>
+						<tr ".$color.">
 							<td class='um'>
-								<a href='#' onclick='solicitarPeca(".$l['idpeca'].")'>".$l['idpeca']."</a>
+								<a ".$color." href='#' onclick='solicitarPeca(".$l['idpeca'].")'>".$l['idpeca']."</a>
 								<input type='hidden' id='nomepeca' value='".$l['nomepeca']."' />
 							</td>
 							<td class='um'>".$l['codigopeca']."</td>
 							<td class='dois'>".$l['nomepeca']." - ".$l['modelopeca']."</td>
+							<td class='um'>".$l['quantidade']."</td>
 						</tr>";
 					}
 					

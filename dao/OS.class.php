@@ -162,7 +162,12 @@ class OS{
 	}
 
 	static function assumirOs( $idusuario, $idos, $idstatus ){
-		$query = "update ordemdeservico set idusuario=$idusuario, idstatus=$idstatus where idordemdeservico=$idos";
+		if( $idstatus == 6 ){
+			$query = "update ordemdeservico set idusuario=$idusuario, idstatus=$idstatus, iniciomanut=now() where idordemdeservico=$idos";
+		}else{
+			$query = "update ordemdeservico set idusuario=$idusuario, idstatus=$idstatus where idordemdeservico=$idos";	
+		}
+
 		return $query;
 	}
 
@@ -181,7 +186,7 @@ class OS{
 	}
 
 	static function finalizarManutencao( $id, $solucao ){
-		$query = "update ordemdeservico set idstatus=8 ,solucao='$solucao' where idordemdeservico=$id";
+		$query = "update ordemdeservico set idstatus=8 ,solucao='$solucao', fimmanut=now() where idordemdeservico=$id";
 		return $query;
 	}
 
@@ -191,7 +196,12 @@ class OS{
 	}
 
 	static function apRp( $idos, $idstatus ){
-		$query = "update ordemdeservico set idstatus=$idstatus where idordemdeservico=$idos";
+		if($idstatus == 10){
+			$query = "update ordemdeservico set idstatus=$idstatus, entrega=now() where idordemdeservico=$idos";
+		}else{
+			$query = "update ordemdeservico set idstatus=$idstatus where idordemdeservico=$idos";
+		}
+		
 		return $query;
 	}
 

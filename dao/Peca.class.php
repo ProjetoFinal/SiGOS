@@ -92,7 +92,7 @@ class Peca{
 	}
 
 	static function semEstoque(){
-		$query = "select * from peca where quantidade <= 0";
+		$query = "select * from peca where quantidade <= 10 order by quantidade asc";
 		return $query;
 	}
 	

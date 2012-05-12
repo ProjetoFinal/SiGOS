@@ -3,6 +3,7 @@ function __autoload( $class ){
 	include_once("../../dao/$class.class.php");
 }
 include_once("../function/validaCPF.php");
+include_once("topo.php");
 
 if( $_POST ){
 	$sql = new Conexao();
@@ -32,6 +33,8 @@ if( $_POST ){
 	}
 }
 ?>
+<div id="retornoErro"></div>
+<div id="retorno"></div>
 <style>
 #column1{ margin-left: 70px;}
 #column1, #column2, #column3{
@@ -171,60 +174,102 @@ if( $_POST ){
 </form>
 
 <script type="text/javascript" src="../js/jquery.validate.js"></script>
+<script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
 <script>
+	$('#menu').css('display','none');
+	$('#central').css('top','0');
+	$('#central').css('width','800px');
+	$('#central').css('height','600px');
+
 	$("#nascimento").datepicker({
 	    showOn: "button",
 	    buttonImage: "../img/b_calendar.png",
 	    buttonImageOnly: true
 	});
-
-	$("#cadastrarCliente").click( function(){
-		$('#form1').validate({
-        	// define regras para os campos
-            rules: {
-                nome: {
-                    required: true,
-                    minlength: 10
-                },
-                identidade: {
-                    required: true
-                },
-                orgaoexpedidor: {
-                    required: true
-                },
-                cpf: {
-                    required: true
-                },
-                nascimento: {
-                    required: true
-                },
-                telefone: {
-                    required: true
-                },
-                cep: {
-                    required: true
-                },
-                logradouro: {
-                    required: true
-                },
-                numero: {
-                    required: true
-                },
-                bairro: {
-                    required: true
-                },
-                cidade: {
-                    required: true
-                },
-                estado: {
-                    required: true
-                }
-            }
-        });
-		$("#form1").submit();
-	});
-
+	
 	$("#voltar").click( function(){
 		history.back(2);
 	});
+
+	$("#cadastrarCliente").click( function(){
+    	var formulario = $('#form1').serialize();
+        $.ajax({
+            type: "GET",
+            url: "ajax/novoCliente2.php",
+            data: formulario,  
+            beforeSend: function(){
+                $('#retornoErro').fadeIn(200);
+                $("#retornoErro").text('Carregando...');
+            },
+            success: function(html, data){ 
+                    $('#retornoErro').html(html);                	
+            }
+        });
+    });
+
+	$("#nome").focus(function(){
+	    $('#nome').css('background','#fff');
+	    $('#nome').css('border','');
+	});
+	$("#identidade").focus(function(){
+	    $('#identidade').css('background','#fff');
+	    $('#identidade').css('border','');
+	});
+	$("#orgaoexpedidor").focus(function(){
+	    $('#orgaoexpedidor').css('background','#fff');
+	    $('#orgaoexpedidor').css('border','');
+	});
+	$("#cpf").focus(function(){
+	    $('#cpf').css('background','#fff');
+	    $('#cpf').css('border','');
+	});
+	$("#nascimento").focus(function(){
+	    $('#nascimento').css('background','#fff');
+	    $('#nascimento').css('border','');
+	});
+	$("#telefone").focus(function(){
+	    $('#telefone').css('background','#fff');
+	    $('#telefone').css('border','');
+	});
+	$("#celular").focus(function(){
+	    $('#celular').css('background','#fff');
+	    $('#celular').css('border','');
+	});
+	$("#email").focus(function(){
+	    $('#email').css('background','#fff');
+	    $('#email').css('border','');
+	});
+	$("#cep").focus(function(){
+	    $('#cep').css('background','#fff');
+	    $('#cep').css('border','');
+	});
+	$("#logradouro").focus(function(){
+	    $('#logradouro').css('background','#fff');
+	    $('#logradouro').css('border','');
+	});
+	$("#numero").focus(function(){
+	    $('#numero').css('background','#fff');
+	    $('#numero').css('border','');
+	});
+	$("#complemento").focus(function(){
+	    $('#complemento').css('background','#fff');
+	    $('#complemento').css('border','');
+	});
+	$("#bairro").focus(function(){
+	    $('#bairro').css('background','#fff');
+	    $('#bairro').css('border','');
+	});
+	$("#cidade").focus(function(){
+	    $('#cidade').css('background','#fff');
+	    $('#cidade').css('border','');
+	});
+	$("#uf").focus(function(){
+	    $('#uf').css('background','#fff');
+	    $('#uf').css('border','');
+	});
+
+	$('#cpf').mask("999.999.999-99");
+	$('#cep').mask("99999-999");
+	$('#telefone').mask("(99)9999-9999");
+	$('#celular').mask("(99)9999-9999");
 </script>
