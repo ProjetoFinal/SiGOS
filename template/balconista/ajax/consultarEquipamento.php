@@ -30,19 +30,36 @@ echo "</pre>";
 if($ok){
 	$linhas = mysql_num_rows( $ok );
 	if( $linhas >= 1 ){
+
+		echo "
+
+			<script>
+				$('#retorno').fadeIn(200);
+				$('table.resultado tbody tr:odd').css('background','#bbd5e2');
+				$('table.resultado tbody tr:even').css('background','#EBF3EB');
+				$('table.resultado tbody tr a').css('color','blue');
+				function editar( id ){
+					$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente='+id);
+				}
+			</script>
+			<table class='resultado'>
+
+				<thead>
+					<tr id='trTitulo'>
+						<td>Cliente</td>
+						<td>CPF</td>
+						<td>Telefone</td>
+						<td>E-Mail</td>
+					</tr>
+				</thead>
+				
+				<tbody>";
+
+
+
 		while( $l = $sql->resultado() ){
 	?>
-	<script>
-		$('#retorno').fadeIn(200);
-		$('table.resultado tbody tr:odd').css('background','#bbd5e2');
-		$('table.resultado tbody tr:even').css('background','#EBF3EB');
-		$('table.resultado tbody tr a').css('color','blue');
-		function editar( id ){
-			$(window.document.location).attr('href','equipamentos.php?editar=1&idcliente='+id);
-		}
-	</script>
-	<table class="resultado">
-		<tbody>
+	
 			<tr>
 				<td class="um"><a href="#" onclick="editar(<?=$l['idcliente']?>)"><?=$l['nome']?></a></td>
 				<td class="dois"><?=$l['cpf']?></td>
@@ -56,14 +73,15 @@ if($ok){
 					?>
 				</td>
 			</tr>
-		</tbody>
-	</table>
-
+		
 	<?php
 		}
 	}else{
 		echo "Sem registros";
 	}
+
+	echo "</tbody>
+			</table>";
 }else{
 	echo "Erro ao consultar Cliente
 			<script>$('#retornoErro').fadeOut(5000);</script>";

@@ -6,9 +6,14 @@
 		<li><a href="abertas.php">ABERTAS ( <?=OS::contadorOS(1, $_SESSION['idusuario'])?> )</a></li>
 		<li> | </li>
 		<!--
-			Orçamento Aprovado
+			Em Análise Técnica
 		-->
-		<li><a href="aprovadas.php">APROVADAS ( <?=OS::contadorOS(4, $_SESSION['idusuario'])?> )</a></li>
+		<li><a href="analTec.php">EM ANAL. TÉC. ( <?=OS::contadorOS(2, $_SESSION['idusuario']) ?> )</a></li>
+		<li> | </li>
+		<!--
+			Aguardando Aprovação
+		-->
+		<li><a href="orcamento.php">AG. APROVAÇÃO ( <?=OS::contadorOS(3, $_SESSION['idusuario'])?> )</a></li>
 		<li> | </li>
 		<!--
 			Aguardando Peça
@@ -16,14 +21,14 @@
 		<li><a href="aguardandoPeca.php">AG. PEÇA ( <?=OS::contadorOS(7, $_SESSION['idusuario'])?> )</a></li>
 		<li> | </li>
 		<!--
-			Em Análise Técnica + Em Manutenção
+			Orçamento Aprovado
 		-->
-		<li><a href="assumidas.php">ASSUMIDAS ( <?=OS::contadorOS(2, $_SESSION['idusuario']) + OS::contadorOS(6, $_SESSION['idusuario'])?> )</a></li>
+		<li><a href="aprovadas.php">APROVADAS ( <?=OS::contadorOS(4, $_SESSION['idusuario'])?> )</a></li>
 		<li> | </li>
 		<!--
-			Aguardando Aprovação
+			Em Manutenção
 		-->
-		<li><a href="orcamento.php">ORÇAMENTO ( <?=OS::contadorOS(3, $_SESSION['idusuario'])?> )</a></li>
+		<li><a href="manut.php">EM MANUTENÇÃO ( <?=OS::contadorOS(6, $_SESSION['idusuario'])?> )</a></li>
 		<li> | </li>
 		<!--
 			Reabertas

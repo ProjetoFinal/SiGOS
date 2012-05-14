@@ -31,7 +31,17 @@ if( $_GET ){
 
 		if( $numRows >=1 ){
 			
-			echo "<table style='display:none'><tbody>";
+			echo "<table style='display:none'>
+					<thead>
+						<tr id='trTitulo'>
+							<td>OS</td>
+							<td>Entrada</td>
+							<td>Equipamento</td>
+							<td>Defeito</td>
+							<td>Status</td>
+						</tr>
+					</thead>
+				  	<tbody>";
 			while( $l = $sql->resultado() ){
 			echo"
 				<tr>

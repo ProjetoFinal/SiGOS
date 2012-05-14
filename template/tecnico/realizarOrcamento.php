@@ -75,7 +75,7 @@ $l = $sql->resultado();
 					<input type="image" src="../img/btn_fechar.png" id="menosUm" onclick="menosUm(<?=$p['idpecasolicitada']?>, <?=$idor?>, <?=$p['precounidade']?>)" />
 				<?php } } else { echo "Sem registros"; } ?>
 			</div>
-			<input type="button" id="addPeca" value="Add Peça" />
+			<input type="button" id="addPeca" value="Adicionar Peça" />
 		</td>
 	</tr>
 	<tr>
@@ -86,7 +86,7 @@ $l = $sql->resultado();
 		<td>Comentários</td>
 		<td>
 			<textarea id="comentarios"><?=$l['comentarios']?></textarea>
-			<input type="button" id="attComent" value="Att Cometário" />
+			<input type="button" id="attComent" value="Atualizar Cometário" />
 		</td>
 
 	</tr>

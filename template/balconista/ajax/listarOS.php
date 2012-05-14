@@ -14,31 +14,47 @@ extract( $_GET );
 	$cont = mysql_num_rows( $res );
 
 	if( $cont >=1 ){
-		while( $l = $sql->resultado() ){
-			if( $l['idstatus'] <= 7 or $l['idstatus'] == 9 or $l['idstatus'] == 10 && $l['idstatus'] != 3 )
-				$link = "<a href='os.php?acao=ver&idos=".$l['idordemdeservico']."'>".$l['idordemdeservico']."</a>";
-			if( $l['idstatus'] == 3 )
-				$link = "<a href='#' onclick='apRp(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";	
-			if( $l['idstatus'] == 8 )
-				$link = "<a href='#' onclick='prontaEntrega(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
-			if( $l['idstatus'] == 6 )
-				$link = "<a href='#' onclick='emManutencao(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
-				
+
 		echo "
 			<table>
-				<tbody>
+				<thead>
+					<tr id='trTitulo'>
+						<td>//</td>
+						<td>OS N.</td>
+						<td>Entrada</td>
+						<td>Equipamento</td>
+						<td>CLiente</td>
+						<td>Status OS</td>
+					</tr>
+				</thead>
+				<tbody>";
+		while( $l = $sql->resultado() ){
+			if( $l['idstatus'] <= 7 or $l['idstatus'] == 9 or $l['idstatus'] == 10 && $l['idstatus'] != 3 )
+				$link = "<a href='os.php?acao=ver&idos=".$l['idordemdeservico']."'>VER</a>";
+			if( $l['idstatus'] == 3 )
+				$link = "<a href='#' onclick='apRp(".$l['idordemdeservico'].")'>APROVAR</a>";	
+			if( $l['idstatus'] == 8 )
+				$link = "<a href='#' onclick='prontaEntrega(".$l['idordemdeservico'].")'>ENTREGAR</a>";
+			if( $l['idstatus'] == 6 )
+				$link = "<a href='#' onclick='emManutencao(".$l['idordemdeservico'].")'>ACOMPANHAR</a>";
+				
+		echo "
+
 				<tr>
 					<td class='um'>
 						".$link."
 					</td>
+					<td>".$l['idordemdeservico']."</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
 					<td class='tres'>".$l['nome']." - ".$l['telefone']."</td>
 					<td class='quatro'>".$l['status']."</td>
 				</tr>
-				</tbody>
-			</table>";
+				";
 		}
+
+		echo "</tbody>
+			</table>";
 
 	}else{
 		echo "Sem Registros";

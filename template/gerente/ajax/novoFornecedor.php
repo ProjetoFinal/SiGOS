@@ -18,6 +18,14 @@ $msgBairro = '';
 $msgCidade = '';
 $msgUf = '';
 
+if( empty( $razaosocial ) ){
+	$razaosocial = "*Preencha a Razão Social do Fornecedor<br />
+						<script>
+							$('#razaosocial').css('background','#FBE3E4');
+							$('#razaosocial').css('border','1px solid #FBC2C4');
+						</script>";
+	$count++;
+}
 if( empty( $cnpj ) ){
 	$msCnpj = "*Preencha o CNPJ do Fornecedor<br />
 						<script>
@@ -85,6 +93,7 @@ if( empty( $uf ) ){
 
 if( $count >= 1){
 print <<<ERRO
+$razaosocial
 $msCnpj
 $msgInscEst
 $msgCep

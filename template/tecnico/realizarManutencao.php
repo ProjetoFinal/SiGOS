@@ -84,12 +84,12 @@ $l = $sql->resultado();
 		<td>Acompanhamento</td>
 		<td>
 			<textarea id="acompanhamento"><?=$l['acompanhamento']?></textarea>
-			<input type="button" id="attAcompanhamento" value="Att Acompanhamento" />
+			<input type="button" id="attAcompanhamento" value="Atualizar Acompanhamento" />
 		</td>
 
 	</tr>
 	<tr>
-		<td>Solução</td>
+		<td>Solução<span style="color:red">*</span></td>
 		<td>
 			<textarea id="solucao"><?=$l['solucao']?></textarea>
 		</td>

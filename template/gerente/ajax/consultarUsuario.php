@@ -45,6 +45,14 @@ if($ok){
 		}
 	</script>
 	<table class="resultado">
+		<thead>
+			<tr id="trTitulo">
+				<td>Nome</td>
+				<td>Login</td>
+				<td>Nivel</td>
+				<td>Status</td>
+			</tr>
+		</thead>
 		<tbody>
 		<?php while( $l = $sql->resultado() ){ ?>
 			<tr>

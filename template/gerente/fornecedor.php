@@ -22,7 +22,7 @@ if( $editar == "" ){
 <div id="column1">
 <table>
 	<tr>
-		<td>Razao Social</td>
+		<td>Razao Social<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="razaosocial" id="razaosocial" />
 		</td>
@@ -34,7 +34,7 @@ if( $editar == "" ){
 		</td>
 	</tr>
 	<tr>
-		<td>CNPJ</td>
+		<td>CNPJ<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="cnpj" id="cnpj" />
 		</td>
@@ -57,25 +57,25 @@ if( $editar == "" ){
 	<div id="column2">
 <table>
 	<tr>
-		<td>Telefone</td>
+		<td>Telefone<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="telefone" id="telefone" />
 		</td>
 	</tr>
 	<tr>
-		<td>CEP</td>
+		<td>CEP<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="cep" id="cep" />
 		</td>
 	</tr>
 	<tr>
-		<td>Logradouro</td>
+		<td>Logradouro<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="logradouro" id="logradouro" />
 		</td>
 	</tr>
 	<tr>
-		<td>Numero</td>
+		<td>Número<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="numero" id="numero" />
 		</td>
@@ -92,19 +92,19 @@ if( $editar == "" ){
 	<div id="column3">
 <table>
 	<tr>
-		<td>Bairro</td>
+		<td>Bairro<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="bairro" id="bairro" />
 		</td>
 	</tr>
 	<tr>
-		<td>cidade</td>
+		<td>Cidade<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="cidade" id="cidade" />
 		</td>
 	</tr>
 	<tr>
-		<td>Estado</td>
+		<td>Estado<span style="color:red">*</span></td>
 		<td>
 			<select name="uf" id="uf">
 				<option  value="" selected>-- Estado</option>
@@ -386,55 +386,55 @@ $l = $sql->resultado();
 	    	$(window.document.location).attr('href','fornecedor.php');
 	    });
 
-	    $("#razaosocial").click(function(){
+	    $("#razaosocial").focus(function(){
 	        $('#razaosocial').css('background','#fff');
 	        $('#razaosocial').css('border','');
 	    });
-	   	$("#nomefantasia").click(function(){
+	   	$("#nomefantasia").focus(function(){
 	        $('#nomefantasia').css('background','#fff');
 	        $('#nomefantasia').css('border','');
 	    });
-	    $("#cnpj").click(function(){
+	    $("#cnpj").focus(function(){
 	        $('#cnpj').css('background','#fff');
 	        $('#cnpj').css('border','');
 	    });
-	    $("#inscest").click(function(){
+	    $("#inscest").focus(function(){
 	        $('#inscest').css('background','#fff');
 	        $('#inscest').css('border','');
 	    });
-	    $("#contato").click(function(){
+	    $("#contato").focus(function(){
 	        $('#contato').css('background','#fff');
 	        $('#contato').css('border','');
 	    });
-	    $("#telefone").click(function(){
+	    $("#telefone").focus(function(){
 	        $('#telefone').css('background','#fff');
 	        $('#telefone').css('border','');
 	    });
-	    $("#cep").click(function(){
+	    $("#cep").focus(function(){
 	        $('#cep').css('background','#fff');
 	        $('#cep').css('border','');
 	    });	   	
-	    $("#logradouro").click(function(){
+	    $("#logradouro").focus(function(){
 	        $('#logradouro').css('background','#fff');
 	        $('#logradouro').css('border','');
 	    });
-	    $("#numero").click(function(){
+	    $("#numero").focus(function(){
 	        $('#numero').css('background','#fff');
 	        $('#numero').css('border','');
 	    });
-	    $("#complemento").click(function(){
+	    $("#complemento").focus(function(){
 	        $('#complemento').css('background','#fff');
 	        $('#complemento').css('border','');
 	    });
-	    $("#bairro").click(function(){
+	    $("#bairro").focus(function(){
 	        $('#bairro').css('background','#fff');
 	        $('#bairro').css('border','');
 	    });
-	    $("#cidade").click(function(){
+	    $("#cidade").focus(function(){
 	        $('#cidade').css('background','#fff');
 	        $('#cidade').css('border','');
 	    });
-	    $("#uf").click(function(){
+	    $("#uf").focus(function(){
 	        $('#uf').css('background','#fff');
 	        $('#uf').css('border','');
 	    });
@@ -443,6 +443,8 @@ $l = $sql->resultado();
 	    $('#cep').mask("99999-999");
 	    $('#telefone').mask("(99)9999-9999");
 	    $('#cnpj').mask("99.999.999/9999-99");
+	    //$('#inscest').mask("99.999.999/9999-99");
+	    
 
 	});
 </script>

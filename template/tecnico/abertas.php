@@ -30,7 +30,17 @@ if( $_GET ){
 
 		if( $numRows >=1 ){
 		
-			echo "<table style='display:none'><tbody>";
+			echo "<table style='display:none'>
+					<thead>
+						<tr id='trTitulo'>
+							<td>OS</td>
+							<td>Entrada</td>
+							<td>Equipamento</td>
+							<td>Defeito</td>
+							<td>Status</td>
+						</tr>
+					</thead>
+				  	<tbody>";
 			while( $l = $sql->resultado() ){
 			echo"
 				<tr>
@@ -95,7 +105,7 @@ if( $_GET ){
 	});
 
 	function assumirOS( idos ){
-		if( confirm('Deseja assumir a OS de nr. '+idos) ){
+		if( confirm('Deseja assumir a Ordem de Servico de nr. '+idos+' para Analise Tecnica') ){
 			$.ajax({
 				type: "GET",
 				url: "ajax/assumirOsAberta.php",

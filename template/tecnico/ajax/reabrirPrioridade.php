@@ -16,7 +16,7 @@ if($ok){
 				<script>
 					$('#retornoErro').fadeOut(5000);
 				</script>
-				<META HTTP-EQUIV='REFRESH' CONTENT='2; URL=assumidas.php'>";
+				<META HTTP-EQUIV='REFRESH' CONTENT='2; URL=manut.php'>";
 }else{
 	echo "Erro ao tentar reabrir OS de nr. ".$idos."
 		<script>$('#retornoErro').fadeOut(5000);</script>";	

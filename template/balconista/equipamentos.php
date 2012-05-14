@@ -12,6 +12,14 @@ if($_GET){
 
 if( $editar == ""){
 ?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Selecionar Cliente
+</span>
 <div id="busca">
 	<input type="text" id="key" />
 	<input type="button" id="buscar" value="Buscar" />
@@ -20,6 +28,15 @@ if( $editar == ""){
 <div id="listaClientes"></div>
 
 <?php } else { ?>
+
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Selecionar Equipamento
+</span>
 
 <div id="dadosCliente">
 	<?php 
@@ -49,11 +66,11 @@ if( $editar == ""){
 		<input type="hidden" id="idcliente" value="<?=$idcliente?>" />
 		<table>
 		<tr>
-			<td>Marca: <input type="text" name="marca" id="marca" /></td>
-			<td>Modelo: <input type="text" name="modelo" id="modelo" /></td>
+			<td>Marca<span style="color:red">*</span> <input type="text" name="marca" id="marca" /></td>
+			<td>Modelo<span style="color:red">*</span> <input type="text" name="modelo" id="modelo" /></td>
 		</tr>
 		<tr>
-			<td>Tipo: <select id="tipo" style="height: 37px">
+			<td>Tipo<span style="color:red">*</span> <select id="tipo" style="height: 37px">
 						<option value="" selected>--- Tipo</option>
 						<?php
 							$equip = new Conexao();
@@ -65,7 +82,7 @@ if( $editar == ""){
 						<?php } ?>
 					   </select>
 			</td>		   
-			<td>N. Série: <input type="text" name="serie" id="serie" /></td>
+			<td>N. Série<span style="color:red">*</span> <input type="text" name="serie" id="serie" /></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -86,10 +103,21 @@ if( $editar == ""){
 	
 	<?php
 		$sql->consulta( Equipamento::consultaCliente( $idcliente ) );
+
+		echo"
+				<table>
+					<thead>
+						<tr id='trTitulo'>
+							<td>Marca</td>
+							<td>Modelo</td>
+							<td>Tipo</td>
+							<td>N. Série</td>
+						</tr>
+					</thead>
+					</tr>
+					<tbody>";
 		while( $l = $sql->resultado() ){
 			echo"
-				<table>
-					<tbody>
 						<tr>
 							<td class='um'>
 								<a href='#' onclick='verEquip(".$l['idequipamento'].")'>".$l['marcaequip']."</a>
@@ -97,11 +125,11 @@ if( $editar == ""){
 							<td class='dois'>".$l['modeloequip']."</td>
 							<td class='tres'>".$l['tipoequip']."</td>
 							<td class='quatro'>".$l['numserie']."</td>
-						</tr>
-					</tbody>
-				</table>	
+						</tr>	
 			";
 		}	
+		echo "</tbody>
+				</table>";
 	?>
 </div>
 

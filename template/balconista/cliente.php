@@ -369,63 +369,63 @@ $l = $sql->resultado();
 	    	$(window.document.location).attr('href','cliente.php');
 	    });
 
-	   	$("#nome").click(function(){
+	   	$("#nome").focus(function(){
 	        $('#nome').css('background','#fff');
 	        $('#nome').css('border','');
 	    });
-	    $("#identidade").click(function(){
+	    $("#identidade").focus(function(){
 	        $('#identidade').css('background','#fff');
 	        $('#identidade').css('border','');
 	    });
-	    $("#orgaoexpedidor").click(function(){
+	    $("#orgaoexpedidor").focus(function(){
 	        $('#orgaoexpedidor').css('background','#fff');
 	        $('#orgaoexpedidor').css('border','');
 	    });
-	    $("#cpf").click(function(){
+	    $("#cpf").focus(function(){
 	        $('#cpf').css('background','#fff');
 	        $('#cpf').css('border','');
 	    });
-	    $("#nascimento").click(function(){
+	    $("#nascimento").focus(function(){
 	        $('#nascimento').css('background','#fff');
 	        $('#nascimento').css('border','');
 	    });
-	    $("#telefone").click(function(){
+	    $("#telefone").focus(function(){
 	        $('#telefone').css('background','#fff');
 	        $('#telefone').css('border','');
 	    });
-	    $("#celular").click(function(){
+	    $("#celular").focus(function(){
 	        $('#celular').css('background','#fff');
 	        $('#celular').css('border','');
 	    });
-	    $("#email").click(function(){
+	    $("#email").focus(function(){
 	        $('#email').css('background','#fff');
 	        $('#email').css('border','');
 	    });
-	    $("#cep").click(function(){
+	    $("#cep").focus(function(){
 	        $('#cep').css('background','#fff');
 	        $('#cep').css('border','');
 	    });
-	    $("#logradouro").click(function(){
+	    $("#logradouro").focus(function(){
 	        $('#logradouro').css('background','#fff');
 	        $('#logradouro').css('border','');
 	    });
-	    $("#numero").click(function(){
+	    $("#numero").focus(function(){
 	        $('#numero').css('background','#fff');
 	        $('#numero').css('border','');
 	    });
-	    $("#complemento").click(function(){
+	    $("#complemento").focus(function(){
 	        $('#complemento').css('background','#fff');
 	        $('#complemento').css('border','');
 	    });
-	    $("#bairro").click(function(){
+	    $("#bairro").focus(function(){
 	        $('#bairro').css('background','#fff');
 	        $('#bairro').css('border','');
 	    });
-	    $("#cidade").click(function(){
+	    $("#cidade").focus(function(){
 	        $('#cidade').css('background','#fff');
 	        $('#cidade').css('border','');
 	    });
-	    $("#uf").click(function(){
+	    $("#uf").focus(function(){
 	        $('#uf').css('background','#fff');
 	        $('#uf').css('border','');
 	    });

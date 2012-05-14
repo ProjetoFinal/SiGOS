@@ -26,7 +26,7 @@ if( $_GET ){
 
 		$word = array( $bomba[0] => ltrim($bomba[1]) );
 
-		$qtd = $sql->consulta( OS::listarOsOrcadas( $word, $_SESSION['idusuario'] ) );
+		$qtd = $sql->consulta( OS::listarOsAnalTec( $word, $_SESSION['idusuario'] ) );
 		$numRows = mysql_num_rows($qtd);
 
 		if( $numRows >=1 ){
@@ -43,10 +43,14 @@ if( $_GET ){
 					</thead>
 				  	<tbody>";
 			while( $l = $sql->resultado() ){
+				if( $l['idstatus'] == 2 )
+					$link = "<a href='#' onclick='fazerOrcamento(".$l['idordemdeservico'].",".$l['idorcamento'].")'>".$l['idordemdeservico']."</a>";	
+				if( $l['idstatus'] == 6 )
+					$link = "<a href='#' onclick='manutencao(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
 			echo"
 				<tr>
 					<td class='um'>
-						<a href='#' onclick='verOs(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>
+						".$link."
 					</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
@@ -72,7 +76,7 @@ if( $_GET ){
 
 		$("#buscar").click( function(){
 			var key = $('#key').val();
-			$(window.document.location).attr('href','orcamento.php?key='+key);
+			$(window.document.location).attr('href','analTec.php?key='+key);
 		});
 
 		$('#key').click( function(){
@@ -103,7 +107,6 @@ if( $_GET ){
 	    	$('#key').focus();
 	    	$('#filtro2').fadeOut(100);
 	    });
-
 	});
 
 	function abrir(pagina,largura,altura) {
@@ -126,8 +129,11 @@ if( $_GET ){
 		window.open(pagina,'','height='+altura+',width='+largura+',top='+meio1+',left='+meio2+',scrollbars=no, toolbar=no'); 
 	}
 
-	function verOs( idos ){
-		abrir('verOs.php?idos='+idos,'520','600'); 
+	function fazerOrcamento( idos, idor ){
+		abrir('realizarOrcamento.php?idos='+idos+'&idor='+idor,'520','600'); 
+	}
+	function manutencao( idos ){
+		abrir('realizarManutencao.php?idos='+idos,'520','600');
 	}
 </script>
 

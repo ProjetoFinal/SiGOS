@@ -62,14 +62,26 @@ class OS{
 		return $query;
 	}
 
-	static function listarOsAssumidas( $key, $idusuario ){
+	static function listarOsAnalTec( $key, $idusuario ){
 		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip, orc.idorcamento from ordemdeservico os 
 						inner join equipamento e on e.idequipamento = os.idequipamento 
 							inner join cliente c on c.idcliente = e.idcliente 
 								inner join statusos s on s.idstatus = os.idstatus
 								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
 								left join orcamento orc on orc.idordemdeservico = os.idordemdeservico
-									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and (os.idstatus=2 or os.idstatus=6)
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and (os.idstatus=2)
+										order by os.idstatus desc, os.entrada asc";
+		return $query;
+	}
+
+	static function listarOsManut( $key, $idusuario ){
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip, orc.idorcamento from ordemdeservico os 
+						inner join equipamento e on e.idequipamento = os.idequipamento 
+							inner join cliente c on c.idcliente = e.idcliente 
+								inner join statusos s on s.idstatus = os.idstatus
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+								left join orcamento orc on orc.idordemdeservico = os.idordemdeservico
+									where (c.nome like '%$key[nome]%' and os.idordemdeservico like '%$key[idos]%' and s.status like '%$key[status]%') and os.idusuario=$idusuario and (os.idstatus=6)
 										order by os.idstatus desc, os.entrada asc";
 		return $query;
 	}

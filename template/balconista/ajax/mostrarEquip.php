@@ -15,11 +15,11 @@ $l = $sql->resultado();
 <input type="hidden" id="idcliente" value="<?=$l['idcliente']?>" />
 <table>
 	<tr>
-		<td>Marca: <input type="text" name="marca" id="marca" value="<?=$l['marcaequip']?>" /></td>
-		<td>Modelo: <input type="text" name="modelo" id="modelo" value="<?=$l['modeloequip']?>" /></td>
+		<td>Marca<span style="color:red">*</span> <input type="text" name="marca" id="marca" value="<?=$l['marcaequip']?>" /></td>
+		<td>Modelo<span style="color:red">*</span> <input type="text" name="modelo" id="modelo" value="<?=$l['modeloequip']?>" /></td>
 	</tr>
 	<tr>
-		<td>Tipo: <select id="tipo" style="height: 37px">
+		<td>Tipo<span style="color:red">*</span> <select id="tipo" style="height: 37px">
 						<option value="<?=$l['idtiposequipamentos']?>" selected><?=$l['tipoequip']?></option>
 						<option value="">-----</option>
 						<?php
@@ -33,7 +33,7 @@ $l = $sql->resultado();
 					   </select>
 				   </select>
 		</td>		   
-		<td>N. Série: <input type="text" name="serie" id="serie" value="<?=$l['numserie']?>" /></td>
+		<td>N. Série<span style="color:red">*</span> <input type="text" name="serie" id="serie" value="<?=$l['numserie']?>" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">

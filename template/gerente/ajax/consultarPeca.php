@@ -46,6 +46,15 @@ if($ok){
 		}
 	</script>
 	<table class="resultado">
+		<thead>
+			<tr id="trTitulo">
+				<td>Código</td>
+				<td>Nome</td>
+				<td>Marca</td>
+				<td>Modelo</td>
+				<td>Preco Unit.</td>
+			</tr>
+		</thead>
 		<tbody>
 		<?php while( $l = $sql->resultado() ){ ?>
 			<tr>

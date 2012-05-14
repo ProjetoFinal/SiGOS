@@ -18,7 +18,9 @@ input[type=text], select{
 	width: 200px;
 	height: 30px;
 	font-size: 12px;
+	text-transform: uppercase;
 }
+textarea{ text-transform: uppercase; }
 input[type=button], input[type=reset], input[type=password]{
 	width: 200px;
 	height: 30px;
@@ -101,4 +103,11 @@ input[type=button], input[type=reset], input[type=password]{
 	color: #fff;
 	cursor: pointer;
 	font-weight: bold;
+}
+
+#trTitulo{
+	background-color: #AAA;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
 }

@@ -12,12 +12,23 @@ if($_GET){
 
 if( $editar == ""){
 ?>
+
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Selecionar Cliente
+</span>
+
 <div id="busca" style="border: 0px solid red; width: 800px">
 	<input type="button" id="novoCliente" value="Novo Cliente" />
 </div>
 <div id="busca" style="border: 0px solid red; width: 800px">
 	<input type="text" id="key" />
 	<input type="button" id="buscar" value="Buscar" />
+	<input type="button" onclick="window.close()" value="Voltar" />
 </div>
 <br />
 <div id="retornoErro"></div>
@@ -33,6 +44,15 @@ if( $editar == ""){
 
 <?php
 }else { ?>
+
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Selecionar Equipamento
+</span>
 
 <div id="dadosCliente">
 	<?php 
@@ -101,12 +121,24 @@ if( $editar == ""){
 	
 	<?php
 		$sql->consulta( Equipamento::consultaCliente( $idcliente ) );
+		echo "
+			<table>
+				<thead>
+					<tr id='trTitulo'>
+						<td>Marca</td>
+						<td>Modelo</td>
+						<td>Tipo</td>
+						<td>N. Serie</td>
+					</tr>
+					</tr>
+				</thead>
+			<tbody>";
+
 		while( $l = $sql->resultado() ){
 			echo "<input type='hidden' id='equipamento".$l['idequipamento']."' value='".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."' />
 				<input type='hidden' id='idequipamento".$l['idequipamento']."' value='".$l['idequipamento']."' />
 				<input type='hidden' id='maodeobra".$l['idequipamento']."' value='".$l['maodeobra']."' />
-				<table>
-					<tbody>
+				
 						<tr>
 							<td class='um'>
 								<a href='#' onclick='usarEquip(".$l['idequipamento'].")'>".$l['marcaequip']."</a>
@@ -134,15 +166,17 @@ if( $editar == ""){
 		$('#central').css('height','600px');
 
 		$('#listaClientes').css('width','780px');
-		$('#listaClientes').css('height','499px');
+		$('#listaClientes').css('height','435px');
+		$('#listaClientes').css('margin-top','120px');
 		$('#listaClientes').css('overflow-x','hidden');
 		$('body').css('overflow','hidden');
 
-		$('#dadosEquip table').css('width','780px');
+		$('#dadosEquip table').css('width','770px');
 		$('#dadosEquip table').css('height','auto');
 
 		$('#dadosEquip').css('width','799px');
-		$('#dadosEquip').css('height','380px');
+		$('#dadosEquip').css('height','350px');
+		$('#dadosEquip').css('overflow-x','hidden');
 
 		$('#retornoErro').fadeIn(200);
         $("#retornoErro").text('Carregando...');

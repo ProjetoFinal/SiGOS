@@ -37,23 +37,33 @@ if( $editar == "" ){ ?>
 <?php }elseif( $editar == "nova"){ ?>
 
 <div id='retornoErro'></div>
+
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Nova Ordem de Serviço
+</span>
+
 <div class="novaOS">
 	<form name="formNovaOS">
 	<table class="nova">
 		<tr>
-			<td>Cliente</td>
+			<td>Cliente<span style="color:red">*</span></td>
 			<td><input type="text" name="cliente" id="cliente" value="" /></td>
 		</tr>
 		<tr>
 			<td>Equipamento</td>
 			<td>
-				<input type="text" name="equipamento" id="equipamento" value="" />
+				<input type="text" name="equipamento" id="equipamento" value="" readonly/>
 				<input type="hidden" name="idequipamento" id="idequipamento" value="" />
 				<input type="hidden" name="maodeobra" id="maodeobra" value="" />
 			</td>
 		</tr>
 		<tr>
-			<td>Defeito</td>
+			<td>Defeito<span style="color:red">*</span></td>
 			<td><textarea id="defeito" style="width: 200px;height: 100px;"></textarea></td>
 		</tr>
 		<tr>

@@ -20,23 +20,23 @@ if( $editar == "" ){
 <form id="form1">
 <table>
 	<tr>
-		<td>Nome</td>
+		<td>Nome<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="nome" id="nome" />
 		</td>
 	
-		<td>Login</td>
+		<td>Login<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="login" id="login" />
 		</td>
 	
-		<td>Senha</td>
+		<td>Senha<span style="color:red">*</span></td>
 		<td>
 			<input type="password" name="senha" id="senha" />
 		</td>
 	</tr>
 	<tr>
-		<td>Nível</td>
+		<td>Nível<span style="color:red">*</span></td>
 		<td>
 			<select name="nivel" id="nivel">
 				<option value="">-- Nivel</option>
@@ -47,7 +47,7 @@ if( $editar == "" ){
 			</select>
 		</td>
 
-		<td>Status</td>
+		<td>Status<span style="color:red">*</span></td>
 		<td>
 			<select name="status" id="status">
 				<option value="">-- Status</option>

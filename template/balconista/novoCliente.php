@@ -35,6 +35,14 @@ if( $_POST ){
 ?>
 <div id="retornoErro"></div>
 <div id="retorno"></div>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Cadastrar Novo Cliente
+</span>
 <style>
 #column1{ margin-left: 70px;}
 #column1, #column2, #column3{
@@ -53,31 +61,31 @@ if( $_POST ){
 <div id="column1">
 <table>
 	<tr>
-		<td>Nome*</td>
+		<td>Nome<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="nome" id="nome" />
 		</td>
 	</tr>
 	<tr>
-		<td>Identidade*</td>
+		<td>Identidade<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="identidade" id="identidade" />
 		</td>
 	</tr>
 	<tr>
-		<td>Orgão Expedidor*</td>
+		<td>Orgão Expedidor<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="orgaoexpedidor" id="orgaoexpedidor" />
 		</td>
 	</tr>
 	<tr>
-		<td>CPF*</td>
+		<td>CPF<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="cpf" id="cpf" />
 		</td>
 	</tr>
 	<tr>
-		<td>Nascimento*</td>
+		<td>Nascimento<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="nascimento" id="nascimento"
 				style="width:150px !important;
@@ -90,7 +98,7 @@ if( $_POST ){
 <div id="column2">
 <table>
 	<tr>
-		<td>Telefone*</td>
+		<td>Telefone<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="telefone" id="telefone" />
 		</td>
@@ -108,13 +116,13 @@ if( $_POST ){
 		</td>
 	</tr>
 	<tr>
-		<td>CEP*</td>
+		<td>CEP<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="cep" id="cep" />
 		</td>
 	</tr>
 	<tr>
-		<td>Logradouro*</td>
+		<td>Logradouro<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="logradouro" id="logradouro" />
 		</td>
@@ -125,7 +133,7 @@ if( $_POST ){
 	<div id="column3">
 <table>
 	<tr>
-		<td>Número*</td>
+		<td>Número<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="numero" id="numero" />
 		</td>
@@ -137,19 +145,19 @@ if( $_POST ){
 		</td>
 	</tr>
 	<tr>
-		<td>Bairro*</td>
+		<td>Bairro<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="bairro" id="bairro" />
 		</td>
 	</tr>
 	<tr>
-		<td>Cidade*</td>
+		<td>Cidade<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="cidade" id="cidade" />
 		</td>
 	</tr>
 	<tr>
-		<td>Estado*</td>
+		<td>Estado<span style="color:red">*</span></td>
 		<td>
 			<select name="uf" id="uf">
 				<option  value="" selected>-- Estado</option>
