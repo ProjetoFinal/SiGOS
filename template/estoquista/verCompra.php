@@ -36,8 +36,8 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 	textarea{ height:80px; width:390px; font-size: 14px !important; }
 	#linhaPeca{
 		border-bottom: 1px solid #999;
-		width: 350px;
-		height: 25px;
+		width: 100%;
+		height: 50px;
 		float: left;
 		margin-bottom: 5px;
 	}
@@ -61,14 +61,18 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 					while( $p = $sql->resultado() ){
 				?>
 					<div id="linhaPeca">
-						<?=$p['nomepeca']?>  |  <input type="text" class="qtd" id="qtd<?=$p['idpeca']?>" 
+						<?=$p['nomepeca']?>  |  <input type="text" class="qtd[]" id="qtd<?=$p['idpeca']?>" 
 													onclick="qtd(<?=$p['idpeca']?>)"
-														value="<?=$p['qtd']?>" 
+														value="<?=$p['qtd']?>"
 															style="width: 50px; height: 15px; text-align:right" />	
 												<input type="hidden" id="idpeca" value="<?=$p['idpeca']?>" />
+												<?php
+													if( $status == "aberta" ){
+												?>
 												<input type="button" onclick='attPeca(<?=$p['idpeca']?>)' 
 													value="Att Quantidade"
 														style="width:120px; height: 25px" />
+												<?php } ?>
 					</div>
 				<?php } } else { echo "Sem registros"; } ?>
 			</div>
@@ -104,9 +108,11 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 					if(data==1){
 						opener.location.reload();
 						window.close();			
-					}else{
+					}else if(data==2){
 						alert('Erro ao finalizar a Compra');					
-					}					
+					}else{
+						alert('Existem Peças com Quantidade não definidas.');
+					}				
 				}
 			});
 		}
@@ -123,8 +129,10 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 					if(data==1){
 						opener.location.reload();
 						window.close();			
-					}else{
+					}else if(data==2){
 						alert('Erro ao finalizar a Compra');					
+					}else{
+						alert('Existem Peças com Quantidade não definidas.');
 					}					
 				}
 			});

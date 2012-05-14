@@ -25,25 +25,25 @@ if( $editar == ""){
 <div id="column1">
 	<table>
 		<tr>
-			<td>Código da Peça</td>
+			<td>Código<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="codigopeca" id="codigopeca" />
 			</td>
 		</tr>
 		<tr>
-			<td>Descrição</td>
+			<td>Descrição<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="nomepeca" id="nomepeca" />
 			</td>
 		</tr>
 		<tr>
-			<td>Marca</td>
+			<td>Marca<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="marcapeca" id="marcapeca" />
 			</td>
 		</tr>
 		<tr>
-			<td>Modelo</td>
+			<td>Modelo<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="modelopeca" id="modelopeca" />
 			</td>
@@ -54,19 +54,19 @@ if( $editar == ""){
 <div id="column2">
 	<table>
 		<tr>
-			<td>Quantidade</td>
+			<td>Quantidade<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="quantidade" id="quantidade" />
 			</td>
 		</tr>
 		<tr>
-			<td>Preco Unitátio</td>
+			<td>Preco Unitário<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="precounidade" id="precounidade" />
 			</td>
 		</tr>
 		<tr>
-			<td>Data Entrada</td>
+			<td>Data Entrada<span style="color:red">*</span></td>
 			<td>
 				<input type="text" name="dataentrada" id="dataentrada"
 						style="width:150px !important;
@@ -137,7 +137,7 @@ if( $editar == ""){
 			</td>
 		</tr>
 		<tr>
-			<td>Preco Unitátio</td>
+			<td>Preco Unitário</td>
 			<td>
 				<input type="text" name="precounidade" id="precounidade" value="<?=$l['precounidade']?>" />
 			</td>

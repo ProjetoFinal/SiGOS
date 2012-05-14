@@ -173,6 +173,18 @@ class OS{
 		return $l['n'];
 	}
 
+	static function contadorOSAll( $idstatus ){
+		$sql = new Conexao();
+		$sql->conecta();
+		if( $idstatus == 1 ){
+			$sql->consulta( "select count(idstatus) as n from ordemdeservico where idstatus=$idstatus" );
+		}else{
+			$sql->consulta( "select count(idstatus) as n from ordemdeservico where idstatus=$idstatus" );	
+		}		
+		$l = $sql->resultado();
+		return $l['n'];
+	}
+
 	static function assumirOs( $idusuario, $idos, $idstatus ){
 		if( $idstatus == 6 ){
 			$query = "update ordemdeservico set idusuario=$idusuario, idstatus=$idstatus, iniciomanut=now() where idordemdeservico=$idos";

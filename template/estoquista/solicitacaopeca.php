@@ -26,7 +26,16 @@ if( $_GET ){
 
 		if( $numRows >=1 ){
 			
-			echo "<table><tbody>";
+			echo "<table>
+					<thead>
+						<tr id='trTitulo'>
+							<td>//</td>
+							<td>Código</td>
+							<td>Nome - Modelo</td>
+							<td>Quantidade</td>
+						</tr>
+					</thead>
+					<tbody>";
 			
 			while( $l = $sql->resultado() ){
 				
@@ -39,7 +48,7 @@ if( $_GET ){
 					echo"
 						<tr ".$color.">
 							<td class='um'>
-								<a ".$color." href='#' onclick='solicitarPeca(".$l['idpeca'].")'>".$l['idpeca']."</a>
+								<a ".$color." href='#' onclick='solicitarPeca(".$l['idpeca'].")'>SOLICITAR</a>
 								<input type='hidden' id='nomepeca' value='".$l['nomepeca']."' />
 							</td>
 							<td class='um'>".$l['codigopeca']."</td>

@@ -26,7 +26,16 @@ if( $_GET ){
 
 		if( $numRows >=1 ){
 
-			echo "<table><tbody>";
+			echo "<table>
+					<thead>
+						<tr id='trTitulo'>
+							<td>//</td>
+							<td>Data Pedido</td>
+							<td>Quantidade de Peças</td>
+							<td>Status</td>
+						</tr>
+					</thead>
+					<tbody>";
 
 			while( $l = $sql->resultado() ){
 				$sql2->consulta( Compra::verificarOS( $l['idcomprapeca'] ) );
@@ -40,9 +49,10 @@ if( $_GET ){
 
 			echo "<tr>
 					<td class='um'>"; ?>
-						<a href='#' <?=$style?> onclick="verCompra('<?=$l['datapedido']?>')"><?=data_dmy($l['datapedido'])?></a>
+						<a href='#' <?=$style?> onclick="verCompra('<?=$l['datapedido']?>')">VER</a>
 						<?php echo "
 					</td>
+					<td class='um'>".data_dmy($l['datapedido'])."</td>
 					<td class='dois'>".$l['qtdpeca']." peça(s)</td>
 					<td class='dois' style='text-transform:uppercase'>".$l['status']."</td>
 				</tr>";

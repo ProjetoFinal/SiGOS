@@ -37,7 +37,7 @@ class Compra{
 	}
 
 	static function finalizar( $datapedido ){
-		$query = "update comprapeca set status='finalizada' where datapedido='$datapedido'";
+		$query = "update comprapeca set status='fechada' where datapedido='$datapedido'";
 		return $query;
 	}
 	

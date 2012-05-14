@@ -14,16 +14,30 @@ extract( $_GET );
 	$cont = mysql_num_rows( $res );
 
 	if( $cont >=1 ){
+
+				echo "
+			<table>
+				<thead>
+					<tr id='trTitulo'>
+						<td>//</td>
+						<td>OS N.</td>
+						<td>Entrada</td>
+						<td>Equipamento</td>
+						<td>Cliente</td>
+						<td>Status</td>
+					</tr>
+				</thead>
+				<tbody>";
+
 		while( $l = $sql->resultado() ){
-			$link = "<a href='#' onclick='verOS(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>";
+			$link = "<a href='#' onclick='verOS(".$l['idordemdeservico'].")'>ATENDER PEÇA</a>";
 				
 		echo "
-			<table>
-				<tbody>
 				<tr>
 					<td class='um'>
 						".$link."
 					</td>
+					<td>".$l['idordemdeservico']."</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
 					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
 					<td class='tres'>".$l['nome']." - ".$l['telefone']."</td>
