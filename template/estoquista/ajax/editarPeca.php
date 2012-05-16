@@ -17,6 +17,7 @@ $msgMarcaPeca	= "";
 $msgModeloPeca	= "";
 $msgQuantidade	= "";
 $msgPrecoUnidade	= "";
+$msgFabricante	= "";
 $msgDataEntrada	= "";
 
 if( empty( $codigopeca ) ){
@@ -60,6 +61,14 @@ if( empty( $quantidade ) ){
 	$count++;
 }
 if( empty( $precounidade ) ){
+	$msgPrecoUnidade = "*Preencha com o preço unitário<br />
+						<script>
+							$('#precounidade').css('background','#FBE3E4');
+							$('#precounidade').css('border','1px solid #FBC2C4');
+						</script>";
+	$count++;
+}
+if( empty( $idfornecedor ) ){
 	$msgPrecoUnidade = "*Preencha com o preço unitário<br />
 						<script>
 							$('#precounidade').css('background','#FBE3E4');

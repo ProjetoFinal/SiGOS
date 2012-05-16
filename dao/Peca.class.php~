@@ -71,7 +71,7 @@ class Peca{
 					modelopeca	='$this->modelopeca',
 					quantidade	='$this->quantidade',
 					precounidade	='$this->precounidade',
-					idfornecedor	='$this->idfornecedor',
+					
 					dataentrada	='$this->dataentrada'
 						where idpeca='$idpeca'";
 		return $query;

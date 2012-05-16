@@ -65,6 +65,22 @@ if( $editar == ""){
 				<input type="text" name="precounidade" id="precounidade" />
 			</td>
 		</tr>
+       <tr>
+        <td>Fabricante <span style="color:red">*</span></td>
+        <td>
+            <select name="idfornecedor" id="idfornecedor">
+                <option  value="" selected>-- Fabricante</option>
+                <?php
+                    $sql = new Conexao();
+                    $sql->conecta();
+                    $sql->consulta( Fornecedor::exibirFornecedores() );
+                    while( $r = $sql->resultado() ){
+                ?>
+                <option  value="<?=$r['idfornecedor']?>"><?=$r['nomefantasia']?></option>
+                <?php } ?>
+            </select>
+        </td>
+    </tr> 
 		<tr>
 			<td>Data Entrada<span style="color:red">*</span></td>
 			<td>
@@ -102,7 +118,7 @@ if( $editar == ""){
 	<input type="hidden" name="idpeca" id="idpeca" value="<?=$l['idpeca']?>" />
 <table>
 		<tr>
-			<td>Código</td>
+			<td>Código da Peça</td>
 			<td>
 				<input type="text" name="codigopeca" id="codigopeca" value="<?=$l['codigopeca']?>" />
 			</td>
@@ -142,6 +158,22 @@ if( $editar == ""){
 				<input type="text" name="precounidade" id="precounidade" value="<?=$l['precounidade']?>" />
 			</td>
 		</tr>
+    <tr>
+         <td>Fabricante <span style="color:red">*</span></td>
+         <td>
+             <select name="idfornecedor" id="idfornecedor">
+                 <option  value="" selected>-- Fabricante</option>
+                 <?php
+                     $sql = new Conexao();
+                     $sql->conecta();
+                     $sql->consulta( Fornecedor::exibirFornecedores() );
+                     while( $r = $sql->resultado() ){
+                 ?>
+                 <option  value="<?=$r['idfornecedor']?>"><?=$r['nomefantasia']?></option>
+                 <?php } ?>
+             </select>
+         </td>
+    </tr>
 		<tr>
 			<td>Data Entrada</td>
 			<td>
@@ -183,6 +215,7 @@ if( $editar == ""){
 			var modelopeca	= $("#form1 #modelopeca").val();
 			var quantidade	= $("#form1 #quantidade").val();	
 			var precounidade= $("#form1 #precounidade").val();
+			var idfornecedor = $("#form1 #idfornecedor").val();
 			var dataentrada = $("#form1 #dataentrada").val();
 	
   		  
@@ -195,6 +228,7 @@ if( $editar == ""){
 		                  "&modelopeca="+modelopeca+
 		                  "&quantidade="+quantidade+
 						  "&precounidade="+precounidade+
+						  "&idfornecedor="+idfornecedor+
 						  "&dataentrada="+dataentrada,
 		            beforeSend: function(){
 		                $('#retornoErro').fadeIn(200);
@@ -274,10 +308,6 @@ if( $editar == ""){
 		});
 		//Fim Remover Peças
 		
-		$("#cancelar").click( function(){
-	    	$(window.document.location).attr('href','peca.php');
-	    });
-		
 		// Função para exibir calendário
 		$("#dataentrada").datepicker({
 	            showOn: "button",
@@ -288,6 +318,9 @@ if( $editar == ""){
 	    //Função para exibir máscara Monetária
 	    $('#precounidade').maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
 
+	    $('#cancelar').click( function(){
+	    	window.location='peca.php';
+	    });
             
 	});
 </script>

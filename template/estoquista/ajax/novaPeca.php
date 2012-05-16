@@ -59,6 +59,16 @@ if( empty( $precounidade ) ){
 						</script>";
 	$count++;
 }
+
+if( empty( $idfornecedor ) ){
+	$msgFabricante = "*Selecione um Fabricante<br />
+						<script>
+							$('#idfornecedor').css('background','#FBE3E4');
+							$('#idfornecedor').css('border','1px solid #FBC2C4');
+						</script>";
+	$count++;
+}
+
 if( empty( $dataentrada ) ){
 	$msgDataEntrada = "*Preencha com a data de saída da nota<br />
 						<script>
@@ -76,6 +86,7 @@ $msgMarcaPeca
 $msgModeloPeca
 $msgQuantidade
 $msgPrecoUnidade
+$msgFabricante
 $msgDataEntrada
 ERRO;
 }else{
@@ -93,7 +104,7 @@ $peca = new Peca( $_GET );
 	if( $cont >= 1 ){
 		echo "Peça já cadastrada!
 				<script>$('#retornoErro').fadeOut(15000);</script>";
-	} else { // tinha um */ aqui q vc provavelmente esqueceu de tirar!
+	} else { 
 		$ok = $sql->consulta ( $peca->novaPeca() );
 		//echo $peca->novaPeca();
 		if($ok){

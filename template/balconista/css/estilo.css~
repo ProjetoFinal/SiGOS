@@ -59,7 +59,7 @@ img#edit, img#remover{
 #listaClientes {
 	border: 0px solid red;
 	width: 998px;
-	height: z500px;
+	height: 1500px;
 	position: absolute;
 	margin-top: 85px;
 	overflow-y: scroll;
