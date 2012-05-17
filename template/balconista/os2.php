@@ -17,7 +17,14 @@ if($_GET){
 echo "<div id='areaOff'>";
 
 if( $editar == "" ){ ?>
-
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Gerenciar Ordem de Serviço ( Geral )
+</span>
 <div id="busca">
 	
 	<div id="filtro">
@@ -35,7 +42,7 @@ if( $editar == "" ){ ?>
 </div>
 
 <div id='retornoErro'></div>
-<div id="listaOS">
+<div id="listaOS" style="margin-top:20px">
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");

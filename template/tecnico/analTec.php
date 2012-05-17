@@ -6,6 +6,14 @@ if( $_GET ){
 	$key = $_GET['key'];
 }
 ?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Análise Técnica
+</span>
 
 <div id="busca">
 	<input type="text" id="key" />

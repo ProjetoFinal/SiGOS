@@ -4,7 +4,7 @@ include_once("../../dao/OS.class.php");
 ?>
 <div id="menu">
 	<ul>
-		<li><a href="index.php">OS Ag. Peça ( <?=OS::contadorOSAll(7)?> )</a></li>
+		<li><a href="index.php">Atender Peças ( <?=OS::contadorOSAll(7)?> )</a></li>
 		<li> | </li>
 		<li><a href="fornecedor.php">Fornecedores</a></li>
 		<li> | </li>

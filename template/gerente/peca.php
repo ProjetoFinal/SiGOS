@@ -6,7 +6,16 @@ function __autoload( $class ){
 
 include_once("topo.php");
 include_once("../function/formataData.php");
-
+?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Manter Peça
+</span>
+<?php
 
 $editar = "";
 

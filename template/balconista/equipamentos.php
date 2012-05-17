@@ -18,6 +18,14 @@ if( $editar == ""){
 		font-weight: bold;
 		color: #777;
 	";>
+	Manter Equipamento
+</span>
+<br /><br /><span
+	style="
+		font-size: 16px;
+		font-weight: bold;
+		color: #777;
+	";>
 	Selecionar Cliente
 </span>
 <div id="busca">
@@ -25,7 +33,7 @@ if( $editar == ""){
 	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
 </div>
 <div id="retornoErro"></div>
-<div id="listaClientes"></div>
+<div id="listaClientes" style="height:420px"></div>
 
 <?php } else { ?>
 
@@ -35,7 +43,7 @@ if( $editar == ""){
 		font-weight: bold;
 		color: #777;
 	";>
-	Selecionar Equipamento
+	Manter Equipamento
 </span>
 
 <div id="dadosCliente">
@@ -58,9 +66,10 @@ if( $editar == ""){
 
 <div id="busca">
 	<input type="button" class="bt_novoequip" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_voltar" onclick="window.location='equipamentos.php'" value="Cancelar (F5)" />
 </div>
 
-<div id="dadosEquip">
+<div id="dadosEquip" style="height:340px">
 	
 	<div id="addEquip" style="display: none">
 		<input type="hidden" id="idcliente" value="<?=$idcliente?>" />

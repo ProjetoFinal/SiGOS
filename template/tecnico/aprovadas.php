@@ -5,7 +5,14 @@ if( $_GET ){
 	$key = $_GET['key'];
 }
 ?>
-
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Ordem de Serviço Aprovada
+</span>
 <div id="busca">
 	<input type="text" id="key" />
 	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />

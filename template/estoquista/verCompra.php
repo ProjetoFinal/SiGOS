@@ -27,9 +27,12 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 ?>
 <style>
 	#menu{ display: none; }
-	#central{ margin-top:-50px; }
-	table{ width:500px; }
+	#central{ margin-top:-50px; width:500px;}
+	table{ width:500px; background: #fff !important; }
 	tr{ height: 30px; }
+	td{ border-bottom: 1px solid #aaa}
+	td{ border-right: 1px solid #aaa}
+	td{ border-left: 1px solid #aaa}
 	tr.defeito{ height: 80px; }
 	tr.peca{ height: 330px; overflow: auto; }
 	div.peca{ overflow: auto; height: 300px;  margin-bottom: 5px; }
@@ -43,7 +46,7 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 	}
 	#menosUm{ float:left;}
 </style>
-<table border=1>
+<table border=0 cellspacing=0>
 	<tr>
 		<td>Entrada</td>
 		<td>
@@ -88,6 +91,7 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 				<input type="button" class="bt_fimcompra" id="finalizar" value="Finalizar Compra" />
 			<?php } ?>
 			
+			<input type="button" class="bt_imprimir" value="Imprimir" />
 			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 			
 			<?php if( $status == 'aberta' ){ ?>

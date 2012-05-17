@@ -2,14 +2,15 @@
 	<ul>
 		<li><a href="index.php">Início</a></li>
 		<li> | </li>
+		<li><a href="cliente.php">Cliente</a></li>
+		<li> | </li>
 		<li><a href="fornecedor.php">Fornecedores</a></li>
 		<li> | </li>
 		<li><a href="usuario.php">Usuários</a></li>
 		<li> | </li>
 		<li><a href="peca.php">Peças</a></li>
 		<li> | </li>
-		<li><a href="cliente.php">Cliente</a></li>
-		<li> | </li>
+		
 		
 		<!--
 		<?php for($i=1; $i <= 5; $i++){ ?>

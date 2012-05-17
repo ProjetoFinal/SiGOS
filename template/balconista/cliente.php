@@ -6,7 +6,16 @@ function __autoload( $class ){
 
 include_once("topo.php");
 include_once("../function/formataData.php");
-
+?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Manter Cliente
+</span>
+<?php
 
 $editar = "";
 
@@ -279,7 +288,7 @@ $l = $sql->resultado();
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno"></div>
+<div id="retorno" style="height: 260px"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="teclas.js"></script>

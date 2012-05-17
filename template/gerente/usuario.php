@@ -4,7 +4,16 @@ function __autoload( $class ){
 }
 
 include_once("topo.php");
-
+?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Manter Usuário
+</span><br /><br /><br />
+<?php
 $editar = "";
 
 if($_GET){
@@ -162,7 +171,7 @@ $l = $sql->resultado();
 
 
 <div id="retornoErro"></div>
-<div id="retorno"></div>
+<div id="retorno" style="height:380px"></div>
 
 
 <script type="text/javascript" src="teclasGerente.js"></script>
