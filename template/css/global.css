@@ -144,6 +144,7 @@ textarea{ text-transform: uppercase; }
 .bt_reabrir		{ background: url('../img/layout/bt_reabrir.png')				no-repeat;	width: 95px;	}
 .bt_remover		{ background: url('../img/layout/bt_remover.png')	    		no-repeat;	width: 95px;	}
 .bt_reprovar	{ background: url('../img/layout/bt_reprovar.png')				no-repeat;	width: 95px;	}
+.bt_gerarrel	{ background: url('../img/layout/bt_gerar_relatorio.png')		no-repeat;	width: 120px;	}
 
 
 .bt_buscar,		.bt_entrar,		.bt_enviar,			.bt_fechar,
@@ -153,7 +154,7 @@ textarea{ text-transform: uppercase; }
 .bt_attacomp,	.bt_attcoment,	.bt_cancelcompra,	.bt_entregar,
 .bt_fimcompra,	.bt_fimmanut,	.bt_fimorc,			.bt_novaos,
 .bt_novocli,	.bt_novoequip,	.bt_pagar,			.bt_reabrir,
-.bt_remover,	.bt_reprovar {
+.bt_remover,	.bt_reprovar,	.bt_gerarrel {
 	background-position:0px -24px;
 	height:				24px; 
 	padding:			0;
@@ -171,7 +172,7 @@ textarea{ text-transform: uppercase; }
 .bt_attacomp:hover,		.bt_attcoment:hover,	.bt_cancelcompra:hover,		.bt_entregar:hover,
 .bt_fimcompra:hover,	.bt_fimmanut:hover,		.bt_fimorc:hover,			.bt_novaos:hover,
 .bt_novocli:hover,		.bt_novoequip:hover,	.bt_pagar:hover,			.bt_reabrir:hover,
-.bt_remover:hover,		.bt_reprovar:hover {
+.bt_remover:hover,		.bt_reprovar:hover,		.bt_gerarrel:hover {
 	background-position:0px 0px;
 	border:				0;
 	outline:			0;
@@ -183,7 +184,7 @@ textarea{ text-transform: uppercase; }
 .bt_attacomp:focus,		.bt_attcoment:focus,	.bt_cancelcompra:focus,		.bt_entregar:focus,
 .bt_fimcompra:focus,	.bt_fimmanut:focus,		.bt_fimorc:focus,			.bt_novaos:focus,
 .bt_novocli:focus,		.bt_novoequip:focus,	.bt_pagar:focus,			.bt_reabrir:focus,
-.bt_remover:focus,		.bt_reprovar:focus {
+.bt_remover:focus,		.bt_reprovar:focus,		.bt_gerarrel:focus {
 	background-position:0px 0px;
 	border:				0;
 	outline:			0;
