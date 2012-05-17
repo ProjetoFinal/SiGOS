@@ -94,8 +94,8 @@ $l = $sql->resultado();
 	<tr>
 		<td colspan="2" align="center">
 			&nbsp;
-			<input type="button" id="atPeca" value="Atender Peça" />
-			<input type="button" onclick="window.close()" value="Fechar" />
+			<input type="button" class="bt_atpeca" id="atPeca" value="Atender Peça" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>

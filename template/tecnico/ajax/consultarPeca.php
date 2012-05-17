@@ -39,6 +39,16 @@ if($ok){
 		}
 	</script>
 	<table class="resultado">
+		<table class="resultado">
+				<thead>
+			<tr id="trTitulo">
+				<td>Código</td>
+				<td>Nome</td>
+				<td>Marca</td>
+				<td>Modelo</td>
+				<td>Quantidade</td>
+			</tr>
+		</thead>
 		<tbody>
 		<?php while( $l = $a->resultado() ){ ?>
 			<tr>
@@ -51,7 +61,7 @@ if($ok){
 				<td><?=$l['nomepeca']?></td>
 				<td><?=ucfirst($l['marcapeca'])?></td>
 				<td><?=ucfirst($l['modelopeca'])?></td>
-				<td><?=ucfirst($l['precounidade'])?></td>
+				<td><?=ucfirst($l['quantidade'])?></td>
 			</tr>
 		<?php } ?>
 		</tbody>

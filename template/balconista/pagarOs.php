@@ -80,7 +80,10 @@ extract($_GET);
 		<td><input type="text" id="troco"  readonly/></td>
 	</tr>
 	<tr>
-		<td colspan="2"><input type="button" id="pagar" value="Pagar" /></td>
+		<td colspan="2">
+			<input type="button" class="bt_pagar" id="pagar" value="Pagar" />
+			<input type="button" class="bt_voltar" onclick="window.close();" value="Voltar" />
+		</td>
 	</tr>
 </table>
 </form>

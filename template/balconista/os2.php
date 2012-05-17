@@ -19,7 +19,7 @@ echo "<div id='areaOff'>";
 if( $editar == "" ){ ?>
 
 <div id="busca">
-	<input type="button" id="novaOS" value="Nova OS (Insert)" />
+	
 	<div id="filtro">
 		<div id="nome" class="filtro">nome</div>
 		<div id="cpf" class="filtro">cpf</div>
@@ -30,7 +30,8 @@ if( $editar == "" ){ ?>
 </div>
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
+	<input type="button" class="bt_novaos" id="novaOS" value="Nova OS (Insert)" />
 </div>
 
 <div id='retornoErro'></div>

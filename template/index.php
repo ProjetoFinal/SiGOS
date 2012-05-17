@@ -34,9 +34,8 @@ include_once("topo.php");
 			</div>
 		</div>
 		<div id="botoesLogar">
-			<input type="image" src="img/b-login.png" id="fazerLogin" />
+			<input type="button" class="bt_entrar" id="fazerLogin" />
 		</div>
-		<a href="#">Esqueci minha senha</a>
 	</div>
 	
 </div>

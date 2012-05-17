@@ -75,7 +75,7 @@ $l = $sql->resultado();
 					<input type="image" src="../img/btn_fechar.png" id="menosUm" onclick="menosUm(<?=$p['idpecasolicitada']?>, <?=$idor?>, <?=$p['precounidade']?>)" />
 				<?php } } else { echo "Sem registros"; } ?>
 			</div>
-			<input type="button" id="addPeca" value="Adicionar Peça" />
+			<input type="button" class="bt_addpeca" id="addPeca" value="Adicionar Peça" />
 		</td>
 	</tr>
 	<tr>
@@ -86,7 +86,7 @@ $l = $sql->resultado();
 		<td>Comentários</td>
 		<td>
 			<textarea id="comentarios"><?=$l['comentarios']?></textarea>
-			<input type="button" id="attComent" value="Atualizar Cometário" />
+			<input type="button" class="bt_attcoment" id="attComent" value="Atualizar Cometário" />
 		</td>
 
 	</tr>
@@ -97,9 +97,9 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" id="fecharOrcamento" value="Finalizar Orçamento" />
+			<input type="button" class="bt_fimorc" id="fecharOrcamento" value="Finalizar Orçamento" />
 			&nbsp;
-			<input type="button" onclick="window.close()" value="Fechar sem Finalizar" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar sem Finalizar" />
 		</td>
 	</tr>
 </table>

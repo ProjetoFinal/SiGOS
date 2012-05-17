@@ -37,9 +37,9 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="button" id="editar" value="Editar (Ctrl + F11)" />
-			<input type="button" id="remover" value="Remover (Ctr + F7)" />
-			<input type="button" id="cancelar" value="Cancelar (F5)" />
+			<input type="button" class="bt_salvar" id="editar" value="Editar (Ctrl + F11)" />
+			<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F5)" />
+			<input type="button" class="bt_remover" id="remover" value="Remover (Ctr + F7)" />
 		</td>
 	</tr>
 </table>

@@ -21,7 +21,8 @@ input[type=text], select{
 	text-transform: uppercase;
 }
 textarea{ text-transform: uppercase; }
-input[type=button], input[type=reset], input[type=password]{
+/*input[type=button], input[type=reset],*/
+ input[type=password]{
 	width: 200px;
 	height: 30px;
 	font-size: 12px;
@@ -46,7 +47,7 @@ input[type=button], input[type=reset], input[type=password]{
 	display: none;
 	position: absolute;
 	z-index: 10;
-	margin: 42px 0 0 281px;
+	margin: 42px 0 0 241px;
 	padding-top: 5px;
 }
 
@@ -61,7 +62,7 @@ input[type=button], input[type=reset], input[type=password]{
 	display: none;
 	position: relative;
 	z-index: 10;
-	margin: -2px 0 0 281px;
+	margin: -2px 0 0 345px;
 	padding-top: 5px;
 }
 
@@ -110,4 +111,80 @@ input[type=button], input[type=reset], input[type=password]{
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #fff;
+}
+
+/* botoes padronizados */
+.bt_buscar		{ background: url('../img/layout/bt_buscar.png')				no-repeat;	width: 66px;	}
+.bt_entrar		{ background: url('../img/layout/bt_entrar.png')				no-repeat;	width: 66px;	}
+.bt_enviar		{ background: url('../img/layout/bt_enviar.png')				no-repeat;	width: 66px;	}
+.bt_fechar		{ background: url('../img/layout/bt_fechar.png')				no-repeat;	width: 66px;	}
+.bt_gerar		{ background: url('../img/layout/bt_gerar.png')					no-repeat;	width: 66px;	}
+.bt_entrar		{ background: url('../img/layout/bt_entrar.png')				no-repeat;	width: 66px;	}
+.bt_gravar		{ background: url('../img/layout/bt_gravar.png')				no-repeat;	width: 66px;	}
+.bt_imprimir	{ background: url('../img/layout/bt_imprimir.png')				no-repeat;	width: 66px;	}
+.bt_iniciar		{ background: url('../img/layout/bt_iniciar.png')				no-repeat;	width: 66px;	}
+.bt_limpar		{ background: url('../img/layout/bt_limpar.png')				no-repeat;	width: 66px;	}
+.bt_salvar		{ background: url('../img/layout/bt_salvar.png')				no-repeat;	width: 66px;	}
+.bt_voltar		{ background: url('../img/layout/bt_voltar.png')				no-repeat;	width: 66px;	}
+.bt_zerar		{ background: url('../img/layout/bt_zerar_senha.png')			no-repeat;	width: 100px;	}
+.bt_addpeca		{ background: url('../img/layout/bt_add_peca.png')				no-repeat;	width: 100px;	}
+.bt_aprovar		{ background: url('../img/layout/bt_aprovar.png')				no-repeat;	width: 95px;	}
+.bt_atpeca		{ background: url('../img/layout/bt_atender_peca.png')			no-repeat;	width: 100px;	}
+.bt_attacomp	{ background: url('../img/layout/bt_att_acompanhamento.png')	no-repeat;	width: 200px;	}
+.bt_attcoment	{ background: url('../img/layout/bt_att_comentario.png')		no-repeat;	width: 144px;	}
+.bt_cancelcompra{ background: url('../img/layout/bt_cancelar_compra.png')		no-repeat;	width: 120px;	}
+.bt_entregar	{ background: url('../img/layout/bt_entregar.png')				no-repeat;	width: 95px;	}
+.bt_fimcompra	{ background: url('../img/layout/bt_finalizar_compra.png')		no-repeat;	width: 120px;	}
+.bt_fimmanut	{ background: url('../img/layout/bt_finalizar_manutencao.png')	no-repeat;	width: 144px;	}
+.bt_fimorc		{ background: url('../img/layout/bt_finalizar_orcamento.png')	no-repeat;	width: 144px;	}
+.bt_novaos		{ background: url('../img/layout/bt_nova_os.png')				no-repeat;	width: 200px;	}
+.bt_novocli		{ background: url('../img/layout/bt_novo_cliente.png')			no-repeat;	width: 120px;	}
+.bt_novoequip	{ background: url('../img/layout/bt_novo_equipamento.png')		no-repeat;	width: 144px;	}
+.bt_pagar		{ background: url('../img/layout/bt_pagar.png')					no-repeat;	width: 95px;	}
+.bt_reabrir		{ background: url('../img/layout/bt_reabrir.png')				no-repeat;	width: 95px;	}
+.bt_remover		{ background: url('../img/layout/bt_remover.png')	    		no-repeat;	width: 95px;	}
+.bt_reprovar	{ background: url('../img/layout/bt_reprovar.png')				no-repeat;	width: 95px;	}
+
+
+.bt_buscar,		.bt_entrar,		.bt_enviar,			.bt_fechar,
+.bt_gerar,		.bt_entrar,		.bt_gravar,			.bt_imprimir,
+.bt_iniciar,	.bt_limpar,		.bt_salvar,			.bt_voltar,
+.bt_zerar,		.bt_addpeca,	.bt_aprovar,		.bt_atpeca,	
+.bt_attacomp,	.bt_attcoment,	.bt_cancelcompra,	.bt_entregar,
+.bt_fimcompra,	.bt_fimmanut,	.bt_fimorc,			.bt_novaos,
+.bt_novocli,	.bt_novoequip,	.bt_pagar,			.bt_reabrir,
+.bt_remover,	.bt_reprovar {
+	background-position:0px -24px;
+	height:				24px; 
+	padding:			0;
+	margin:				10px 6px 0 0;
+	/*display:			block;*/
+	text-indent:		-9999px;
+	border:				0;
+	cursor:				pointer;
+	/*float:				left;*/
+}
+.bt_buscar:hover,		.bt_entrar:hover,		.bt_enviar:hover,			.bt_fechar:hover,
+.bt_gerar:hover,		.bt_entrar:hover,		.bt_gravar:hover,			.bt_imprimir:hover,
+.bt_iniciar:hover,		.bt_limpar:hover,		.bt_salvar:hover,			.bt_voltar:hover,
+.bt_zerar:hover, 		.bt_addpeca:hover,		.bt_aprovar:hover,			.bt_atpeca:hover,	
+.bt_attacomp:hover,		.bt_attcoment:hover,	.bt_cancelcompra:hover,		.bt_entregar:hover,
+.bt_fimcompra:hover,	.bt_fimmanut:hover,		.bt_fimorc:hover,			.bt_novaos:hover,
+.bt_novocli:hover,		.bt_novoequip:hover,	.bt_pagar:hover,			.bt_reabrir:hover,
+.bt_remover:hover,		.bt_reprovar:hover {
+	background-position:0px 0px;
+	border:				0;
+	outline:			0;
+}
+.bt_buscar:focus,		.bt_entrar:focus,		.bt_enviar:focus,			.bt_fechar:focus,
+.bt_gerar:focus,		.bt_entrar:focus,		.bt_gravar:focus,			.bt_imprimir:focus,
+.bt_iniciar:focus,		.bt_limpar:focus,		.bt_salvar:focus,			.bt_voltar:focus,
+.bt_zerar:focus, 		.bt_addpeca:focus,		.bt_aprovar:focus,			.bt_atpeca:focus,	
+.bt_attacomp:focus,		.bt_attcoment:focus,	.bt_cancelcompra:focus,		.bt_entregar:focus,
+.bt_fimcompra:focus,	.bt_fimmanut:focus,		.bt_fimorc:focus,			.bt_novaos:focus,
+.bt_novocli:focus,		.bt_novoequip:focus,	.bt_pagar:focus,			.bt_reabrir:focus,
+.bt_remover:focus,		.bt_reprovar:focus {
+	background-position:0px 0px;
+	border:				0;
+	outline:			0;
 }

@@ -93,9 +93,9 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" name="ap" id="ap" value="Aprovar" />
-			<input type="button" name="rp" id="rp" value="Reprovar" />
-			<input type="button" onclick="window.close()" value="Fechar" />
+			<input type="button" name="ap" class="bt_aprovar" id="ap" value="Aprovar" />
+			<input type="button" name="rp" class="bt_reprovar" id="rp" value="Reprovar" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>

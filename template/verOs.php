@@ -94,7 +94,7 @@ $l = $sql->resultado();
 	<tr>
 		<td colspan="2" align="center">
 			&nbsp;
-			<input type="button" onclick="window.close()" value="Fechar" />
+			<input type="button" class="bt_fechar" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>

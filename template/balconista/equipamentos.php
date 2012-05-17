@@ -22,7 +22,7 @@ if( $editar == ""){
 </span>
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
 </div>
 <div id="retornoErro"></div>
 <div id="listaClientes"></div>
@@ -57,7 +57,7 @@ if( $editar == ""){
 <hr />
 
 <div id="busca">
-	<input type="button" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_novoequip" id="novoEquipamento" value="Novo Equipamento (Insert)" />
 </div>
 
 <div id="dadosEquip">
@@ -86,8 +86,8 @@ if( $editar == ""){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-				<input type="button" id="cancelar" value="Cancelar (F5)" />
+				<input type="button" class="bt_gravar" id="cadastrar" value="Cadastrar (F9)" />
+				<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F5)" />
 			</td>
 		</tr>
 		</table>

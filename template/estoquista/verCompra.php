@@ -85,13 +85,13 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 		<td colspan="2" align="center">
 			&nbsp;
 			<?php if( date('H:i') > '16:30' and $status == 'aberta' ){ ?>
-				<input type="button" id="finalizar" value="Finalizar Compra" />
+				<input type="button" class="bt_fimcompra" id="finalizar" value="Finalizar Compra" />
 			<?php } ?>
 			
-			<input type="button" onclick="window.close()" value="Fechar" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 			
 			<?php if( $status == 'aberta' ){ ?>
-				<input type="button" id="cancelar" value="Cancelar Compra" />
+				<input type="button" class="bt_cancelcompra" id="cancelar" value="Cancelar Compra" />
 			<?php } ?>
 		</td>
 	</tr>

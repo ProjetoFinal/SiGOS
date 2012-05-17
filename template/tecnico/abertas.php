@@ -8,7 +8,7 @@ if( $_GET ){
 
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
 	<div id="filtro2">
 		<div id="os" class="filtro">ordem de serviço</div>		
 		<div id="fechar" class="fechar"><span id="txtFechar">FECHAR</span> X</div>

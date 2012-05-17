@@ -97,10 +97,10 @@ $l = $sql->resultado();
 	<tr>
 		<td colspan="2" align="center">
 			<?php if($l['idstatus'] == 8 ){ ?>
-			<input type="button" name="ap" id="ap" value="Entregar" />
-			<input type="button" name="rp" id="rp" value="Reabrir" />
+			<input type="button" name="ap" id="ap" class="bt_entregar" value="Entregar" />
+			<input type="button" name="rp" id="rp" class="bt_reabrir" value="Reabrir" />
 			<?php } ?>
-			<input type="button" onclick="window.close()" value="Fechar" />
+			<input type="button" onclick="window.close()" class="bt_voltar" value="Fechar" />
 		</td>
 	</tr>
 </table>

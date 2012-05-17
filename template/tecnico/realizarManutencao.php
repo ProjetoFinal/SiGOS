@@ -84,7 +84,7 @@ $l = $sql->resultado();
 		<td>Acompanhamento</td>
 		<td>
 			<textarea id="acompanhamento"><?=$l['acompanhamento']?></textarea>
-			<input type="button" id="attAcompanhamento" value="Atualizar Acompanhamento" />
+			<input type="button" class="bt_attacomp" id="attAcompanhamento" value="Atualizar Acompanhamento" />
 		</td>
 
 	</tr>
@@ -102,9 +102,9 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" id="fecharManutencao" value="Finalizar Manutenção" />
+			<input type="button" class="bt_fimmanut" id="fecharManutencao" value="Finalizar Manutenção" />
 			&nbsp;
-			<input type="button" onclick="window.close()" value="Fechar sem Finalizar" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar sem Finalizar" />
 		</td>
 	</tr>
 </table>
