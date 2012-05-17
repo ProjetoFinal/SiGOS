@@ -67,6 +67,7 @@ if( $rowsConsulta <= 0 ){
 				$_SESSION['senha'] = $retornoValidacao['senha'];
 				$_SESSION['nome'] = $retornoValidacao['nome'];
 				$_SESSION['idusuario'] = $retornoValidacao['idUsuario'];
+				$_SESSION['nivel'] = $retornoValidacao['nivel'];
 
 				switch( $retornoValidacao['nivel'] ){
 					case "balconista": 
