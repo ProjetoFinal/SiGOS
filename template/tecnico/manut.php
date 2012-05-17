@@ -133,7 +133,7 @@ if( $_GET ){
 		abrir('realizarOrcamento.php?idos='+idos+'&idor='+idor,'520','600'); 
 	}
 	function manutencao( idos ){
-		abrir('realizarManutencao.php?idos='+idos,'520','600');
+		abrir('realizarManutencao.php?idos='+idos,'520','700');
 	}
 </script>
 
