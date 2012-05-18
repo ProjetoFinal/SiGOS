@@ -234,4 +234,9 @@ class OS{
 		return $query;
 	}
 
+	static function listarStatusOs(){
+		$query = "select * from statusos order by status";
+		return $query;
+	}
+
 }

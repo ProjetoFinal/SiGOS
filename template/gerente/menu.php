@@ -10,6 +10,8 @@
 		<li> | </li>
 		<li><a href="cliente.php">Cliente</a></li>
 		<li> | </li>
+		<li><a href="relatorio.php">Relatórios</a></li>
+		<li> | </li>
 		
 		<!--
 		<?php for($i=1; $i <= 5; $i++){ ?>
