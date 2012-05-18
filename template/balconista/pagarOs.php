@@ -13,13 +13,16 @@ extract($_GET);
 
 <style>
 	#menu{ display: none; }
-	#central{ margin-top:-50px; }
-	table{ width:380px; }
+	#central{ margin-top:-50px; width:380px; height:300px; }
+	table{ width:380px; background: #fff !important; }
 	tr{ height: 30px; }
+	td{ border-bottom: 1px solid #aaa}
+	td{ border-right: 1px solid #aaa}
+	td{ border-left: 1px solid #aaa}
 	tr.defeito{ height: 80px; }
 	tr.peca{ height: 130px; overflow: auto; }
 	div.peca{ overflow: auto; height: 100px;  margin-bottom: 5px; }
-	textarea{ height:80px; width:390px; font-size: 14px !important; }
+	textarea{ height:80px; width:360px; font-size: 14px !important; }
 	#linhaPeca{
 		border-bottom: 1px solid #999;
 		width: 350px;
@@ -29,10 +32,11 @@ extract($_GET);
 	}
 	#menosUm{ float:left;}
 </style>
+<table border=0 cellspacing=0>
 <form id="form" method="post" action="ajax/pagarOs.php">
-<table border=1>
+
 	<tr>
-		<td>OS N.</td>
+		<td>OS Nº.</td>
 		<td>
 			<?=$idos?>
 			<input type="hidden" name="idos" value="<?=$idos?>" />
@@ -80,7 +84,10 @@ extract($_GET);
 		<td><input type="text" id="troco"  readonly/></td>
 	</tr>
 	<tr>
-		<td colspan="2"><input type="button" id="pagar" value="Pagar" /></td>
+		<td colspan="2">
+			<input type="button" class="bt_pagar" id="pagar" value="Pagar" />
+			<input type="button" class="bt_voltar" onclick="window.close();" value="Voltar" />
+		</td>
 	</tr>
 </table>
 </form>

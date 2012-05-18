@@ -15,9 +15,16 @@ if($_GET){
 }
 
 if( $editar == "" ){ ?>
-
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Gerenciar Ordem de Serviço ( Entregar / Aprovar )
+</span>
 <div id="busca">
-	<input type="button" id="novaOS" value="Nova OS (Insert)" />
+	<input type="button" class="bt_novaos" id="novaOS" value="Nova OS (Insert)" />
 </div>
 <div id="busca">
 	<!--<input type="text" id="key" />
@@ -72,9 +79,9 @@ if( $editar == "" ){ ?>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-				<input type="button" id="cancelar" value="Cancelar (F8)" />
-				<input type="reset" id="limpar" value="Limpar" />
+				<input type="button" class="bt_gravar" id="cadastrar" value="Cadastrar (F9)" />
+				<input type="reset" class="bt_limpar" id="limpar" value="Limpar" />
+				<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F8)" />
 			</td>
 		</tr>
 	</table>

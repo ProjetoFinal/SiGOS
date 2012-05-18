@@ -18,14 +18,22 @@ if( $editar == ""){
 		font-weight: bold;
 		color: #777;
 	";>
+	Manter Equipamento
+</span>
+<br /><br /><span
+	style="
+		font-size: 16px;
+		font-weight: bold;
+		color: #777;
+	";>
 	Selecionar Cliente
 </span>
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
 </div>
 <div id="retornoErro"></div>
-<div id="listaClientes"></div>
+<div id="listaClientes" style="height:420px"></div>
 
 <?php } else { ?>
 
@@ -35,7 +43,7 @@ if( $editar == ""){
 		font-weight: bold;
 		color: #777;
 	";>
-	Selecionar Equipamento
+	Manter Equipamento
 </span>
 
 <div id="dadosCliente">
@@ -57,10 +65,11 @@ if( $editar == ""){
 <hr />
 
 <div id="busca">
-	<input type="button" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_novoequip" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_voltar" onclick="window.location='equipamentos.php'" value="Cancelar (F5)" />
 </div>
 
-<div id="dadosEquip">
+<div id="dadosEquip" style="height:340px">
 	
 	<div id="addEquip" style="display: none">
 		<input type="hidden" id="idcliente" value="<?=$idcliente?>" />
@@ -86,8 +95,8 @@ if( $editar == ""){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-				<input type="button" id="cancelar" value="Cancelar (F5)" />
+				<input type="button" class="bt_gravar" id="cadastrar" value="Cadastrar (F9)" />
+				<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F5)" />
 			</td>
 		</tr>
 		</table>

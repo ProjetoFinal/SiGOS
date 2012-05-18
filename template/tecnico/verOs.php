@@ -14,11 +14,15 @@ $sql->consulta( OS::consultarOs( $idos ) );
 $l = $sql->resultado();
 
 ?>
+
 <style>
 	#menu{ display: none; }
-	#central{ margin-top:-50px; }
-	table{ width:500px; }
+	#central{ margin-top:-50px; width:500px;}
+	table{ width:500px; background: #fff !important; }
 	tr{ height: 30px; }
+	td{ border-bottom: 1px solid #aaa}
+	td{ border-right: 1px solid #aaa}
+	td{ border-left: 1px solid #aaa}
 	tr.defeito{ height: 80px; }
 	tr.peca{ height: 130px; overflow: auto; }
 	div.peca{ overflow: auto; height: 100px;  margin-bottom: 5px; }
@@ -32,9 +36,9 @@ $l = $sql->resultado();
 	}
 	#menosUm{ float:left;}
 </style>
-<table border=1>
+<table border=0 cellspacing=0>
 	<tr>
-		<td>OS N.</td>
+		<td>OS Nº.</td>
 		<td>
 			<?=$l['idordemdeservico']?>
 			<input type="hidden" id="idordemdeservico" value="<?=$l['idordemdeservico']?>" />
@@ -94,7 +98,12 @@ $l = $sql->resultado();
 	<tr>
 		<td colspan="2" align="center">
 			&nbsp;
-			<input type="button" onclick="window.close()" value="Fechar" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>
+<script>
+$(window).load( function(`){
+	$('table td:even').css('border-right','1px solid #aaa');
+});
+</script>

@@ -17,9 +17,16 @@ if($_GET){
 echo "<div id='areaOff'>";
 
 if( $editar == "" ){ ?>
-
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Gerenciar Ordem de Serviço ( Geral )
+</span>
 <div id="busca">
-	<input type="button" id="novaOS" value="Nova OS (Insert)" />
+	
 	<div id="filtro">
 		<div id="nome" class="filtro">nome</div>
 		<div id="cpf" class="filtro">cpf</div>
@@ -30,11 +37,12 @@ if( $editar == "" ){ ?>
 </div>
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
+	<input type="button" class="bt_novaos" id="novaOS" value="Nova OS (Insert)" />
 </div>
 
 <div id='retornoErro'></div>
-<div id="listaOS">
+<div id="listaOS" style="margin-top:20px">
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");

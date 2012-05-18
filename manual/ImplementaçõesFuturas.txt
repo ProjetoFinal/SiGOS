@@ -1,0 +1,3 @@
+perfis:
+
+usuário assumir outro perfil diferente do seu, por exemplo, gerente 'virar' balconista

@@ -176,8 +176,8 @@ if( $_POST ){
 </div>
 
 <div id="lineButton">
-	<input type="button" id="cadastrarCliente" value="Cadastrar" />
-	<input type="button" id="voltar" value="Cancelar" />
+	<input type="button" class="bt_gravar" id="cadastrarCliente" value="Cadastrar" />
+	<input type="button" class="bt_voltar" id="voltar" value="Cancelar" />
 </div>
 </form>
 

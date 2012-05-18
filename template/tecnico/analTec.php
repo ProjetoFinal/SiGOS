@@ -6,10 +6,18 @@ if( $_GET ){
 	$key = $_GET['key'];
 }
 ?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Análise Técnica
+</span>
 
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
+	<input type="button"  class="bt_buscar" id="buscar" value="Buscar" />
 	<div id="filtro2">
 		<div id="os" class="filtro">ordem de serviço</div>		
 		<div id="fechar" class="fechar"><span id="txtFechar">FECHAR</span> X</div>

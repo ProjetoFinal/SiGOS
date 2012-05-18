@@ -16,9 +16,12 @@ $l = $sql->resultado();
 ?>
 <style>
 	#menu{ display: none; }
-	#central{ margin-top:-50px; }
-	table{ width:500px; }
+	#central{ margin-top:-50px; width:500px;}
+	table{ width:500px; background: #fff !important; }
 	tr{ height: 30px; }
+	td{ border-bottom: 1px solid #aaa}
+	td{ border-right: 1px solid #aaa}
+	td{ border-left: 1px solid #aaa}
 	tr.defeito{ height: 80px; }
 	tr.peca{ height: 130px; overflow: auto; }
 	div.peca{ overflow: auto; height: 100px;  margin-bottom: 5px; }
@@ -32,9 +35,9 @@ $l = $sql->resultado();
 	}
 	#menosUm{ float:left;}
 </style>
-<table border=1>
+<table border=0 cellspacing=0>
 	<tr>
-		<td>OS N.</td>
+		<td>OS Nº.</td>
 		<td>
 			<?=$l['idordemdeservico']?>
 			<input type="hidden" id="idordemdeservico" value="<?=$l['idordemdeservico']?>" />
@@ -84,7 +87,7 @@ $l = $sql->resultado();
 		<td>Acompanhamento</td>
 		<td>
 			<textarea id="acompanhamento"><?=$l['acompanhamento']?></textarea>
-			<input type="button" id="attAcompanhamento" value="Atualizar Acompanhamento" />
+			<input type="button" class="bt_attacomp" id="attAcompanhamento" value="Atualizar Acompanhamento" />
 		</td>
 
 	</tr>
@@ -102,9 +105,9 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" id="fecharManutencao" value="Finalizar Manutenção" />
+			<input type="button" class="bt_fimmanut" id="fecharManutencao" value="Finalizar Manutenção" />
 			&nbsp;
-			<input type="button" onclick="window.close()" value="Fechar sem Finalizar" />
+			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar sem Finalizar" />
 		</td>
 	</tr>
 </table>

@@ -48,8 +48,8 @@ if( $editar == ""){
 </div>
 
 <div id="lineButton">
-	<input type="button" id="consultar" value="Consultar (Enter)" />
-	<input type="button" id="cancelar" onclick="fechar()" value="Cancelar (F5)" />
+	<input type="button" class="bt_buscar" id="consultar" value="Consultar (Enter)" />
+	<input type="button" class="bt_voltar" id="cancelar" onclick="fechar()" value="Cancelar (F5)" />
 </div>
 
 </form>

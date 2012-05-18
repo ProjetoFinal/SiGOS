@@ -5,7 +5,16 @@ function __autoload( $class ){
 
 include_once("topo.php");
 include_once("../function/formataData.php");
-
+?>
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Manter Fornecedor
+</span>
+<?php
 
 $editar = "";
 
@@ -123,9 +132,9 @@ if( $editar == "" ){
 </div>
 
 <div id="lineButton">
-	<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-	<input type="button" id="consultar" value="Consultar (Enter)" />
-	<input type="button" id="cancelar" value="Cancelar (F5)" />
+	<input type="button" class="bt_gravar" id="cadastrar" value="Cadastrar (F9)" />
+	<input type="button" class="bt_buscar" id="consultar" value="Consultar (Enter)" />
+	<input type="button" class="bt_limpar" id="cancelar" value="Cancelar (F5)" />
 </div>
 </form>
 </div>
@@ -239,16 +248,16 @@ $l = $sql->resultado();
 </div>
 
 <div id="lineButton">
-	<input type="button" id="editar"   value="Editar (Ctrl + F11)" />
-	<input type="button" id="cancelar" value="Cancelar (F8)"       />
-	<input type="button" id="remover"  value="Remover (Ctrl + F7)" />
+	<input type="button" class="bt_salvar" id="editar"   value="Editar (Ctrl + F11)" />
+	<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F8)"       />
+	<input type="button" class="bt_remover" id="remover"  value="Remover (Ctrl + F7)" />
 </div>
 </form>
 </div>
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno" style="margin-top:290px;"></div>
+<div id="retorno" style="margin-top:290px; height:260px;"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="teclasFornecedor.js"></script>

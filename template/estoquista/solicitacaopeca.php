@@ -11,10 +11,19 @@ if( $_GET ){
 
 ?>
 
+<br /><br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Solicitação Peças
+</span>
+
 <div id='retornoErro'>
 </div>
 
-<div id="listaOS">
+<div id="listaOS" style="margin-top:-25px !important">
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();

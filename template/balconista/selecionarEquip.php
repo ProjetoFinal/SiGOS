@@ -23,12 +23,13 @@ if( $editar == ""){
 </span>
 
 <div id="busca" style="border: 0px solid red; width: 800px">
-	<input type="button" id="novoCliente" value="Novo Cliente" />
+	
 </div>
 <div id="busca" style="border: 0px solid red; width: 800px">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
-	<input type="button" onclick="window.close()" value="Voltar" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
+	<input type="button" class="bt_voltar" onclick="window.close()" value="Voltar" />
+	<input type="button" class="bt_novocli" id="novoCliente" value="Novo Cliente" />
 </div>
 <br />
 <div id="retornoErro"></div>
@@ -73,9 +74,9 @@ if( $editar == ""){
 
 <hr />
 
-<div id="busca">
-	<input type="button" id="novoEquipamento" value="Novo Equipamento (Insert)" />
-	<input type="button" id="voltar" value="Voltar" />
+<div id="busca" style="width: 820px !important;">
+	<input type="button" class="bt_novoequip" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_voltar" id="voltar" value="Voltar" />
 </div>
 
 <div id="dadosEquip">
@@ -104,8 +105,8 @@ if( $editar == ""){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-				<input type="button" id="cancelar" value="Cancelar (F5)" />
+				<input type="button" class="bt_gravar" id="cadastrar" value="Cadastrar (F9)" />
+				<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F5)" />
 			</td>
 		</tr>
 		</table>
