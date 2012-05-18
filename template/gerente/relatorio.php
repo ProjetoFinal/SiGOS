@@ -80,8 +80,8 @@ include_once("../function/formataData.php");
 </div>
 
 <div id="lineButton">
-	<input type="button" id="gerarRelatorio" value="Gerar Relatório (Ctrl + F11)" />
-	<input type="button" id="cancelar" value="Cancelar (F5)" />
+	<input type="button" class="bt_gerarrel" id="gerarRelatorio" value="Gerar Relatório (Ctrl + F11)" />
+	<input type="button" class="bt_limpar" id="cancelar" value="Cancelar (F5)" />
 </div>
 </form>
 
