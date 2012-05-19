@@ -5,7 +5,7 @@ if( $_GET ){
 	$key = $_GET['key'];
 }
 ?>
-<br /><span
+<br /><br /><br /><span
 	style="
 		font-size: 20px;
 		font-weight: bold;
@@ -14,17 +14,20 @@ if( $_GET ){
 	Ordem de Serviço Aberta
 </span>
 
-<div id="busca">
+<!--<div id="busca">
 	<input type="text" id="key" />
 	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
 	<div id="filtro2">
 		<div id="os" class="filtro">ordem de serviço</div>		
 		<div id="fechar" class="fechar"><span id="txtFechar">FECHAR</span> X</div>
 	</div>
-</div>
+</div>-->
 
 <div id='retornoErro'></div>
-<div id="listaOS">
+<div id="listaOS" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();
@@ -38,7 +41,7 @@ if( $_GET ){
 
 		if( $numRows >=1 ){
 		
-			echo "<table style='display:none'>
+			echo "<table id='test' style='display:none'>
 					<thead>
 						<tr id='trTitulo'>
 							<td>OS</td>
@@ -68,14 +71,17 @@ if( $_GET ){
 	?>
 </div>
 	
-<script>
+<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" />
+<script type="text/javascript" >
 	$(document).ready( function(){
+		$('#test').dataTable();
 		$("#retornoErro").fadeIn(200);
 		$("#retornoErro").text("Carregando...");
 		$("#retornoErro").fadeOut(3000);
 		$("#listaOS table").delay(1000).fadeIn(200);
-		$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
-		$('#listaOS table tbody tr:even').css('background','#EBF3EB');
+		//$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
+		//$('#listaOS table tbody tr:even').css('background','#EBF3EB');
 
 		$("#buscar").click( function(){
 			var key = $('#key').val();

@@ -35,7 +35,10 @@ if($ok){
 	if( $linhas >= 1 ){
 		
 	?>
-	<script>
+	<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" />
+        <script type="text/javascript" >
+        $('#test').dataTable();
 		$('#retorno').fadeIn(200);
 		$('table.resultado tbody tr:odd').css('background','#bbd5e2');
 		$('table.resultado tbody tr:even').css('background','#EBF3EB');
@@ -44,7 +47,7 @@ if($ok){
 			$(window.document.location).attr('href','usuario.php?editar=1&idUsuario='+id);
 		}
 	</script>
-	<table class="resultado">
+	<table id="test">
 		<thead>
 			<tr id="trTitulo">
 				<td>Nome</td>

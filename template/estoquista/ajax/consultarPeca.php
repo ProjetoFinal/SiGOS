@@ -35,17 +35,20 @@ if($ok){
 	if( $linhas >= 1 ){
 		
 	?>
+<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" />
         <script type="text/javascript" >
+        $('#test').dataTable();
 		$('#retorno').fadeIn(200);
 		$('#retorno').css('margin-top','250px');
-		$('table.resultado tbody tr:odd').css('background','#bdd5e2');
-		$('table.resultado tbody tr:even').css('background','#EBF3EB');
+		//$('table.resultado tbody tr:odd').css('background','#bdd5e2');
+		//$('table.resultado tbody tr:even').css('background','#EBF3EB');
 		$('table.resultado tbody tr a').css('color','blue');
 		function editar( id ){
 			$(window.document.location).attr('href','peca.php?editar=1&idpeca='+id);
 		}
 	</script>
-	<table class="resultado">
+	<table id='test'>
 				<thead>
 			<tr id="trTitulo">
 				<td>Código</td>

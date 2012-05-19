@@ -206,7 +206,10 @@ if( $editar == ""){
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno"></div>
+<div id="retorno" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskMoney.js"></script>
 <script type="text/javascript" src="teclasPeca.js"></script>

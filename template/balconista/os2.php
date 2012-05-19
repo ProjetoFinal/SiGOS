@@ -26,7 +26,7 @@ if( $editar == "" ){ ?>
 	Gerenciar Ordem de Serviço ( Geral )
 </span>
 <div id="busca">
-	
+	<!--
 	<div id="filtro">
 		<div id="nome" class="filtro">nome</div>
 		<div id="cpf" class="filtro">cpf</div>
@@ -34,15 +34,19 @@ if( $editar == "" ){ ?>
 		<div id="status" class="filtro">status</div>		
 		<div id="fechar" class="fechar"><span id="txtFechar">FECHAR</span> X</div>
 	</div>
+	-->
 </div>
 <div id="busca">
-	<input type="text" id="key" />
-	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
+	<!--<input type="text" id="key" />
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />-->
 	<input type="button" class="bt_novaos" id="novaOS" value="Nova OS (Insert)" />
 </div>
 
 <div id='retornoErro'></div>
-<div id="listaOS" style="margin-top:20px">
+<div id="listaOS" style="margin-top:20px;border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");

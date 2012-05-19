@@ -16,7 +16,9 @@ extract( $_GET );
 	if( $cont >=1 ){
 
 		echo "
-			<table>
+			<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/jquery.dataTables.css\" />
+        <table id='test'>
 				<thead>
 					<tr id='trTitulo'>
 						<td>//</td>
@@ -62,8 +64,9 @@ extract( $_GET );
 ?>
 
 <script>
-	$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
-	$('#listaOS table tbody tr:even').css('background','#EBF3EB');
+	//$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
+	//$('#listaOS table tbody tr:even').css('background','#EBF3EB');
+	$('#test').dataTable();
 
 	function abrir(pagina,largura,altura) {
 

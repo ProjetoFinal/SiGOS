@@ -6,7 +6,7 @@ function __autoload( $class ){
 include_once("topo.php");
 include_once("../function/formataData.php");
 ?>
-<br /><br /><span
+<br /><br /><br /><span
 	style="
 		font-size: 20px;
 		font-weight: bold;
@@ -34,7 +34,11 @@ if( $editar == "" ){ ?>
 </div>
 
 <div id='retornoErro'></div>
-<div id="listaOS" style="margin-top:-5px !important">
+<div id="listaOS" style="margin-top:-5px !important;
+						 border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");

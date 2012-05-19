@@ -257,7 +257,9 @@ $l = $sql->resultado();
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno" style="margin-top:290px; height:260px;"></div>
+<div id="retorno" style="margin-top:290px; height:260px;height:auto;
+						 overflow:hidden;
+						 background: #fff;"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="teclasFornecedor.js"></script>

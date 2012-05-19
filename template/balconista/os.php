@@ -32,7 +32,10 @@ if( $editar == "" ){ ?>
 </div>
 
 <div id='retornoErro'></div>
-<div id="listaOS">
+<div id="listaOS" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");

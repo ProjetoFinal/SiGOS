@@ -288,7 +288,10 @@ $l = $sql->resultado();
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno" style="margin-top:290px !important; height:260px;"></div>
+<div id="retorno" style="margin-top:290px !important;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="teclas.js"></script>

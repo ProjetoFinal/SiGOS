@@ -12,7 +12,7 @@ if($_GET){
 
 if( $editar == ""){
 ?>
-<br /><span
+<br /><br /><br /><span
 	style="
 		font-size: 20px;
 		font-weight: bold;
@@ -27,13 +27,16 @@ if( $editar == ""){
 		color: #777;
 	";>
 	Selecionar Cliente
-</span>
+</span><!---
 <div id="busca">
 	<input type="text" id="key" />
 	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
-</div>
+</div>-->
 <div id="retornoErro"></div>
-<div id="listaClientes" style="height:420px"></div>
+<div id="listaClientes" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;"></div>
 
 <?php } else { ?>
 
@@ -69,7 +72,10 @@ if( $editar == ""){
 	<input type="button" class="bt_voltar" onclick="window.location='equipamentos.php'" value="Cancelar (F5)" />
 </div>
 
-<div id="dadosEquip" style="height:340px">
+<div id="dadosEquip" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	
 	<div id="addEquip" style="display: none">
 		<input type="hidden" id="idcliente" value="<?=$idcliente?>" />
@@ -114,7 +120,14 @@ if( $editar == ""){
 		$sql->consulta( Equipamento::consultaCliente( $idcliente ) );
 
 		echo"
-				<table>
+		<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/jquery.dataTables.css\" />
+        <script type=\"text/javascript\" >
+        	$(document).ready( function(){
+        	$('#test').dataTable();
+	        });
+        </script>
+				<table id='test'>
 					<thead>
 						<tr id='trTitulo'>
 							<td>Marca</td>
@@ -145,8 +158,8 @@ if( $editar == ""){
 <?php } ?>
 <script>
 	$(document).ready( function(){
-		$('#dadosEquip table tbody tr:odd').css('background','#bbd5e2');
-		$('#dadosEquip table tbody tr:even').css('background','#EBF3EB');
+		//$('#dadosEquip table tbody tr:odd').css('background','#bbd5e2');
+		//$('#dadosEquip table tbody tr:even').css('background','#EBF3EB');
 
 		$('#retornoErro').fadeIn(200);
         $("#retornoErro").text('Carregando...');
