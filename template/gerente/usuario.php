@@ -171,7 +171,10 @@ $l = $sql->resultado();
 
 
 <div id="retornoErro"></div>
-<div id="retorno" style="height:380px"></div>
+<div id="retorno" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;"></div>
 
 
 <script type="text/javascript" src="teclasGerente.js"></script>

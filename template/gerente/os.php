@@ -15,7 +15,7 @@ if($_GET){
 }
 
 if( $editar == "" ){ ?>
-<br /><span
+<br /><br /><br /><span
 	style="
 		font-size: 20px;
 		font-weight: bold;
@@ -27,14 +27,17 @@ if( $editar == "" ){ ?>
 <div id="busca">
 	<input type="button" class="bt_novaos" id="novaOS" value="Nova OS (Insert)" />
 </div>
--->
+
 <div id="busca">
 	<input type="text" id="key" />
 	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
-</div>
+</div>-->
 
 <div id='retornoErro'></div>
-<div id="listaOS" style="height:450px">
+<div id="listaOS" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	<script>
 		$("#retornoErro").fadeIn(200);
 			$("#retornoErro").text("Carregando...");
