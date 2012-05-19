@@ -1,6 +1,6 @@
 <div id="menu">
 	<ul>
-		<li><a href="index.php">Início</a></li>
+		<li><a href="index.php">Gerenciar</a></li>
 		<li> | </li>
 		<li><a href="fornecedor.php">Fornecedores</a></li>
 		<li> | </li>

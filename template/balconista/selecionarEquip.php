@@ -149,12 +149,13 @@ if( $editar == ""){
 			<tbody>";
 
 		while( $l = $sql->resultado() ){
-			echo "<input type='hidden' id='equipamento".$l['idequipamento']."' value='".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."' />
-				<input type='hidden' id='idequipamento".$l['idequipamento']."' value='".$l['idequipamento']."' />
-				<input type='hidden' id='maodeobra".$l['idequipamento']."' value='".$l['maodeobra']."' />
+			echo "
 				
 						<tr>
 							<td class='um'>
+							<input type='hidden' id='equipamento".$l['idequipamento']."' value='".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."' />
+				<input type='hidden' id='idequipamento".$l['idequipamento']."' value='".$l['idequipamento']."' />
+				<input type='hidden' id='maodeobra".$l['idequipamento']."' value='".$l['maodeobra']."' />
 								<a href='#' onclick='usarEquip(".$l['idequipamento'].")'>".$l['marcaequip']."</a>
 							</td>
 							<td class='dois'>".$l['modeloequip']."</td>
