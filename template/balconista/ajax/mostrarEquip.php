@@ -46,8 +46,8 @@ $l = $sql->resultado();
 
 
 <script>
-	$("#dadosEquip table tbody tr:odd").css("background","#bbd5e2");
-	$("#dadosEquip table tbody tr:even").css("background","#EBF3EB");
+	//$("#dadosEquip table tbody tr:odd").css("background","#bbd5e2");
+	//$("#dadosEquip table tbody tr:even").css("background","#EBF3EB");
 
 	$("#editar").click( function(){
     	var idcliente = $("#editEquip #idcliente").val();

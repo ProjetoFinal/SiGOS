@@ -22,18 +22,20 @@ if( $editar == ""){
 	Selecionar Cliente
 </span>
 
-<div id="busca" style="border: 0px solid red; width: 800px">
+<div id="busca" style="border: 0px solid red; width: 100% !important">
 	
 </div>
 <div id="busca" style="border: 0px solid red; width: 800px">
-	<input type="text" id="key" />
-	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
-	<input type="button" class="bt_voltar" onclick="window.close()" value="Voltar" />
 	<input type="button" class="bt_novocli" id="novoCliente" value="Novo Cliente" />
+	<input type="button" class="bt_voltar" onclick="window.close()" value="Voltar" />
 </div>
 <br />
-<div id="retornoErro"></div>
-<div id="listaClientes"></div>
+<div id="retornoErro" style="border: 0px solid red; width: 100% !important"></div>
+<div id="listaClientes" style="border:0px solid red;
+						 height:auto;
+						 width: 100% !important;
+						 overflow:auto;
+						 background: #fff;"></div>
 
 <?php } elseif( $editar == "novoCliente" ){ ?>
 
@@ -79,7 +81,11 @@ if( $editar == ""){
 	<input type="button" class="bt_voltar" id="voltar" value="Voltar" />
 </div>
 
-<div id="dadosEquip">
+<div id="dadosEquip" style="border:0px solid red;
+						 height:auto;
+						 width: 100% !important;
+						 overflow:auto;
+						 background: #fff;">
 	
 	<div id="addEquip" style="display: none">
 		<input type="hidden" id="idcliente" value="<?=$idcliente?>" />
@@ -117,13 +123,20 @@ if( $editar == ""){
 	</div>
 
 
-	<div id="retornoErro" style="width: 980px"></div>
+	<div id="retornoErro" style="border: 0px solid red; width: 100% !important"></div>
 	<br /><br />
 	
 	<?php
 		$sql->consulta( Equipamento::consultaCliente( $idcliente ) );
 		echo "
-			<table>
+		<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/jquery.dataTables.css\" />
+        <script type=\"text/javascript\" >
+        	$(document).ready( function(){
+        	$('#test').dataTable();
+	        });
+        </script>
+			<table id='test' style='width:100% !important'>
 				<thead>
 					<tr id='trTitulo'>
 						<td>Marca</td>
@@ -148,18 +161,18 @@ if( $editar == ""){
 							<td class='tres'>".$l['tipoequip']."</td>
 							<td class='quatro'>".$l['numserie']."</td>
 						</tr>
-					</tbody>
-				</table>	
+						
 			";
-		}	
+		}
+		echo "</thead></table>";	
 	?>
 </div>
 
 <?php } ?>
 <script>
 	$(document).ready( function(){
-		$('#dadosEquip table tbody tr:odd').css('background','#bbd5e2');
-		$('#dadosEquip table tbody tr:even').css('background','#EBF3EB');
+		//$('#dadosEquip table tbody tr:odd').css('background','#bbd5e2');
+		//$('#dadosEquip table tbody tr:even').css('background','#EBF3EB');
 
 		$('#menu').css('display','none');
 		$('#central').css('top','0');

@@ -32,7 +32,10 @@ if($ok){
 	if( $linhas >= 1 ){
 
 		echo "
-			<script>
+			<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/jquery.dataTables.css\" />
+        <script type=\"text/javascript\" >
+        $('#test').dataTable();
 				$('#retorno').fadeIn(200);
 				$('table.resultado tbody tr:odd').css('background','#bbd5e2');
 				$('table.resultado tbody tr:even').css('background','#EBF3EB');
@@ -41,13 +44,13 @@ if($ok){
 					$(window.document.location).attr('href','selecionarEquip.php?editar=1&idcliente='+id);
 				}
 			</script>
-			<table class='resultado'>
+			<table id='test' style='width:100% !important'>
 				<thead>
 					<tr id='trTitulo'>
 						<td>Cliente</td>
 						<td>CPF</td>
 						<td>Telefone</td>
-						<td>E-Mail</td>
+						<td>Equipamentos</td>
 					</tr>
 				</thead>
 				
