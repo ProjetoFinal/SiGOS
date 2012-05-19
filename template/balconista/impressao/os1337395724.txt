@@ -5,19 +5,19 @@ Fone: 0xx21 3331-9673 / 0xx21 3332-1750
 CNPJ: 32.212.177/0001-48
 ------------------------------------------------
 ------------------------------------------------
-Ordem de Servico Nr. 8
+Ordem de Servico Nr. 11
  
-Emissao: 12/05/2012
+Emissao: 18/05/2012
 Orc:   - Atend:  - Tipo: Balcao
 --------------------Cliente---------------------
-Cliente: Leonardo Neves
-CPF: 112.963.387-03
-Fone: (21)3331-5441
+Cliente: NEYMAR DOS SANTOS JÚNIOR
+CPF: 431.681.275-07
+Fone: (21)3333-4444
 ------------------Equipamento-------------------
-Equip: TV/MONITOR - LED 14 a 20' - AAAAAAA - 1234
+Equip: TV/MONITOR - CRT 14 a 20' - CCE - CCE1100
 Garantia de Servico: Nao
 ---------------------Defeito--------------------
-1234
+NÃO ACENDE
 
 ------------------------------------------------
 
