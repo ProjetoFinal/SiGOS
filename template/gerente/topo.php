@@ -11,6 +11,7 @@ include_once("auth.php");
     	<link rel="stylesheet" type="text/css" href="/SiGOS/template/css/global.css" />
     	<link rel="stylesheet" type="text/css" href="../css/menu.css" />
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+
     	<!-- Jquery -->
     	<script	type="text/javascript" src="/SiGOS/template/js/jquery.js"></script>
         <script src="/SiGOS/template/js/calendario/js/jquery-1.7.1.min.js"></script>

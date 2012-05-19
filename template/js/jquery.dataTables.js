@@ -8922,7 +8922,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sSortAscending": ": activate to sort column ascending",
+				"sSortAscending": ": Ativar ordenação crescente",
 	
 				/**
 				 * ARIA label that is added to the table headers when the column may be
@@ -8943,7 +8943,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sSortDescending": ": activate to sort column descending"
+				"sSortDescending": ": Ativar ordenação decrescente"
 			},
 	
 			/**
@@ -8970,7 +8970,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "Primeira",
 			
 			
 				/**
@@ -8991,7 +8991,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "Última",
 			
 			
 				/**
@@ -9012,7 +9012,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Próxima",
 			
 			
 				/**
@@ -9033,7 +9033,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Anterior"
 			},
 		
 			/**
@@ -9054,7 +9054,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "Sem Registros",
 		
 		
 			/**
@@ -9075,7 +9075,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Exibindo _START_ de _END_ dos _TOTAL_ Registros",
 		
 		
 			/**
@@ -9094,7 +9094,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Exibindo 0 de 0 dos 0 Registros",
 		
 		
 			/**
@@ -9195,7 +9195,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Exibir _MENU_ Registros",
 		
 		
 			/**
@@ -9217,7 +9217,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "Carregando...",
 		
 		
 			/**
@@ -9236,7 +9236,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "Processando...",
 		
 		
 			/**
@@ -9269,7 +9269,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Pesquisar:",
 		
 		
 			/**
@@ -9312,7 +9312,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "Nenhum Registro Encontrado"
 		},
 	
 	

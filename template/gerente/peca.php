@@ -206,7 +206,10 @@ if( $editar == ""){
 <?php } ?>
 
 <div id="retornoErro"></div>
-<div id="retorno"></div>
+<div id="retorno" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;"></div>
 
 <script type="text/javascript" src="/SiGOS/template/js/jquery.maskMoney.js"></script>
 <script type="text/javascript" src="teclasPeca.js"></script>
@@ -252,10 +255,10 @@ if( $editar == ""){
 
 		// Início Consultar Peça
 		$("#consultar").click( function(){
-	        var codigopeca	= $("#form1 #codigopeca").val();
-	        var nomepeca	= $("#form1 #nomepeca").val();
-	        var marcapeca	= $("#form1 #marcapeca").val();
-	        var modelopeca	= $("#form1 #modelopeca").val();  
+	        var codigopeca	= '';//$("#form1 #codigopeca").val();
+	        var nomepeca	= '';//$("#form1 #nomepeca").val();
+	        var marcapeca	= '';//$("#form1 #marcapeca").val();
+	        var modelopeca	= '';//$("#form1 #modelopeca").val();  
 	        
 	        $.ajax({
 	            type: "GET",
