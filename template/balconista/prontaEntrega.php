@@ -124,28 +124,6 @@ $l = $sql->resultado();
 </table>
 
 <script>
-	/*
-	$('#ap').click( function(){
-		var idos = $('#idordemdeservico').val();
-
-		if(confirm('Deseja finalizar OS de Nr. '+idos)){
-			$.ajax({
-				type: "GET",
-				url: "ajax/entregar.php",
-				data: "idos="+idos,
-				success: function(data){
-					if(data==1){
-						opener.location.reload();
-						window.close();			
-					}else{
-						alert('Erro ao tentar Entregar o Equipamento e Finalizar a OS de Nr. '+idos);						
-					}					
-				}
-			});
-		}
-	});
-	*/
-
 	$('#ap').click( function(){
 		var idos = $('#idordemdeservico').val();
 		var total = $('#totalFinal').val();
@@ -155,7 +133,7 @@ $l = $sql->resultado();
 	$('#rp').click( function(){
 		var idos = $('#idordemdeservico').val();
 
-		if(confirm('Deseja Reabrir OS de Nr. '+idos)){
+		if(confirm('Deseja Reabrir a Ordem de Serviço de Nr. '+idos)){
 			$.ajax({
 				type: "GET",
 				url: "ajax/reabrirOs.php",
