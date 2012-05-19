@@ -45,7 +45,7 @@ include_once("../function/formataData.php");
 			<div id="column1" style="border:0px solid red; margin: 20px 0 0 80px">
 				<table border=0>
 
-					<tr><form id="form1" method="post" action="ajax/gerarRelatorio.php">
+					<tr><form id="form0" method="post" action="ajax/gerarRelatorio.php">
 						<td>Relatório de OS por Status</td>
 						<td>
 							<select name="OSPorStatus" id="OSPorStatus">
@@ -64,6 +64,7 @@ include_once("../function/formataData.php");
 							<div style="margin-top:-10px">&nbsp;&nbsp;
 								<input type="submit" class="bt_gerarrel" id="gerarRelatorio" onclick="loading()" value="Gerar Relatório (Ctrl + F11)" />
 								<input type="reset" class="bt_limpar" id="cancelar" value="Cancelar (F5)" />
+								<input type="hidden" name="status" value="ok" />
 							</div>
 						</td>
 					</tr></form>
