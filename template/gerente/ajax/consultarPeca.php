@@ -35,7 +35,13 @@ if($ok){
 	if( $linhas >= 1 ){
 		
 	?>
+		<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+		<link rel="stylesheet" type="text/css" href="/SiGOS/template/css/jquery.dataTables.css" />
         <script type="text/javascript" >
+        //$(document).ready(function(){
+                $('#test').dataTable();
+        //});
+        
 		$('#retorno').fadeIn(200);
 		$('#retorno').css('margin-top','250px');
 		$('table.resultado tbody tr:odd').css('background','#bdd5e2');
@@ -45,7 +51,7 @@ if($ok){
 			$(window.document.location).attr('href','peca.php?editar=1&idpeca='+id);
 		}
 	</script>
-	<table class="resultado">
+	<table class="resultado" id='test'>
 		<thead>
 			<tr id="trTitulo">
 				<td>Código</td>
