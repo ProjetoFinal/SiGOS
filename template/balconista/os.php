@@ -21,7 +21,7 @@ if( $editar == "" ){ ?>
 		font-weight: bold;
 		color: #777;
 	";>
-	Gerenciar Ordem de Serviço ( Entregar / Aprovar )
+	Atender Ordem de Serviço ( Entregar / Aprovar )
 </span>
 <div id="busca">
 	<input type="button" class="bt_novaos" id="novaOS" value="Nova OS (Insert)" />

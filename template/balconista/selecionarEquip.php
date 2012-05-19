@@ -142,7 +142,7 @@ if( $editar == ""){
 						<td>Marca</td>
 						<td>Modelo</td>
 						<td>Tipo</td>
-						<td>N. Serie</td>
+						<td>Número de Série</td>
 					</tr>
 					</tr>
 				</thead>

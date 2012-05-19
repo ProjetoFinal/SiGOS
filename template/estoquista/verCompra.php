@@ -30,9 +30,9 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 	#central{ margin-top:-50px; width:500px;}
 	table{ width:500px; background: #fff !important; }
 	tr{ height: 30px; }
-	td{ border-bottom: 1px solid #aaa}
-	td{ border-right: 1px solid #aaa}
-	td{ border-left: 1px solid #aaa}
+	td{ border-bottom: 0px solid #aaa}
+	td{ border-right: 0px solid #aaa}
+	td{ border-left: 0px solid #aaa}
 	tr.defeito{ height: 80px; }
 	tr.peca{ height: 330px; overflow: auto; }
 	div.peca{ overflow: auto; height: 300px;  margin-bottom: 5px; }
@@ -46,6 +46,21 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 	}
 	#menosUm{ float:left;}
 </style>
+<script>
+	$(document).ready( function(){
+		$('td:even').css('color','#777');
+		$('td:even').css('font-weight','bold');
+		$('td:odd').css('text-align','left');
+	});
+</script>
+<span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Pedido de Compra de Peça
+</span>
 <table border=0 cellspacing=0>
 	<tr>
 		<td>Entrada</td>
@@ -80,9 +95,6 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 				<?php } } else { echo "Sem registros"; } ?>
 			</div>
 		</td>
-	</tr>
-	<tr>
-		<td colspan="2"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">

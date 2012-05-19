@@ -19,9 +19,9 @@ $l = $sql->resultado();
 	#central{ margin-top:-50px; width:500px;}
 	table{ width:500px; background: #fff !important; }
 	tr{ height: 30px; }
-	td{ border-bottom: 1px solid #aaa}
-	td{ border-right: 1px solid #aaa}
-	td{ border-left: 1px solid #aaa}
+	td{ border-bottom: 0px solid #aaa}
+	td{ border-right: 0px solid #aaa}
+	td{ border-left: 0px solid #aaa}
 	tr.defeito{ height: 80px; }
 	tr.peca{ height: 130px; overflow: auto; }
 	div.peca{ overflow: auto; height: 100px;  margin-bottom: 5px; }
@@ -35,6 +35,21 @@ $l = $sql->resultado();
 	}
 	#menosUm{ float:left;}
 </style>
+<script>
+	$(document).ready( function(){
+		$('td:even').css('color','#777');
+		$('td:even').css('font-weight','bold');
+		$('td:odd').css('text-align','left');
+	});
+</script>
+<span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Aprovar Orçamento
+</span>
 <table border=0 cellspacing=0>
 	<tr>
 		<td>OS Nº.</td>
@@ -90,7 +105,7 @@ $l = $sql->resultado();
 		<td></td>
 		<td></td>
 	</tr>
-	<tr style="background:green; color: #000; text-transform: bold;">
+	<tr style="background:#fff; color: darkgreen; font-weight: bold;">
 		<td>Valor Final</td>
 		<td>R$ <?=$l['valorpecasusadas'] + $l['maodeobra']?></td>
 	</tr>
