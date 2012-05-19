@@ -24,7 +24,10 @@ if( $_GET ){
 <div id='retornoErro'>
 </div>
 
-<div id="listaOS" style="margin-top:-25px !important">
+<div id="listaOS" style="margin-top:-25px !important;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	<?php
 		$sql = new Conexao();
 		$sql->conecta();
@@ -36,7 +39,7 @@ if( $_GET ){
 
 		if( $numRows >=1 ){
 
-			echo "<table>
+			echo "<table id='test'>
 					<thead>
 						<tr id='trTitulo'>
 							<td>//</td>
@@ -75,14 +78,18 @@ if( $_GET ){
 	?>
 </div>
 	
-<script>
+<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" />
+<script type="text/javascript" >
+        
 	$(document).ready( function(){
+		$('#test').dataTable();
 		$("#retornoErro").fadeIn(200);
 		$("#retornoErro").text("Carregando...");
 		$("#retornoErro").fadeOut(3000);
 		$("#listaOS table").delay(1000).fadeIn(200);
-		$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
-		$('#listaOS table tbody tr:even').css('background','#EBF3EB');
+		//$('#listaOS table tbody tr:odd').css('background','#bbd5e2');
+		//$('#listaOS table tbody tr:even').css('background','#EBF3EB');
 
 		$("#buscar").click( function(){
 			var key = $('#key').val();

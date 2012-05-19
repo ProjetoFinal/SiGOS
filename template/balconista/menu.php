@@ -1,6 +1,6 @@
 <div id="menu">
 	<ul>
-		<li><a href="index.php">Início</a></li>
+		<li><a href="index.php">Atendimento</a></li>
 		<li> | </li>
 		<li><a href="cliente.php">Clientes</a></li>
 		<li> | </li>

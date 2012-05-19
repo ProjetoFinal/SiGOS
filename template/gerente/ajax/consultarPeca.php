@@ -39,7 +39,6 @@ if($ok){
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" />
         <script type="text/javascript" >
         $('#test').dataTable();
-        
 		$('#retorno').fadeIn(200);
 		$('#retorno').css('margin-top','250px');
 		//$('table.resultado tbody tr:odd').css('background','#bdd5e2');
