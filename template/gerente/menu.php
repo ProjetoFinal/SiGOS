@@ -10,6 +10,8 @@
 		<li> | </li>
 		<li><a href="cliente.php">Cliente</a></li>
 		<li> | </li>
+		<li><a href="equipamentos.php">Equipamentos</a></li>
+		<li> | </li>
 		<li><a href="maodeobra.php">Tipo de Equipamento</a></li>
 		<li> | </li>
 		<li><a href="relatorio.php">Relatórios</a></li>

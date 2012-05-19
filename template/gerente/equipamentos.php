@@ -12,14 +12,42 @@ if($_GET){
 
 if( $editar == ""){
 ?>
+<br /><br /><br /><br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Manter Equipamento
+</span>
+<br /><br /><span
+	style="
+		font-size: 16px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Selecionar Cliente
+</span><!---
 <div id="busca">
 	<input type="text" id="key" />
-	<input type="button" id="buscar" value="Buscar" />
-</div>
+	<input type="button" class="bt_buscar" id="buscar" value="Buscar" />
+</div>-->
 <div id="retornoErro"></div>
-<div id="listaClientes"></div>
+<div id="listaClientes" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;"></div>
 
 <?php } else { ?>
+
+<br /><span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Manter Equipamento
+</span>
 
 <div id="dadosCliente">
 	<?php 
@@ -40,31 +68,41 @@ if( $editar == ""){
 <hr />
 
 <div id="busca">
-	<input type="button" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_novoequip" id="novoEquipamento" value="Novo Equipamento (Insert)" />
+	<input type="button" class="bt_voltar" onclick="window.location='equipamentos.php'" value="Cancelar (F5)" />
 </div>
 
-<div id="dadosEquip">
+<div id="dadosEquip" style="border:0px solid red;
+						 height:auto;
+						 overflow:hidden;
+						 background: #fff;">
 	
 	<div id="addEquip" style="display: none">
 		<input type="hidden" id="idcliente" value="<?=$idcliente?>" />
 		<table>
 		<tr>
-			<td>Marca: <input type="text" name="marca" id="marca" /></td>
-			<td>Modelo: <input type="text" name="modelo" id="modelo" /></td>
+			<td>Marca<span style="color:red">*</span> <input type="text" name="marca" id="marca" /></td>
+			<td>Modelo<span style="color:red">*</span> <input type="text" name="modelo" id="modelo" /></td>
 		</tr>
 		<tr>
-			<td>Tipo: <select id="tipo" style="height: 37px">
-							<option value="" selected>--- Tipo</option>
-							<option value="DVD">Aparelho de DVD</option>
-							<option value="TV">Televisão</option>
+			<td>Tipo<span style="color:red">*</span> <select id="tipo" style="height: 37px">
+						<option value="" selected>--- Tipo</option>
+						<?php
+							$equip = new Conexao();
+							$equip->conecta();
+							$equip->consulta( TipoEquipamento::listar() );
+							while( $te = $equip->resultado() ){
+						?>
+							<option value="<?=$te['idtiposequipamentos']?>"><?=$te['tipo']?></option>
+						<?php } ?>
 					   </select>
 			</td>		   
-			<td>N. Série: <input type="text" name="serie" id="serie" /></td>
+			<td>N. Série<span style="color:red">*</span> <input type="text" name="serie" id="serie" /></td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="button" id="cadastrar" value="Cadastrar (F9)" />
-				<input type="button" id="cancelar" value="Cancelar (F5)" />
+				<input type="button" class="bt_gravar" id="cadastrar" value="Cadastrar (F9)" />
+				<input type="button" class="bt_voltar" id="cancelar" value="Cancelar (F5)" />
 			</td>
 		</tr>
 		</table>
@@ -80,10 +118,28 @@ if( $editar == ""){
 	
 	<?php
 		$sql->consulta( Equipamento::consultaCliente( $idcliente ) );
+
+		echo"
+		<script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"../css/jquery.dataTables.css\" />
+        <script type=\"text/javascript\" >
+        	$(document).ready( function(){
+        	$('#test').dataTable();
+	        });
+        </script>
+				<table id='test'>
+					<thead>
+						<tr id='trTitulo'>
+							<td>Marca</td>
+							<td>Modelo</td>
+							<td>Tipo</td>
+							<td>Número de Série</td>
+						</tr>
+					</thead>
+					</tr>
+					<tbody>";
 		while( $l = $sql->resultado() ){
 			echo"
-				<table>
-					<tbody>
 						<tr>
 							<td class='um'>
 								<a href='#' onclick='verEquip(".$l['idequipamento'].")'>".$l['marcaequip']."</a>
@@ -91,19 +147,19 @@ if( $editar == ""){
 							<td class='dois'>".$l['modeloequip']."</td>
 							<td class='tres'>".$l['tipoequip']."</td>
 							<td class='quatro'>".$l['numserie']."</td>
-						</tr>
-					</tbody>
-				</table>	
+						</tr>	
 			";
 		}	
+		echo "</tbody>
+				</table>";
 	?>
 </div>
 
 <?php } ?>
 <script>
 	$(document).ready( function(){
-		$('#dadosEquip table tbody tr:odd').css('background','#bbd5e2');
-		$('#dadosEquip table tbody tr:even').css('background','#EBF3EB');
+		//$('#dadosEquip table tbody tr:odd').css('background','#bbd5e2');
+		//$('#dadosEquip table tbody tr:even').css('background','#EBF3EB');
 
 		$('#retornoErro').fadeIn(200);
         $("#retornoErro").text('Carregando...');
