@@ -31,7 +31,7 @@ class Relatorio {
 	}
 
 	static function comprasPorPeriodo( $dataInicial, $dataFinal ){
-		$query = "select idcomprapeca, qtd, status, datapedido, peca.codigopeca AS codigopeca, peca.nomepeca AS nomepeca, peca.marcapeca AS 			marcapeca from comprapeca
+		$query = "select idcomprapeca, qtd, status, datapedido, peca.codigopeca AS codigopeca, peca.nomepeca AS nomepeca, peca.marcapeca AS 			marcapeca, peca.precounidade AS precounidade from comprapeca
 						inner join peca on peca.idpeca = comprapeca.idpeca
 						where comprapeca.datapedido >= '$dataInicial' AND comprapeca.datapedido <= '$dataFinal'";
 
@@ -47,12 +47,35 @@ class Relatorio {
 		return $query;
 	}
 
-	static function teste( $key ){
-		$query = "select equipamento.marcaequip AS marcaequip, usuario.nome AS uNome, cliente.nome AS cNome, idordemdeservico, entrada from 			ordemdeservico os
-						inner join equipamento on equipamento.idequipamento = os.idequipamento
-						inner join usuario on usuario.idusuario = os.idusuario
-						inner join cliente on cliente.idcliente = equipamento.idcliente
-						where os.idstatus = $key";
+	static function faturadoDiarioPorPeriodo( $dataInicial, $dataFinal ){
+		$query = "select os.entrada AS entrada, sum(o.maodeobra + o.valorpecasusadas) AS total
+					from ordemdeservico os, orcamento o
+						where os.idordemdeservico = o.idordemdeservico
+							and os.idstatus = 10
+							and os.entrega between '$dataInicial' and '$dataFinal'
+								group by os.entrada";
+
+		return $query;
+	}
+
+	static function despesasPorPeriodo( $dataInicial, $dataFinal ){
+		$query = "select cp.datapedido AS data, sum(cp.qtd * p.precounidade) AS total
+					from comprapeca cp, peca p
+						where cp.idpeca = p.idpeca
+							and cp.datapedido between '$dataInicial' and '$dataFinal'
+								group by cp.datapedido";
+
+		return $query;
+	}
+
+	static function maodeobraPorPeriodo( $dataInicial, $dataFinal ){
+		$query = "select te.tipo AS tipo, sum(te.maodeobra) AS total
+					from ordemdeservico os, equipamento e, tiposequipamentos te
+						where os.idequipamento = e.idequipamento
+							and e.idtiposequipamentos = te.idtiposequipamentos
+							and os.idstatus = 10
+							and os.entrega between '$dataInicial' and '$dataFinal'
+								group by te.tipo";
 
 		return $query;
 	}

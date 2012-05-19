@@ -165,3 +165,14 @@ input#key{
 =======
 >>>>>>> d8edeb5a729f331f8dc4e4a7f6a544272d6ee2ff
 }
+
+/* Página relatorio.php */
+
+#relatoriosOperacionais{
+	width:500px;
+	height:200px;
+	border:1px solid black;
+}
+#relatoriosGerenciais{
+	
+}

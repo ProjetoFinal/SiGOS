@@ -25,7 +25,7 @@ elseif( !empty( $FaturamentoPorPeriodoInicial ) && !empty( $FaturamentoPorPeriod
 
 if( !empty( $OSPorStatus ) ) {
 	$key = $OSPorStatus;
-	$relatorio = utf8_decode("RELATÓRIO DE OS POR STATUS");
+	$relatorio = utf8_decode("RELATÓRIO DE ORDEM DE SERVIÇO POR STATUS");
 
 $j = 0;
 $dataAtual = date("d/m/Y - H:i");
@@ -49,7 +49,14 @@ $status = $sql->resultado();
 
 	$pdf->SetY(11);
 	$pdf->SetX(100);
-	$pdf->Cell(80,10,$relatorio,0,0,'C');	
+	$pdf->Cell(80,10,$relatorio,0,0,'C');
+
+	$pdf->Ln();
+	
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(105);
+	$pdf->Cell(70,7,"Status ".strtoupper(utf8_decode($status['status'])),0,0,'C');	
 
 	$pdf->Line(6,30,290,30);
 
@@ -60,13 +67,19 @@ $status = $sql->resultado();
 
 	$pdf->SetY(40);
 
+	/*
+
 	$pdf->SetFont('Arial', 'B', 8);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetX(6);
 	$pdf->Cell(45,7,strtoupper(utf8_decode($status['status'])),1,0,'C');
 
+	*/
+
 	$pdf->Ln();
 	$pdf->Ln();
+
+	$pdf->SetFont('Arial', 'B', 8);
 
 	$pdf->SetX(6);
 	$pdf->Cell(40,7,"Ordem de Servico",1,0,'C');
@@ -119,6 +132,16 @@ $status = $sql->resultado();
     	$j++;
 
 	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+
+	$total = mysql_num_rows( $ok );
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total de OS's: ",1,0,'C',1);
+	$pdf->Cell(30,7,$total,1,0,'C',1);
 	
 	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
 
@@ -129,7 +152,7 @@ sleep(1);
 elseif( !empty( $OSPorPeriodoInicial ) && !empty( $OSPorPeriodoFinal ) ) {
 	$dataInicial = data_ymd( $OSPorPeriodoInicial );
 	$dataFinal = data_ymd( $OSPorPeriodoFinal );
-	$relatorio = utf8_decode("RELATÓRIO DE OS POR PERÍODO");
+	$relatorio = utf8_decode("RELATÓRIO DE ORDEM DE SERVIÇO POR PERÍODO");
 
 $j = 0;
 $dataAtual = date("d/m/Y - H:i");
@@ -151,7 +174,14 @@ $sql->conecta();
 
 	$pdf->SetY(11);
 	$pdf->SetX(100);
-	$pdf->Cell(80,10,$relatorio,0,0,'C');	
+	$pdf->Cell(80,10,$relatorio,0,0,'C');
+
+	$pdf->Ln();
+	
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(103);
+	$pdf->Cell(75,7,"Periodo de ".$OSPorPeriodoInicial." a ".$OSPorPeriodoFinal,0,0,'C');	
 
 	$pdf->Line(6,30,290,30);
 
@@ -162,13 +192,19 @@ $sql->conecta();
 
 	$pdf->SetY(40);
 
+	/*
+
 	$pdf->SetFont('Arial', 'B', 8);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetX(6);
 	$pdf->Cell(75,7,"Periodo de ".$OSPorPeriodoInicial." a ".$OSPorPeriodoFinal,1,0,'C');
 
+	*/
+
 	$pdf->Ln();
 	$pdf->Ln();
+
+	$pdf->SetFont('Arial', 'B', 8);
 
 	$pdf->SetX(6);
 	$pdf->Cell(40,7,"Ordem de Servico",1,0,'C');
@@ -221,6 +257,16 @@ $sql->conecta();
     	$j++;
 
 	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+
+	$total = mysql_num_rows( $ok );
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total de OS's: ",1,0,'C',1);
+	$pdf->Cell(30,7,$total,1,0,'C',1);
 	
 	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
 
@@ -234,6 +280,7 @@ elseif( !empty( $ComprasPorPeriodoInicial ) && !empty( $ComprasPorPeriodoFinal )
 	$relatorio = utf8_decode("RELATÓRIO DE COMPRAS POR PERÍODO");
 
 $j = 0;
+$total = 0;
 $dataAtual = date("d/m/Y - H:i");
 
 
@@ -253,7 +300,14 @@ $sql->conecta();
 
 	$pdf->SetY(11);
 	$pdf->SetX(100);
-	$pdf->Cell(80,10,$relatorio,0,0,'C');	
+	$pdf->Cell(80,10,$relatorio,0,0,'C');
+
+	$pdf->Ln();
+	
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(100);
+	$pdf->Cell(75,7,"Periodo de ".$ComprasPorPeriodoInicial." a ".$ComprasPorPeriodoFinal,0,0,'C');	
 
 	$pdf->Line(6,30,290,30);
 
@@ -264,22 +318,29 @@ $sql->conecta();
 
 	$pdf->SetY(40);
 
+	/*
+
 	$pdf->SetFont('Arial', 'B', 8);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetX(6);
 	$pdf->Cell(75,7,"Periodo de ".$ComprasPorPeriodoInicial." a ".$ComprasPorPeriodoFinal,1,0,'C');
 
+	*/
+
 	$pdf->Ln();
 	$pdf->Ln();
 
+	$pdf->SetFont('Arial', 'B', 8);
+
 	$pdf->SetX(6);
-	$pdf->Cell(40,7,"Pedido",1,0,'C');
-	$pdf->Cell(20,7,"QTD.",1,0,'C');
-	$pdf->Cell(30,7,"Data",1,0,'C');
-	$pdf->Cell(40,7,"Codigo",1,0,'C');
-	$pdf->Cell(70,7,"Peça",1,0,'C');
-	$pdf->Cell(45,7,"Marca",1,0,'C');
-	$pdf->Cell(40,7,"Status",1,0,'C');
+	$pdf->Cell(30,7,"Pedido",1,0,'C');
+	$pdf->Cell(20,7,"Data",1,0,'C');
+	$pdf->Cell(30,7,"Codigo",1,0,'C');
+	$pdf->Cell(70,7,utf8_decode( "Peça" ),1,0,'C');
+	$pdf->Cell(40,7,"Marca",1,0,'C');
+	$pdf->Cell(15,7,"QTD.",1,0,'C');
+	$pdf->Cell(30,7,utf8_decode( "Preço Unit." ),1,0,'C');
+	$pdf->Cell(30,7,"Status",1,0,'C');
 	$pdf->Ln();
 
 	
@@ -294,35 +355,49 @@ $sql->conecta();
 			
 			$pdf->SetX(6);
 			$pdf->SetFillColor(255,255,255);
-			$pdf->Cell(40,7,$l['idcomprapeca'],1,0,'C',1);
-			$pdf->Cell(20,7,$l['qtd'],1,0,'C',1);
-	        $pdf->Cell(30,7,data_dmy( $l['datapedido'] ),1,0,'C',1);
-	        $pdf->Cell(40,7,$l['codigopeca'],1,0,'C',1);
+			$pdf->Cell(30,7,$l['idcomprapeca'],1,0,'C',1);
+			$pdf->Cell(20,7,data_dmy( $l['datapedido'] ),1,0,'C',1);
+	        $pdf->Cell(30,7,$l['codigopeca'],1,0,'C',1);
 	        $pdf->Cell(70,7,$l['nomepeca'],1,0,'C',1);
-	        $pdf->Cell(45,7,$l['marcapeca'],1,0,'C',1);
-	        $pdf->Cell(40,7,strtoupper(utf8_decode( $l['status'] )),1,0,'C',1);
+	        $pdf->Cell(40,7,$l['marcapeca'],1,0,'C',1);
+	        $pdf->Cell(15,7,$l['qtd'],1,0,'C',1);
+	        $pdf->Cell(30,7,"R$ ".number_format( $l['precounidade'],2,',','.' ),1,0,'C',1);
+	        $pdf->Cell(30,7,strtoupper(utf8_decode( $l['status'] )),1,0,'C',1);
 	        $pdf->Ln();
+
+	        $total += ( $l['qtd'] * $l['precounidade'] );
 
     	} else {
     		
     		$pdf->SetFont('Arial', '', 8);
 			
 			$pdf->SetX(6);
-			$pdf->SetFillColor(200,200,200);
-			$pdf->Cell(40,7,$l['idcomprapeca'],1,0,'C',1);
-			$pdf->Cell(20,7,$l['qtd'],1,0,'C',1);
-	        $pdf->Cell(30,7,data_dmy( $l['datapedido'] ),1,0,'C',1);
-	        $pdf->Cell(40,7,$l['codigopeca'],1,0,'C',1);
+			$pdf->SetFillColor(255,255,255);
+			$pdf->Cell(30,7,$l['idcomprapeca'],1,0,'C',1);
+			$pdf->Cell(20,7,data_dmy( $l['datapedido'] ),1,0,'C',1);
+	        $pdf->Cell(30,7,$l['codigopeca'],1,0,'C',1);
 	        $pdf->Cell(70,7,$l['nomepeca'],1,0,'C',1);
-	        $pdf->Cell(45,7,$l['marcapeca'],1,0,'C',1);
-	        $pdf->Cell(40,7,strtoupper(utf8_decode( $l['status'] )),1,0,'C',1);
+	        $pdf->Cell(40,7,$l['marcapeca'],1,0,'C',1);
+	        $pdf->Cell(15,7,$l['qtd'],1,0,'C',1);
+	        $pdf->Cell(30,7,"R$ ".number_format( $l['precounidade'],2,',','.' ),1,0,'C',1);
+	        $pdf->Cell(30,7,strtoupper(utf8_decode( $l['status'] )),1,0,'C',1);
 	        $pdf->Ln();
+
+	        $total += ( $l['qtd'] * $l['precounidade'] );
 
     	}
 
     	$j++;
 
 	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total: ",1,0,'C',1);
+	$pdf->Cell(30,7,"R$ ".number_format($total,2,',','.'),1,0,'C',1);
 	
 	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
 
@@ -336,6 +411,7 @@ elseif( !empty( $FaturamentoPorPeriodoInicial ) && !empty( $FaturamentoPorPeriod
 	$relatorio = utf8_decode("RELATÓRIO DE FATURAMENTO POR PERÍODO");
 
 $j = 0;
+$total = 0;
 $dataAtual = date("d/m/Y - H:i");
 
 
@@ -355,7 +431,13 @@ $sql->conecta();
 
 	$pdf->SetY(11);
 	$pdf->SetX(100);
-	$pdf->Cell(80,10,$relatorio,0,0,'C');	
+	$pdf->Cell(80,10,$relatorio,0,0,'C');
+
+	$pdf->Ln();
+	$pdf->SetX(100);
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->Cell(75,7,"Periodo de ".$FaturamentoPorPeriodoInicial." a ".$FaturamentoPorPeriodoFinal,0,0,'C');	
 
 	$pdf->Line(6,30,290,30);
 
@@ -366,13 +448,19 @@ $sql->conecta();
 
 	$pdf->SetY(40);
 
+	/*
+
 	$pdf->SetFont('Arial', 'B', 8);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetX(6);
 	$pdf->Cell(75,7,"Periodo de ".$FaturamentoPorPeriodoInicial." a ".$FaturamentoPorPeriodoFinal,1,0,'C');
 
+	*/
+
 	$pdf->Ln();
 	$pdf->Ln();
+
+	$pdf->SetFont('Arial', 'B', 8);
 
 	$pdf->SetX(6);
 	$pdf->Cell(40,7,"Ordem de Servico",1,0,'C');
@@ -396,12 +484,14 @@ $sql->conecta();
 			$pdf->SetX(6);
 			$pdf->SetFillColor(255,255,255);
 			$pdf->Cell(40,7,$l['idordemdeservico'],1,0,'C',1);
-			$pdf->Cell(40,7,"R$ ".$l['maodeobra'],1,0,'C',1);
-	        $pdf->Cell(40,7,"R$ ".$l['valorpecasusadas'],1,0,'C',1);
-	        $pdf->Cell(40,7,"R$ ".( $l['valorpecasusadas'] + $l['maodeobra'] ),1,0,'C',1);
-	        $pdf->Cell(40,7,$l['entrada'],1,0,'C',1);
-	        $pdf->Cell(40,7,$l['entrega'],1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['maodeobra'],2,',','.' ),1,0,'C',1);
+	        $pdf->Cell(40,7,"R$ ".number_format( $l['valorpecasusadas'],2,',','.' ),1,0,'C',1);
+	        $pdf->Cell(40,7,"R$ ".number_format(( $l['valorpecasusadas'] + $l['maodeobra'] ),2,',','.'),1,0,'C',1);
+	        $pdf->Cell(40,7,data_dmy( $l['entrada'] ),1,0,'C',1);
+	        $pdf->Cell(40,7,data_dmy( $l['entrega'] ),1,0,'C',1);
 	        $pdf->Ln();
+
+	        $total += ( $l['valorpecasusadas'] + $l['maodeobra'] );
 
     	} else {
     		
@@ -410,21 +500,371 @@ $sql->conecta();
 			$pdf->SetX(6);
 			$pdf->SetFillColor(200,200,200);
 			$pdf->Cell(40,7,$l['idordemdeservico'],1,0,'C',1);
-			$pdf->Cell(40,7,"R$ ".$l['maodeobra'],1,0,'C',1);
-	        $pdf->Cell(40,7,"R$ ".$l['valorpecasusadas'],1,0,'C',1);
-	        $pdf->Cell(40,7,"R$ ".( $l['valorpecasusadas'] + $l['maodeobra'] ),1,0,'C',1);
-	        $pdf->Cell(40,7,$l['entrada'],1,0,'C',1);
-	        $pdf->Cell(40,7,$l['entrega'],1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['maodeobra'],2,',','.' ),1,0,'C',1);
+	        $pdf->Cell(40,7,"R$ ".number_format( $l['valorpecasusadas'],2,',','.' ),1,0,'C',1);
+	        $pdf->Cell(40,7,"R$ ".number_format(( $l['valorpecasusadas'] + $l['maodeobra'] ),2,',','.'),1,0,'C',1);
+	        $pdf->Cell(40,7,data_dmy( $l['entrada'] ),1,0,'C',1);
+	        $pdf->Cell(40,7,data_dmy( $l['entrega'] ),1,0,'C',1);
 	        $pdf->Ln();
+
+	        $total += ( $l['valorpecasusadas'] + $l['maodeobra'] );
 
     	}
 
     	$j++;
 
 	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total: ",1,0,'C',1);
+	$pdf->Cell(30,7,"R$ ".number_format($total,2,',','.'),1,0,'C',1);
 	
 	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
 
 sleep(1);
 
 } // FIM DO IF FaturamentoPorPeriodo
+
+
+
+/* ##### RELATÓRIOS GERENCIAIS ##### */
+
+elseif( !empty( $faturadoDiarioPorPeriodoInicial ) && !empty( $faturadoDiarioPorPeriodoFinal ) ) {
+	$dataInicial = data_ymd( $faturadoDiarioPorPeriodoInicial );
+	$dataFinal = data_ymd( $faturadoDiarioPorPeriodoFinal );
+	$relatorio = utf8_decode("TOTAL DIARIO FATURADO POR PERÍODO");
+
+$j = 0;
+$total = 0;
+$dataAtual = date("d/m/Y - H:i");
+
+
+$sql = new Conexao();
+$sql->conecta();
+
+	$pdf = new FPDF('L');    
+	$pdf->Open();    
+	$pdf->AddPage();
+
+	$pdf->SetFont('Arial', 'B', 12);
+	$pdf->SetTextColor(0, 0, 0);
+
+	$pdf->SetY(7);
+
+	$pdf->Image('../../img/logo_lider.jpg',6,2,50,25);
+
+	$pdf->SetY(11);
+	$pdf->SetX(100);
+	$pdf->Cell(80,10,$relatorio,0,0,'C');	
+
+	$pdf->Ln();
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(100);
+	$pdf->Cell(75,7,"Periodo de ".$faturadoDiarioPorPeriodoInicial." a ".$faturadoDiarioPorPeriodoFinal,0,0,'C');
+
+	$pdf->Line(6,30,290,30);
+
+	$pdf->SetY(23);
+	$pdf->SetX(248);
+	$pdf->SetFont('Arial', 'B', 6);
+	$pdf->Cell(50,10,"SiGOS - ".$dataAtual,0,0,'C');
+
+	$pdf->SetY(40);
+
+	/*
+
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(6);
+	$pdf->Cell(75,7,"Periodo de ".$faturadoDiarioPorPeriodoInicial." a ".$faturadoDiarioPorPeriodoFinal,1,0,'C');
+
+	*/
+
+	$pdf->Ln();
+	$pdf->Ln();
+
+	$pdf->SetFont('Arial', 'B', 8);
+
+	$pdf->SetX(6);
+	$pdf->Cell(40,7,"Data Entrada",1,0,'C');
+	$pdf->Cell(40,7,"Total",1,0,'C');
+	$pdf->Ln();
+
+	
+
+	$ok = $sql->consulta ( Relatorio::faturadoDiarioPorPeriodo( $dataInicial, $dataFinal ) );
+
+	while ( $l = $sql->resultado() ) {
+
+		if (($j % 2) == 1) {
+
+			$pdf->SetFont('Arial', '', 8);
+			
+			$pdf->SetX(6);
+			$pdf->SetFillColor(255,255,255);
+			$pdf->Cell(40,7,data_dmy( $l['entrada'] ),1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['total'],2,',','.' ),1,0,'C',1);
+	        $pdf->Ln();
+
+	        $total += $l['total'];
+
+    	} else {
+    		
+    		$pdf->SetFont('Arial', '', 8);
+			
+			$pdf->SetX(6);
+			$pdf->SetFillColor(200,200,200);
+			$pdf->Cell(40,7,data_dmy( $l['entrada'] ),1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['total'],2,',','.' ),1,0,'C',1);
+	        $pdf->Ln();
+
+	        $total += $l['total'];
+
+    	}
+
+    	$j++;
+
+	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total: ",1,0,'C',1);
+	$pdf->Cell(30,7,"R$ ".number_format($total,2,',','.'),1,0,'C',1);
+	
+	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
+
+sleep(1);
+
+} // FIM DO IF TOTAL DIARIO FATURADO POR PERÍODO
+
+elseif( !empty( $despesasPorPeriodoInicial ) && !empty( $despesasPorPeriodoFinal ) ) {
+	$dataInicial = data_ymd( $despesasPorPeriodoInicial );
+	$dataFinal = data_ymd( $despesasPorPeriodoFinal );
+	$relatorio = utf8_decode("TOTAL DIARIO DE DESPESAS POR PERÍODO");
+
+$j = 0;
+$total = 0;
+$dataAtual = date("d/m/Y - H:i");
+
+
+$sql = new Conexao();
+$sql->conecta();
+
+	$pdf = new FPDF('L');    
+	$pdf->Open();    
+	$pdf->AddPage();
+
+	$pdf->SetFont('Arial', 'B', 12);
+	$pdf->SetTextColor(0, 0, 0);
+
+	$pdf->SetY(7);
+
+	$pdf->Image('../../img/logo_lider.jpg',6,2,50,25);
+
+	$pdf->SetY(11);
+	$pdf->SetX(100);
+	$pdf->Cell(80,10,$relatorio,0,0,'C');	
+
+	$pdf->Ln();
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(100);
+	$pdf->Cell(75,7,"Periodo de ".$despesasPorPeriodoInicial." a ".$despesasPorPeriodoFinal,0,0,'C');	
+
+	$pdf->Line(6,30,290,30);
+
+	$pdf->SetY(23);
+	$pdf->SetX(248);
+	$pdf->SetFont('Arial', 'B', 6);
+	$pdf->Cell(50,10,"SiGOS - ".$dataAtual,0,0,'C');
+
+	$pdf->SetY(40);
+
+	/*
+
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(6);
+	$pdf->Cell(75,7,"Periodo de ".$despesasPorPeriodoInicial." a ".$despesasPorPeriodoFinal,1,0,'C');
+
+	*/
+
+	$pdf->Ln();
+	$pdf->Ln();
+
+	$pdf->SetFont('Arial', 'B', 8);
+
+	$pdf->SetX(6);
+	$pdf->Cell(40,7,"Data Pedido",1,0,'C');
+	$pdf->Cell(40,7,"Total",1,0,'C');
+	$pdf->Ln();
+
+	
+
+	$ok = $sql->consulta ( Relatorio::despesasPorPeriodo( $dataInicial, $dataFinal ) );
+
+	while ( $l = $sql->resultado() ) {
+
+		if (($j % 2) == 1) {
+
+			$pdf->SetFont('Arial', '', 8);
+			
+			$pdf->SetX(6);
+			$pdf->SetFillColor(255,255,255);
+			$pdf->Cell(40,7,data_dmy( $l['data'] ),1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['total'],2,',','.' ),1,0,'C',1);
+	        $pdf->Ln();
+
+	        $total += $l['total'];
+
+    	} else {
+    		
+    		$pdf->SetFont('Arial', '', 8);
+			
+			$pdf->SetX(6);
+			$pdf->SetFillColor(200,200,200);
+			$pdf->Cell(40,7,data_dmy( $l['data'] ),1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['total'],2,',','.' ),1,0,'C',1);
+	        $pdf->Ln();
+
+	        $total += $l['total'];
+
+    	}
+
+    	$j++;
+
+	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total: ",1,0,'C',1);
+	$pdf->Cell(30,7,"R$ ".number_format($total,2,',','.'),1,0,'C',1);
+	
+	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
+
+sleep(1);
+
+} // FIM DO IF TOTAL DIARIO DE DESPESAS POR PERÍODO
+
+elseif( !empty( $maodeobraPorPeriodoInicial ) && !empty( $maodeobraPorPeriodoFinal ) ) {
+	$dataInicial = data_ymd( $maodeobraPorPeriodoInicial );
+	$dataFinal = data_ymd( $maodeobraPorPeriodoFinal );
+	$relatorio = utf8_decode("TOTAL DIARIO DE CUSTO DE MÃO DE OBRA POR EQUIPAMENTO");
+
+$j = 0;
+$total = 0;
+$dataAtual = date("d/m/Y - H:i");
+
+
+$sql = new Conexao();
+$sql->conecta();
+
+	$pdf = new FPDF('L');    
+	$pdf->Open();    
+	$pdf->AddPage();
+
+	$pdf->SetFont('Arial', 'B', 12);
+	$pdf->SetTextColor(0, 0, 0);
+
+	$pdf->SetY(7);
+
+	$pdf->Image('../../img/logo_lider.jpg',6,2,50,25);
+
+	$pdf->SetY(11);
+	$pdf->SetX(100);
+	$pdf->Cell(80,10,$relatorio,0,0,'C');
+
+	$pdf->Ln();
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(100);
+	$pdf->Cell(75,7,"Periodo de ".$maodeobraPorPeriodoInicial." a ".$maodeobraPorPeriodoFinal,0,0,'C');	
+
+	$pdf->Line(6,30,290,30);
+
+	$pdf->SetY(23);
+	$pdf->SetX(248);
+	$pdf->SetFont('Arial', 'B', 6);
+	$pdf->Cell(50,10,"SiGOS - ".$dataAtual,0,0,'C');
+
+	$pdf->SetY(40);
+
+	/*
+
+	$pdf->SetFont('Arial', 'B', 8);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetX(6);
+	$pdf->Cell(75,7,"Periodo de ".$maodeobraPorPeriodoInicial." a ".$maodeobraPorPeriodoFinal,1,0,'C');
+
+	*/
+
+	$pdf->Ln();
+	$pdf->Ln();
+
+	$pdf->SetFont('Arial', 'B', 8);
+
+	$pdf->SetX(6);
+	$pdf->Cell(60,7,"Tipo de Eequipamento",1,0,'C');
+	$pdf->Cell(40,7,"Total",1,0,'C');
+	$pdf->Ln();
+
+	
+
+	$ok = $sql->consulta ( Relatorio::maodeobraPorPeriodo( $dataInicial, $dataFinal ) );
+
+	while ( $l = $sql->resultado() ) {
+
+		if (($j % 2) == 1) {
+
+			$pdf->SetFont('Arial', '', 8);
+			
+			$pdf->SetX(6);
+			$pdf->SetFillColor(255,255,255);
+			$pdf->Cell(60,7,$l['tipo'],1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['total'],2,',','.' ),1,0,'C',1);
+	        $pdf->Ln();
+
+	        $total += $l['total'];
+
+    	} else {
+    		
+    		$pdf->SetFont('Arial', '', 8);
+			
+			$pdf->SetX(6);
+			$pdf->SetFillColor(200,200,200);
+			$pdf->Cell(60,7,$l['tipo'],1,0,'C',1);
+			$pdf->Cell(40,7,"R$ ".number_format( $l['total'],2,',','.' ),1,0,'C',1);
+	        $pdf->Ln();
+
+	        $total += $l['total'];
+
+    	}
+
+    	$j++;
+
+	} // FIM DO WHILE RESULTADO
+
+	$pdf->Ln();
+	$pdf->Ln();
+	
+	$pdf->SetX(6);
+	$pdf->SetFillColor(255,255,255);
+	$pdf->Cell(30,7,"Total: ",1,0,'C',1);
+	$pdf->Cell(30,7,"R$ ".number_format($total,2,',','.'),1,0,'C',1);	
+	
+	$pdf->Output($relatorio." - ".$dataAtual.".pdf","D");
+
+sleep(1);
+
+} // FIM DO IF TOTAL DIARIO DE CUSTO DE MÃO DE OBRA POR EQUIPAMENTO
