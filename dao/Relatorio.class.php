@@ -91,6 +91,12 @@ class Relatorio {
 		return $query;
 	}
 
+	static function verCompraPdf( $datapedido ){
+		$query = "select p.nomepeca AS nomepeca, qtd, status from comprapeca cp
+					inner join peca p on p.idpeca = cp.idpeca
+						where cp.datapedido = '$datapedido'";
 
+		return $query;
+	}
 
 }

@@ -23,8 +23,12 @@ class PecaSolicitada{
 	}
 	
 	static function consultaPorOS($idordemservico){
-		$query = "select ps.*, p.* from pecasolicitada ps 
+		$query = "select ps.*, p.*, concat_ws(' - ',te.tipo,e.marcaequip,e.modeloequip) AS equip, os.entrada AS entrada, u.nome AS usuario, p.nomepeca AS nomepeca, ps.qtdsolicitada AS qtdsolicitada from pecasolicitada ps 
 					inner join peca p on p.idpeca = ps.idpeca
+					inner join ordemdeservico os on os.idordemdeservico = ps.idos
+					inner join usuario u on u.idusuario = os.idusuario
+					inner join equipamento e on e.idequipamento = os.idequipamento
+					inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos
 						where ps.idos=$idordemservico";
 		
 		return $query;
