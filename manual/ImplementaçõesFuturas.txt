@@ -9,3 +9,5 @@ Reimpressão do ticket de abertura da OS;
 Após imprimir ticket, não redireciona para página inicial;
 Tela incluir cliente, durante abertura de OS está diferente da utilizada no cadastro de cliente
 
+tecnico incluir peça no cadastro, caso seja necessário trocar alguma que nao exista prreviamente cadastrada
+

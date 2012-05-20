@@ -1,12 +1,12 @@
 <div id="menu">
 	<ul>
-		<li><a href="index.php">Atendimento</a></li>
+		<li><a href="index.php">ATENDIMENTO</a></li>
 		<li> | </li>
-		<li><a href="cliente.php">Clientes</a></li>
+		<li><a href="cliente.php">CLIENTES</a></li>
 		<li> | </li>
-		<li><a href="equipamentos.php">Equipamentos</a></li>
+		<li><a href="equipamentos.php">EQUIPAMENTOS</a></li>
 		<li> | </li>
-		<li><a href="os2.php">Ordens de Serviço</a></li>
+		<li><a href="os2.php">ORDENS DE SERVIÇO</a></li>
 		<li> | </li>
 		<!--
 		<?php for($i=1; $i <= 5; $i++){ ?>

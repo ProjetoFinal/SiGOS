@@ -1,20 +1,20 @@
 <div id="menu">
 	<ul>
-		<li><a href="index.php">Gerenciar</a></li>
+		<li><a href="index.php">GERENCIAR</a></li>
 		<li> | </li>
-		<li><a href="fornecedor.php">Fornecedores</a></li>
+		<li><a href="fornecedor.php">FORNECEDORES</a></li>
 		<li> | </li>
-		<li><a href="usuario.php">Usuários</a></li>
+		<li><a href="usuario.php">USUÁRIOS</a></li>
 		<li> | </li>
-		<li><a href="peca.php">Peças</a></li>
+		<li><a href="peca.php">PEÇAS</a></li>
 		<li> | </li>
-		<li><a href="cliente.php">Cliente</a></li>
+		<li><a href="cliente.php">CLIENTES</a></li>
 		<li> | </li>
-		<li><a href="equipamentos.php">Equipamentos</a></li>
+		<li><a href="equipamentos.php">EQUIPAMENTOS</a></li>
 		<li> | </li>
-		<li><a href="maodeobra.php">Tipo de Equipamento</a></li>
+		<li><a href="maodeobra.php">TIPOS DE EQUIPAMENTO</a></li>
 		<li> | </li>
-		<li><a href="relatorio.php">Relatórios</a></li>
+		<li><a href="relatorio.php">RELATÓRIOS</a></li>
 		<li> | </li>
 		
 		<!--
