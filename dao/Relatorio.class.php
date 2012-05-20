@@ -12,6 +12,17 @@ class Relatorio {
 		return $query;
 	}
 
+	static function osTodosStatus(){
+		$query = "select equipamento.marcaequip AS marcaequip, equipamento.modeloequip AS modeloequip, equipamento.numserie AS numserie, 				statusos.status AS status, cliente.nome AS cNome, idordemdeservico, entrada from ordemdeservico os
+						inner join equipamento on equipamento.idequipamento = os.idequipamento
+						inner join statusos on statusos.idStatus = os.idstatus
+						inner join cliente on cliente.idcliente = equipamento.idcliente
+						group by os.idordemdeservico
+						order by statusos.status";
+
+		return $query;
+	}
+
 	static function statusOs( $key ){
 		$query = "select statusos.status AS status from ordemdeservico os
 					inner join statusos on statusos.idstatus = os.idstatus
@@ -80,6 +91,12 @@ class Relatorio {
 		return $query;
 	}
 
+	static function verCompraPdf( $datapedido ){
+		$query = "select p.nomepeca AS nomepeca, qtd, status from comprapeca cp
+					inner join peca p on p.idpeca = cp.idpeca
+						where cp.datapedido = '$datapedido'";
 
+		return $query;
+	}
 
 }

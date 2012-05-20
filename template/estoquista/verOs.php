@@ -112,11 +112,15 @@ $l = $sql->resultado();
 	<tr>
 		<td colspan="2" align="center">
 			&nbsp;
+			<input type="button" class="bt_imprimir" onclick="window.location='ajax/atPecaPdf.php'" value="Imprimir" style="display:none;" />
 			<input type="button" class="bt_atpeca" id="atPeca" value="Atender Peça" />
 			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 		</td>
 	</tr>
 </table>
+
+
+
 <script>
 	$('#atPeca').click( function(){
 		var idos = $('#idordemdeservico').val();
@@ -128,12 +132,15 @@ $l = $sql->resultado();
 				data: "idos="+idos,
 				success: function(data){
 					if(data==1){
-						opener.location.reload();
-						window.close();			
+						//opener.location.reload();
+						//window.close();
+						$(".bt_imprimir").show();	
+						$(".bt_atpeca").hide();
+						
 					}else if(data==2){
 						alert('Erro ao dar baixa no estoque');	
 					}else{
-						alert('A(s) peca(s): '+ data + 'nao possuem saldo em estoque');					
+						alert('A(s) peca(s): '+ data + 'nao possuem saldo em estoque');
 					}					
 				}
 			});

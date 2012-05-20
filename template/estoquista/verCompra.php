@@ -103,7 +103,7 @@ if( $entrada < date("Y-m-d") and $status == 'aberta' ){
 				<input type="button" class="bt_fimcompra" id="finalizar" value="Finalizar Compra" />
 			<?php } ?>
 			
-			<input type="button" class="bt_imprimir" value="Imprimir" />
+			<input type="button" class="bt_imprimir" onclick="window.location='ajax/verCompraPdf.php?datapedido=<?=$datapedido?>'" value="Imprimir" />
 			<input type="button" class="bt_voltar" onclick="window.close()" value="Fechar" />
 			
 			<?php if( $status == 'aberta' ){ ?>

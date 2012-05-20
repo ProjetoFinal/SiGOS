@@ -1,10 +1,13 @@
 <?php
+session_start();
 
 function __autoload( $classes ) {
 	include_once("../../../dao/$classes.class.php");
 }
 
 extract($_GET);
+
+$_SESSION['idos'] = $idos;
 
 $sql = new Conexao();
 $sql->conecta();
