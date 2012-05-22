@@ -19,7 +19,7 @@ $msgCidade = '';
 $msgUf = '';
 
 if( empty( $razaosocial ) ){
-	$razaosocial = "*Preencha a Razão Social do Fornecedor<br />
+	$razaoSocial = "*Preencha a Razão Social do Fornecedor<br />
 						<script>
 							$('#razaosocial').css('background','#FBE3E4');
 							$('#razaosocial').css('border','1px solid #FBC2C4');
@@ -37,8 +37,8 @@ if( empty( $cnpj ) ){
 if( empty( $inscest ) ){
 	$msgInscEst = "*Preencha a Inscrição Estadual do Fornecedor<br />
 						<script>
-							$('#inscEst').css('background','#FBE3E4');
-							$('#inscEst').css('border','1px solid #FBC2C4');
+							$('#inscest').css('background','#FBE3E4');
+							$('#inscest').css('border','1px solid #FBC2C4');
 						</script>";
 	$count++;
 }
@@ -93,7 +93,7 @@ if( empty( $uf ) ){
 
 if( $count >= 1){
 print <<<ERRO
-$razaosocial
+$razaoSocial
 $msCnpj
 $msgInscEst
 $msgCep

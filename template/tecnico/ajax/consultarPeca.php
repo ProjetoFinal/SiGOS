@@ -28,18 +28,24 @@ if($ok){
 	if( $linhas >= 1 ){
 		
 	?>
-        <script type="text/javascript" >
-		$('#retorno').fadeIn(200);
-		$('#retorno').css('margin-top','250px');
-		$('table.resultado tbody tr:odd').css('background','#bdd5e2');
-		$('table.resultado tbody tr:even').css('background','#EBF3EB');
-		$('table.resultado tbody tr a').css('color','blue');
-		function usar( idpeca, idos, idor, valor ){
-			$(window.document.location).attr('href','ajax/maisUma.php?idpeca='+idpeca+'&idos='+idos+'&idor='+idor+'&valor='+valor);
-		}
-	</script>
-	<table class="resultado">
-		<table class="resultado">
+        <script src='/SiGOS/template/js/jquery.dataTables.js'> </script>
+		<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" />
+		<script type="text/javascript" >
+			$(document).ready( function(){
+			$('#test').dataTable();
+			$('#retorno').fadeIn(200);
+			$('#retorno').css('margin-top','250px');
+			$('table.resultado tbody tr:odd').css('background','#bdd5e2');
+			$('table.resultado tbody tr:even').css('background','#EBF3EB');
+			$('table.resultado tbody tr a').css('color','blue');
+			});
+
+			function usar( idpeca, idos, idor, valor ){
+				$(window.document.location).attr('href','ajax/maisUma.php?idpeca='+idpeca+'&idos='+idos+'&idor='+idor+'&valor='+valor);
+			}
+		</script>
+	<table id='test'>
+
 				<thead>
 			<tr id="trTitulo">
 				<td>Código</td>
@@ -58,10 +64,10 @@ if($ok){
 						<?=$l['codigopeca']?>
 					</a>
 				</td>
-				<td><?=$l['nomepeca']?></td>
-				<td><?=ucfirst($l['marcapeca'])?></td>
-				<td><?=ucfirst($l['modelopeca'])?></td>
-				<td><?=ucfirst($l['quantidade'])?></td>
+				<td><?=strtoupper($l['nomepeca'])?></td>
+				<td><?=strtoupper($l['marcapeca'])?></td>
+				<td><?=strtoupper($l['modelopeca'])?></td>
+				<td><?=strtoupper($l['quantidade'])?></td>
 			</tr>
 		<?php } ?>
 		</tbody>
@@ -76,5 +82,5 @@ if($ok){
 }
 
 
-sleep(1);
+//sleep(1);
 

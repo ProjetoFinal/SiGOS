@@ -16,6 +16,16 @@ if($_GET){
 if( $editar == ""){
 ?>
 
+<br />
+<span
+	style="
+		font-size: 20px;
+		font-weight: bold;
+		color: #777;
+	";>
+	Adicionar Peça
+</span>
+<br />
 
 <!-- Início do formulário de cadastro peças -->
 
@@ -23,7 +33,7 @@ if( $editar == ""){
 <div id="column1" style="margin-left: 190px">
 	<input type="hidden" id="idos" value="<?=$idos?>" />
 	<input type="hidden" id="idor" value="<?=$idor?>" />
-	<table>
+	<table style="display:none">
 		<tr>
 			<td>Código da Peça</td>
 			<td>
@@ -47,7 +57,7 @@ if( $editar == ""){
 	</table>
 </div>
 
-<div id="lineButton">
+<div id="lineButton" style="display:none">
 	<input type="button" class="bt_buscar" id="consultar" value="Consultar (Enter)" />
 	<input type="button" class="bt_voltar" id="cancelar" onclick="fechar()" value="Cancelar (F5)" />
 </div>
@@ -69,7 +79,7 @@ if( $editar == ""){
 <form id="form2">
 <div id="column1">
 	<input type="hidden" name="idpeca" id="idpeca" value="<?=$l['idpeca']?>" />
-<table>
+<table style="display:none">
 		<tr>
 			<td>Código da Peça</td>
 			<td>
@@ -122,7 +132,7 @@ if( $editar == ""){
 	</table>
 </div>
 
-<div id="lineButton">
+<div id="lineButton" style="display:none">
 	<input type="button" id="editar"   value="Editar (Ctrl + F11)" />
 	<input type="button" id="cancelar" value="Cancelar (F8)"       />
 	<input type="button" id="remover"  value="Remover (Ctrl + F7)" />
@@ -140,6 +150,9 @@ if( $editar == ""){
 <script type="text/javascript" >
     $(document).ready( function(){
 		// Início Consultar Peça
+
+		$('#retorno').load('ajax/consultarPeca.php?idos=<?=$idos?>&idor=<?=$idor?>');
+
 		$("#consultar").click( function(){
 	        var codigopeca	= $("#codigopeca").val();
 	        var nomepeca	= $("#nomepeca").val();
@@ -169,6 +182,11 @@ if( $editar == ""){
 	    });
 	    //Fim do Consultar Peças 
 	});
+
+	function fechar(){
+		opener.location.reload();
+		window.close();
+	}
 </script>
 
 <?php include_once("rodape.php"); ?>
@@ -176,12 +194,6 @@ if( $editar == ""){
 <style>
 	#menu{ display: none; }
 	#central{ margin-top:-50px; }
-	#retorno{ top: -60px !important; }
+	#retorno{ top: -200px !important; overflow: hidden; height: auto; }
 	#retornoErro{ width: 995px; }
 </style>
-<script>
-function fechar(){
-	opener.location.reload();
-	window.close();
-}
-</script>

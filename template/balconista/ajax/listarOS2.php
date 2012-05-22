@@ -50,8 +50,8 @@ extract( $_GET );
 					</td>
 					<td>".$l['idordemdeservico']."</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
-					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
-					<td class='tres'>".$l['nome']." - ".$l['telefone']."</td>
+					<td class='dois'>".strtoupper($l['tipoequip'])." - ".strtoupper($l['marcaequip'])." - ".strtoupper($l['modeloequip'])."</td>
+					<td class='tres'>".strtoupper($l['nome'])." - ".$l['telefone']."</td>
 					<td class='quatro'>".$l['status']."</td>
 				</tr>
 				";

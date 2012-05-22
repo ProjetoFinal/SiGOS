@@ -64,7 +64,7 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td>Equipamento</td>
-		<td><?=$l['tipo']." - ".$l['marcaequip']." - ".$l['modeloequip']?></td>
+		<td><?=strtoupper($l['tipo'])." - ".strtoupper($l['marcaequip'])." - ".strtoupper($l['modeloequip'])?></td>
 	</tr>
 	<tr>
 		<td>Mão de obra</td>
@@ -72,7 +72,7 @@ $l = $sql->resultado();
 	</tr>
 	<tr class="defeito">
 		<td>Defeito</td>
-		<td><?=$l['defeito']?></td>
+		<td><?=strtoupper($l['defeito'])?></td>
 	</tr>
 	<tr class="peca">
 		<td>Peça</td>
@@ -99,7 +99,7 @@ $l = $sql->resultado();
 	</tr>
 	<tr>
 		<td>Solução</td>
-		<td><textarea id="solucao" readonly><?=$l['solucao']?></textarea></td>
+		<td><textarea id="solucao" readonly><?=strtoupper($l['solucao'])?></textarea></td>
 	</tr>
 	<tr>
 		<td></td>

@@ -8,7 +8,7 @@
 		<!--
 			Em Análise Técnica
 		-->
-		<li><a href="analTec.php">EM ANAL. TÉC. ( <?=OS::contadorOS(2, $_SESSION['idusuario']) ?> )</a></li>
+		<li><a href="analTec.php">EM ANALÁLISE TÉC. ( <?=OS::contadorOS(2, $_SESSION['idusuario']) ?> )</a></li>
 		<li> | </li>
 		<!--
 			Aguardando Aprovação
