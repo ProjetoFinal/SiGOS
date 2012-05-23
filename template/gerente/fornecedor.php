@@ -49,7 +49,7 @@ if( $editar == "" ){
 		</td>
 	</tr>
 	<tr>
-		<td>Inscrição Estadual</td>
+		<td>Inscrição Estadual<span style="color:red">*</span></td>
 		<td>
 			<input type="text" name="inscest" id="inscest" />
 		</td>

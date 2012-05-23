@@ -35,7 +35,7 @@ if($ok){
 		<table id='test'>
 			<thead>
 				<tr id='trTitulo'>
-					<td>Nome Fantasia</td>
+					<td>Razão Social</td>
 					<td>CNPJ</td>
 					<td>Telefone</td>
 					<td>Contato</td>
@@ -51,16 +51,16 @@ if($ok){
 	?>
 	
 			<tr>
-				<td class="um"><a href="#" onclick="editar(<?=$l['idfornecedor']?>)"><?=$l['nomefantasia']?></a></td>
+				<td class="um"><a href="#" onclick="editar(<?=$l['idfornecedor']?>)"><?=strtoupper($l['razaosocial'])?></a></td>
 				<td class="dois"><?=$l['cnpj']?></td>
 				<td class="tres"><?=$l['telefone']?></td>
-				<td class="quatro"><?=$l['contato']?></td>
+				<td class="quatro"><?=strtoupper($l['contato'])?></td>
 			</tr>
-		</tbody>
-	</table>
 
 	<?php
 		}
+		echo "</tbody>
+			</table>";
 	}else{
 		echo "Sem registros";
 	}

@@ -167,6 +167,18 @@ class OS{
 		return $query;
 	}
 
+	static function cupom( $id ){
+		$query = "select os.*, e.*, s.status, c.nome, c.cpf, c.telefone, te.tipo as tipoequip, pg.tipo as tipopag, pg.total as totalserv, pg.valorpago, round((pg.valorpago - pg.total + (pg.total / 100 * 3))) as troco, round(pg.total / 100 * 3) as desconto from ordemdeservico os 
+						inner join equipamento e on e.idequipamento = os.idequipamento 
+							inner join cliente c on c.idcliente = e.idcliente 
+								inner join statusos s on s.idstatus = os.idstatus 
+								inner join tiposequipamentos te on te.idtiposequipamentos = e.idtiposequipamentos 
+                                inner join pagos pg on pg.idos = os.idordemdeservico                                
+									where idordemdeservico=$id
+										order by os.entrada desc, s.status asc";
+		return $query;
+	}
+
 	static function arquivoImp( $id ){
 		$query = "select * from ordemdeservico where idordemdeservico=$id";
 		return $query;

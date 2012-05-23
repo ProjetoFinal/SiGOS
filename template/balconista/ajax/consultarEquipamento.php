@@ -61,8 +61,8 @@ if($ok){
 	?>
 	
 			<tr>
-				<td class="um"><a href="#" onclick="editar(<?=$l['idcliente']?>)"><?=$l['nome']?></a></td>
-				<td class="dois"><?=$l['cpf']?></td>
+				<td class="um"><a href="#" onclick="editar(<?=$l['idcliente']?>)"><?=strtoupper($l['nome'])?></a></td>
+				<td class="dois"><?=strtoupper($l['cpf'])?></td>
 				<td class="tres"><?=$l['telefone']?></td>
 				<td class="quatro">
 					<?php 
@@ -76,12 +76,13 @@ if($ok){
 		
 	<?php
 		}
+		echo "</tbody>
+			</table>";
 	}else{
 		echo "Sem registros";
 	}
 
-	echo "</tbody>
-			</table>";
+	
 }else{
 	echo "Erro ao consultar Cliente
 			<script>$('#retornoErro').fadeOut(5000);</script>";

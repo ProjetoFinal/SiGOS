@@ -64,13 +64,13 @@ if( $editar == ""){
 		$sql->consulta( Cliente::consultaId( $idcliente ) );
 		$r = $sql->resultado();
 		echo "<input type='hidden' id='cliente' value='".$r['nome']."' />";
-		echo "Cliente: ".$r['nome']."<br />";
-		echo "Identidade: ".$r['identidade']." - ".$r['orgaoexpedidor']."<br />";
+		echo "Cliente: ".strtoupper($r['nome'])."<br />";
+		echo "Identidade: ".$r['identidade']." - ".strtoupper($r['orgaoexpedidor'])."<br />";
 		echo "CPF: ".$r['cpf']."<br />";
 		echo "Telefone: ".$r['telefone']." | Celular: ".$r['celular']."<br />";
-		echo "Endereço: ".$r['logradouro'].", ".$r['numero']." ".$r['complemento']." - ".$r['cep']."<br />";
-		echo "Bairro: ".$r['bairro']." | Cidade: ".$r['cidade']."<br />";
-		echo "Estado: ".$r['uf'];
+		echo "Endereço: ".strtoupper($r['logradouro']).", ".$r['numero']." ".strtoupper($r['complemento'])." - ".$r['cep']."<br />";
+		echo "Bairro: ".strtoupper($r['bairro'])." | Cidade: ".strtoupper($r['cidade'])."<br />";
+		echo "Estado: ".strtoupper($r['uf']);
 	?>
 </div>
 
@@ -156,11 +156,11 @@ if( $editar == ""){
 							<input type='hidden' id='equipamento".$l['idequipamento']."' value='".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."' />
 				<input type='hidden' id='idequipamento".$l['idequipamento']."' value='".$l['idequipamento']."' />
 				<input type='hidden' id='maodeobra".$l['idequipamento']."' value='".$l['maodeobra']."' />
-								<a href='#' onclick='usarEquip(".$l['idequipamento'].")'>".$l['marcaequip']."</a>
+								<a href='#' onclick='usarEquip(".$l['idequipamento'].")'>".strtoupper($l['marcaequip'])."</a>
 							</td>
-							<td class='dois'>".$l['modeloequip']."</td>
-							<td class='tres'>".$l['tipoequip']."</td>
-							<td class='quatro'>".$l['numserie']."</td>
+							<td class='dois'>".strtoupper($l['modeloequip'])."</td>
+							<td class='tres'>".strtoupper($l['tipoequip'])."</td>
+							<td class='quatro'>".strtoupper($l['numserie'])."</td>
 						</tr>
 						
 			";

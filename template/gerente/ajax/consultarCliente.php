@@ -62,13 +62,13 @@ if($ok){
 	?>
 	
 			<tr>
-				<td class="um"><a href="#" onclick="editar(<?=$l['idcliente']?>)"><?=$l['nome']?></a></td>
+				<td class="um"><a href="#" onclick="editar(<?=$l['idcliente']?>)"><?=strtoupper($l['nome'])?></a></td>
 				<td class="dois"><?=$l['cpf']?></td>
 				<td class="tres"><?=$l['telefone']?></td>
 				<td class="quatro">
 					<?php 
 						if( $l['email'] != "" )
-							echo $l['email'];
+							echo strtoupper($l['email']);
 						else
 							echo "//";
 					?>
@@ -78,12 +78,13 @@ if($ok){
 
 	<?php
 		}
+		echo "</tbody>
+	</table>";
 	}else{
 		echo "Sem registros";
 	}
 
-	echo "</tbody>
-	</table>";
+	
 
 }else{
 	echo "Erro ao consultar Cliente

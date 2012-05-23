@@ -6,12 +6,14 @@ include_once("../function/formataData.php");
 
 $sql = new Conexao();
 $sql->conecta();
-$sql->consulta( OS::impOS( $_GET['idos'] ) );
+$sql->consulta( OS::cupom( $_GET['idos'] ) );
 $l = $sql->resultado();
 
 extract( $l );
 
 $txt = "------------------------------------------------";
+$txt .= "\n               CUPOM NAO FISCAL                 ";
+$txt .= "\n------------------------------------------------";
 $txt .= "\n------------------------------------------------";
 $txt .= "\n   Eletronica Lider de Padre Miguel Ltda. ME";
 $txt .= "\nFone: 0xx21 3331-9673 / 0xx21 3332-1750";
@@ -21,30 +23,30 @@ $txt .= "\n------------------------------------------------";
 $txt .= "\nOrdem de Servico Nr. $idordemdeservico";
 $txt .= "\n ";
 $txt .= "\nEmissao: ".data_dmy($entrada)."";
-$txt .= "\nAtend: $idusuario - Tipo: Balcao";
+$txt .= "\nAtend: Balcao";
 $txt .= "\n--------------------Cliente---------------------";
 $txt .= "\nCliente: $nome";
 $txt .= "\nCPF: $cpf";
 $txt .= "\nFone: $telefone";
 $txt .= "\n------------------Equipamento-------------------";
-$txt .= "\nEquip: $tipoequip - $marcaequip - $modeloequip";
-if( $garantiadeservico == '' or $garantiadeservico == 0){
-	$txt .= "\nGarantia de Servico: Nao";
-}else{
-	$txt .= "\nGarantia de Servico: Sim";
-}
-$txt .= "\n---------------------Defeito--------------------";
+$txt .= "\nEquip:"; 
+$txt .= "$tipoequip - $marcaequip - $modeloequip";
+$txt .= "\n------------------------------------------------";
+$txt .= "\nDefeito:";
 $txt .= "\n$defeito";
-$txt .= "\n";
 $txt .= "\n------------------------------------------------";
-$txt .= "\n";
-$txt .= "\nAssinatura:";
-$txt .= "\n";
+$txt .= "\n                            Total: R$ $totalserv";
+if( $tipopag == 3){
+	$txt .= "\n                     Tipo de Pagamento: DINHEIRO";
+	$txt .= "\n                       Valor Pago: R$ $valorpago";
+	$txt .= "\n                          Desconto: R$ $desconto";
+	$txt .= "\n                                Troco: R$ $troco";
+}else{
+	$txt .= "\n                     Valor Pago: R$ $totalserv";
+}
 $txt .= "\n------------------------------------------------";
-$txt .= "\n Mercadorias nao retiradas no prazo de 90 dias";
-$txt .= "\n    da data de entrega, serao vendidas para";
-$txt .= "\n    ressarcimento das despesas com concerto";
-$txt .= "\n        TRAZER DOCUMENTO DE IDENTIDADE";
+$txt .= "\n    Retirada do equipamento efetuada com a";
+$txt .= "\n   a apresentação do documento de identidade.";
 $txt .= "\n------------------------------------------------";
 // espaco apos impressao
 $txt .= "\n";
@@ -60,12 +62,12 @@ $txt .= "\n";
 $txt .= "\n";
 $txt .= "\n";
 
-$arquivo = "impressao/os_".$_GET['idos']."_".time().".txt";
+$arquivo = "impressao/cupom_".$_GET['idos']."_".time().".txt";
 $fopen = fopen( $arquivo , "a" );
 fwrite( $fopen, $txt );
 fclose( $fopen );
 
-$attCaminho = $sql->consulta( OS::attCaminhoImp( $idordemdeservico, $arquivo ) );
+//$attCaminho = $sql->consulta( OS::attCaminhoImp( $idordemdeservico, $arquivo ) );
 
 //exec("copy " . $arquivo . " com3:");
 

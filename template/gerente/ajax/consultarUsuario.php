@@ -59,10 +59,10 @@ if($ok){
 		<tbody>
 		<?php while( $l = $sql->resultado() ){ ?>
 			<tr>
-				<td><a href="#" onclick="editar(<?=$l['idUsuario']?>)"><?=$l['nome']?></a></td>
-				<td><?=$l['login']?></td>
-				<td><?=ucfirst($l['nivel'])?></td>
-				<td><?=ucfirst($l['statusUsuario'])?></td>
+				<td><a href="#" onclick="editar(<?=$l['idUsuario']?>)"><?=strtoupper($l['nome'])?></a></td>
+				<td><?=strtoupper($l['login'])?></td>
+				<td><?=strtoupper($l['nivel'])?></td>
+				<td><?=strtoupper($l['statusUsuario'])?></td>
 			</tr>
 		<?php } ?>	
 		</tbody>

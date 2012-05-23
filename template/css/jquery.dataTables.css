@@ -231,3 +231,4 @@ table.dataTable th:active {
 	-webkit-overflow-scrolling: touch;
 }
 
+.dataTable a{ color:blue !important; }

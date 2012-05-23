@@ -59,8 +59,8 @@ if( $_GET ){
 						<a href='#' onclick='assumirOS(".$l['idordemdeservico'].")'>".$l['idordemdeservico']."</a>
 					</td>
 					<td class='um'>".data_dmy($l['entrada'])."</td>
-					<td class='dois'>".$l['tipoequip']." - ".$l['marcaequip']." - ".$l['modeloequip']."</td>
-					<td class='tres'>".$l['defeito']."</td>
+					<td class='dois'>".strtoupper($l['tipoequip'])." - ".strtoupper($l['marcaequip'])." - ".strtoupper($l['modeloequip'])."</td>
+					<td class='tres'>".strtoupper($l['defeito'])."</td>
 					<td class='quatro'>".$l['status']."</td>
 				</tr>";
 			}
