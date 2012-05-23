@@ -93,19 +93,19 @@ extract( $_GET );
 	}
 
 	function emManutencao( idos ){
-		abrir('emManutencao.php?idos='+idos,'520','600'); 
+		abrir('emManutencao.php?idos='+idos,'550','700'); 
 	}
 
 	function prontaEntrega( idos ){
-		abrir('prontaEntrega.php?idos='+idos,'520','600'); 
+		abrir('prontaEntrega.php?idos='+idos,'550','700'); 
 	}
 
 	function apRp( idos ){
-		abrir('apRp.php?idos='+idos,'520','600'); 
+		abrir('apRp.php?idos='+idos,'550','700'); 
 	}
 
 	function verOS( id ){
-		window.open('verOS.php?idos='+id,'Janela','width=400,height=400');
+		window.open('verOS.php?idos='+id,'Janela','width=550,height=700');
 	}
 </script>
 

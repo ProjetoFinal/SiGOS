@@ -10,6 +10,8 @@ function __autoload( $class ){
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     	<title>S{i}GOS .::. Sistema de Gerencimento de Ordens de Serviço</title>
+        <!-- Icon -->
+        <link rel="shortcut icon" href="http://localhost/SiGOS/template/img/logo_lider.ico" type="image/x-icon" />
     	<!-- Css -->
     	<link rel="stylesheet" type="text/css" href="/SiGOS/template/css/global.css" />
     	<link rel="stylesheet" type="text/css" href="../css/menu.css" />

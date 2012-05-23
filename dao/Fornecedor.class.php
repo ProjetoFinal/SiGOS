@@ -35,8 +35,8 @@ class Fornecedor{
 		$this->uf = $p['uf'];
 	}
 	
-	static function exibirFornecedores( $key ){
-		$query = "select * from fornecedor order by nomefantasia asc";
+	static function exibirFornecedores(){
+		$query = "select * from fornecedor order by razaosocial asc";
 		return $query;
 	}
 

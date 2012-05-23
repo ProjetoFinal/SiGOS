@@ -54,7 +54,7 @@ ERRO;
 			if( $ok2){
 				echo "Cadastrado com Sucesso
 					  <script>
-					  $(window.document.location).attr('href','os.php?editar=imp&idos=".$ultimoId."');
+					  $(window.document.location).attr('href','os2.php?editar=imp&idos=".$ultimoId."');
 					  </script>";
 			}else{
 				echo "Erro ao Cadastrar Orcamento";

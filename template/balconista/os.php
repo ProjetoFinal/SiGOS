@@ -99,9 +99,10 @@ if( $editar == "" ){ ?>
 		<?php
 			if( empty($editar) && !empty($idOS) ){
 		?>
-			window.open('verOs.php?idos=<?=$idOS?>','Janela','width=520,height=600');			
+			window.open('verOs.php?idos=<?=$idOS?>','Janela','width=540,height=700');			
 		<?php }elseif($editar == 'imp'){	?>
-			window.open('impOS.php?idos=<?=$idOS?>','Janela','width=520, height=600');
+			window.open('impOS.php?idos=<?=$idOS?>','Janela','width=540, height=700');
+			window.location='os2.php';
 		<?php } ?>
 
 		$("#novaOS").click( function(){

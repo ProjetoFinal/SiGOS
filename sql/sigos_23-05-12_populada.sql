@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Mai 22, 2012 as 04:25 PM
+-- Tempo de Geração: Mai 23, 2012 as 02:28 PM
 -- Versão do Servidor: 5.5.8
 -- Versão do PHP: 5.3.5
 
@@ -43,12 +43,18 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `uf` varchar(100) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=6 ;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
+INSERT INTO `cliente` (`idcliente`, `nome`, `identidade`, `orgaoexpedidor`, `cpf`, `nascimento`, `telefone`, `celular`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `uf`, `email`) VALUES
+(1, 'carlos adean de souza', 121488969, 'detran', '724.542.554-05', '1986-05-01', '(21)1234-5678', '', '21820-090', 'rua ibitiuva', 152, '', 'padre miguel', 'rio de janeiro', 'Rio de Janeiro', ''),
+(2, 'eduardo dos reis fernandes', 121488969, 'detran', '069.801.422-75', '1982-05-11', '(21)1234-5678', '', '21820-090', 'rua ibitiuva', 152, '', 'padre miguel', 'rio de janeiro', 'Rio de Janeiro', ''),
+(3, 'joão fernando de siqueira', 121488969, 'detran', '525.634.696-27', '1981-05-01', '(21)5877-8884', '', '21820-090', 'rua ibitiuva', 142, '', 'padre miguel', 'rio de janeiro', 'Rio de Janeiro', ''),
+(4, 'leonardo neves de souza', 121488969, 'detran', '112.963.387-03', '1987-08-07', '(21)2404-6967', '(21)8186-6154', '21820-093', 'rua rio da prata', 1904, 'fundos', 'bangu', 'rio de janeiro', 'Rio de Janeiro', 'leo.mvhost@hotmail.com'),
+(5, 'jessica da rocha dos santos', 121488969, 'detran', '932.406.724-99', '1983-05-12', '(21)2404-9697', '', '21715-400', 'rua ibitiuva', 152, 'fundos', 'padre miguel', 'rio de janeiro', 'Rio de Janeiro', '');
 
 -- --------------------------------------------------------
 
@@ -63,12 +69,15 @@ CREATE TABLE IF NOT EXISTS `comprapeca` (
   `status` varchar(30) NOT NULL,
   `datapedido` date NOT NULL,
   PRIMARY KEY (`idcomprapeca`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `comprapeca`
 --
 
+INSERT INTO `comprapeca` (`idcomprapeca`, `idpeca`, `qtd`, `status`, `datapedido`) VALUES
+(1, 17, 0, 'aberta', '2012-05-23'),
+(2, 11, 0, 'aberta', '2012-05-23');
 
 -- --------------------------------------------------------
 
@@ -84,12 +93,24 @@ CREATE TABLE IF NOT EXISTS `equipamento` (
   `modeloequip` varchar(100) NOT NULL,
   `numserie` varchar(100) NOT NULL,
   PRIMARY KEY (`idequipamento`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=12 ;
 
 --
 -- Extraindo dados da tabela `equipamento`
 --
 
+INSERT INTO `equipamento` (`idequipamento`, `idcliente`, `idtiposequipamentos`, `marcaequip`, `modeloequip`, `numserie`) VALUES
+(1, 4, 4, 'samsung', 'syncmaster 943 bwx', 'my19hqbqa00543h'),
+(2, 4, 16, 'philips', 'hds70', 'adfnph70100201'),
+(3, 1, 7, 'lg', 'lgscarlet55px', 'lgbrsc45663587'),
+(4, 1, 1, 'positivo', 'psmn21', '084303'),
+(5, 2, 13, 'samsung', 'ssled21115', 'ssldbr112666658dds445'),
+(6, 2, 14, 'tectoy', 'tct454654', '4654541424'),
+(7, 2, 17, 'tectoy', 'ht44566', '44544874'),
+(8, 5, 11, 'lg', 'lgld1504', 'lgbr645542'),
+(9, 5, 16, 'sony', 'soundblaster', 'snsb3320'),
+(10, 3, 7, 'booster', 'mx4400', 'br4445778ds44'),
+(11, 3, 17, 'cce', 'audio2000', '00000');
 
 -- --------------------------------------------------------
 
@@ -113,12 +134,14 @@ CREATE TABLE IF NOT EXISTS `fornecedor` (
   `cidade` varchar(100) NOT NULL,
   `uf` varchar(2) NOT NULL,
   PRIMARY KEY (`idfornecedor`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Extraindo dados da tabela `fornecedor`
 --
 
+INSERT INTO `fornecedor` (`idfornecedor`, `razaosocial`, `nomefantasia`, `cnpj`, `inscest`, `contato`, `telefone`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `uf`) VALUES
+(1, 'eletrodex eletrônica me', '', '80.291.990/0001-01', '154.548.789.654', 'thiago correia', '(21)2454-6658', '21200-000', 'Rua do acre', 145, 'loja 3', 'centro', 'rio de janeiro', 'Ri');
 
 -- --------------------------------------------------------
 
@@ -133,12 +156,24 @@ CREATE TABLE IF NOT EXISTS `orcamento` (
   `valorpecasusadas` decimal(8,2) DEFAULT '0.00',
   `comentarios` text,
   PRIMARY KEY (`idorcamento`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=12 ;
 
 --
 -- Extraindo dados da tabela `orcamento`
 --
 
+INSERT INTO `orcamento` (`idorcamento`, `idordemdeservico`, `maodeobra`, `valorpecasusadas`, `comentarios`) VALUES
+(1, 1, '120.00', '0.00', NULL),
+(2, 2, '30.00', '0.00', NULL),
+(3, 3, '160.00', '0.00', NULL),
+(4, 4, '30.00', '1.50', NULL),
+(5, 5, '60.00', '0.00', NULL),
+(6, 6, '40.00', '0.00', NULL),
+(7, 7, '50.00', '2.00', NULL),
+(8, 8, '100.00', '0.00', NULL),
+(9, 9, '40.00', '1.90', NULL),
+(10, 10, '60.00', '15.20', NULL),
+(11, 11, '120.00', '0.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -164,12 +199,24 @@ CREATE TABLE IF NOT EXISTS `ordemdeservico` (
   PRIMARY KEY (`idordemdeservico`),
   KEY `idEquipamento` (`idequipamento`),
   KEY `idFuncionario` (`idusuario`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=12 ;
 
 --
 -- Extraindo dados da tabela `ordemdeservico`
 --
 
+INSERT INTO `ordemdeservico` (`idordemdeservico`, `idequipamento`, `idusuario`, `idstatus`, `defeito`, `acompanhamento`, `acessorios`, `solucao`, `entrada`, `iniciomanut`, `fimmanut`, `entrega`, `garantiadeservico`, `caminhoimpressao`) VALUES
+(1, 3, 2, 8, 'volume abaixa sozinho.', NULL, 'controle remoto.', 'sujeira travando o botão de diminuir o volume.', '2012-05-23', '2012-05-23', '2012-05-23', NULL, 0, 'impressao/os_1_1337778543.txt'),
+(2, 4, 2, 4, 'botão de liga e desliga não funciona.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_2_1337778599.txt'),
+(3, 5, 2, 10, 'não liga.', NULL, 'controle remoto.', 'solda do cabo de energia junto a placa.', '2012-05-23', '2012-05-23', '2012-05-23', '2012-05-23', 0, 'impressao/os_3_1337778665.txt'),
+(4, 6, 2, 4, 'não lê mídias.', NULL, 'controle remoto.', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_4_1337778839.txt'),
+(5, 7, 2, 4, 'sem áudio.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_5_1337778897.txt'),
+(6, 2, 2, 4, 'radio am/fm não funciona.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_6_1337779031.txt'),
+(7, 1, 2, 7, 'não recebe informação do controle remoto.', NULL, 'controle remoto.', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_7_1337779130.txt'),
+(8, 8, NULL, 1, 'sem imagem, apenas com som.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_8_1337779286.txt'),
+(9, 9, 2, 7, 'cd não funciona.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_9_1337779361.txt'),
+(10, 11, 2, 3, 'vinil não funciona.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_10_1337779441.txt'),
+(11, 10, 2, 11, 'entrada av não funciona.', NULL, '', NULL, '2012-05-23', NULL, NULL, NULL, 0, 'impressao/os_11_1337779524.txt');
 
 -- --------------------------------------------------------
 
@@ -184,12 +231,14 @@ CREATE TABLE IF NOT EXISTS `pagos` (
   `total` decimal(8,2) DEFAULT NULL,
   `valorpago` decimal(8,2) DEFAULT NULL,
   PRIMARY KEY (`idpagos`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=2 ;
 
 --
 -- Extraindo dados da tabela `pagos`
 --
 
+INSERT INTO `pagos` (`idpagos`, `idos`, `tipo`, `total`, `valorpago`) VALUES
+(1, 3, 3, '160.00', '200.00');
 
 -- --------------------------------------------------------
 
@@ -215,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `peca` (
 --
 
 INSERT INTO `peca` (`idpeca`, `codigopeca`, `nomepeca`, `marcapeca`, `modelopeca`, `quantidade`, `precounidade`, `idfornecedor`, `dataentrada`) VALUES
-(1, 1506400, 'CORREIA AIWA HVTR1', 'AIWA', 'KAW0002', 10, 1, 0, '2012-05-11'),
+(1, 1506400, 'CORREIA AIWA HVTR1', 'AIWA', 'KAW0002', 10, 1, 1, '2012-05-11'),
 (2, 1506410, 'CORREIA CCE 74X', 'CCE', 'KCE0002', 9, 1, 0, '2012-05-04'),
 (3, 1506412, 'CORREIA CCE9X', 'CCE', 'KCE0003', 10, 1.2, 0, '2012-05-04'),
 (4, 1506426, 'CORREIA DAEWOD DVK 525N', 'DAEWOD', 'KDA0001', 10, 1.3, 0, '2012-05-04'),
@@ -224,7 +273,7 @@ INSERT INTO `peca` (`idpeca`, `codigopeca`, `nomepeca`, `marcapeca`, `modelopeca
 (7, 1506480, 'CORREIA PHILIPS VR 31', 'PHILIPS', 'KP0003', 5, 1.4, 0, '2012-05-05'),
 (8, 191523, 'DIODO MBR 1545', 'BRASIL', 'MBR 1545', 5, 2, 0, '2012-05-05'),
 (9, 193372, 'DIODO MBR 3045', 'BRASIL', 'MBR 3045', 4, 1.5, 0, '2012-05-05'),
-(10, 195456, 'DIODO MBR 20100 ', 'BRASIL', 'MBR 20100 ', 4, 1.5, 0, '2012-05-05'),
+(10, 195456, 'DIODO MBR 20100 ', 'BRASIL', 'MBR 20100 ', 3, 1.5, 0, '2012-05-05'),
 (11, 238015, 'DIODO MBR 735', 'BRASIL', 'MBR 735', 5, 2.9, 0, '2012-05-05'),
 (12, 598682, 'DIODO MUR 620 ', 'BRASIL', 'MUR 620 ', 5, 3.1, 0, '2012-05-05'),
 (13, 598712, 'DIODO MUR 1100 ', 'BRASIL', 'MUR 1100 ', 4, 5, 0, '2012-05-05'),
@@ -246,12 +295,18 @@ CREATE TABLE IF NOT EXISTS `pecasolicitada` (
   `idpeca` int(11) NOT NULL,
   `qtdsolicitada` int(11) NOT NULL,
   PRIMARY KEY (`idpecasolicitada`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci' AUTO_INCREMENT=6 ;
 
 --
 -- Extraindo dados da tabela `pecasolicitada`
 --
 
+INSERT INTO `pecasolicitada` (`idpecasolicitada`, `idos`, `idpeca`, `qtdsolicitada`) VALUES
+(1, 10, 3, 1),
+(2, 10, 17, 1),
+(3, 4, 10, 1),
+(4, 9, 14, 1),
+(5, 7, 8, 1);
 
 -- --------------------------------------------------------
 

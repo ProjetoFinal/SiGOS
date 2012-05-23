@@ -85,7 +85,7 @@ if( $editar == ""){
                     $sql->consulta( Fornecedor::exibirFornecedores() );
                     while( $r = $sql->resultado() ){
                 ?>
-                <option  value="<?=$r['idfornecedor']?>"><?=$r['nomefantasia']?></option>
+                <option  value="<?=$r['idfornecedor']?>"><?=$r['razaosocial']?></option>
                 <?php } ?>
             </select>
         </td>
@@ -178,8 +178,9 @@ if( $editar == ""){
                      $sql->consulta( Fornecedor::exibirFornecedores() );
                      while( $r = $sql->resultado() ){
                  ?>
-                 <option  value="<?=$r['idfornecedor']?>"><?=$r['nomefantasia']?></option>
+                 <option  value="<?=$r['idfornecedor']?>"><?=$r['razaosocial']?></option>
                  <?php } ?>
+                 <script>$('#idfornecedor').val(<?=$l['idfornecedor']?>);</script>
              </select>
          </td>
     </tr>

@@ -40,6 +40,7 @@ $l = $sql->resultado();
 		$('td:even').css('color','#777');
 		$('td:even').css('font-weight','bold');
 		$('td:odd').css('text-align','left');
+		$('td:odd').css('text-transform','uppercase');
 	});
 </script>
 <span
@@ -127,7 +128,7 @@ $l = $sql->resultado();
 	$('#ap').click( function(){
 		var idos = $('#idordemdeservico').val();
 		var total = $('#totalFinal').val();
-		window.open('pagarOs.php?idos='+idos+'&total='+total, 'PagarOs','width=400,height=300');
+		window.open('pagarOs.php?idos='+idos+'&total='+total, 'PagarOs','width=450,height=400');
 	});
 
 	$('#rp').click( function(){

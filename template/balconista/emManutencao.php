@@ -41,6 +41,7 @@ $l = $sql->resultado();
 		$('td:even').css('color','#777');
 		$('td:even').css('font-weight','bold');
 		$('td:odd').css('text-align','left');
+		$('td:odd').css('text-transform','uppercase');
 	});
 </script>
 <span

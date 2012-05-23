@@ -104,6 +104,7 @@ if( $editar == "" ){ ?>
 			window.open('verOs.php?idos=<?=$idOS?>','Janela','width=520,height=600');			
 		<?php }elseif($editar == 'imp'){	?>
 			window.open('impOS.php?idos=<?=$idOS?>','Janela','width=520, height=600');
+			window.location='os2.php';
 		<?php } ?>
 
 		$("#novaOS").click( function(){
